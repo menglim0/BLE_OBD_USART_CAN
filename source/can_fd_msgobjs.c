@@ -76,7 +76,7 @@ static volatile uint32_t gTimCnt = 0; /* incremented every millisecond */
 volatile uint16_t txIndex; /* Index of the data to send out. */
 volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count;
-bool rxIndex_updated;
+bool rxIndex_updated,tx_CAN_Enable,message_received;
 
 uint8_t VfCANH_RxMSG_Data;
 uint16_t VfCANH_RxMSG_ID;
@@ -227,9 +227,7 @@ int main(void)
             txmsg.bitratemode = kCAN_BitrateModeTypeSwitch;
             txmsg.length = 8;
 
-		//uint8_t g_tipString[] =
-		//  "Usart functional API interrupt example\r\nBoard receives characters then sends them out\r\nNow please input:\r\n";
-    /* Send g_tipString out. */
+		    /* Send g_tipString out. */
     //USART_WriteBlocking(DEMO_USART, g_tipString, sizeof(g_tipString) / sizeof(g_tipString[0]));
 		
 
@@ -246,8 +244,17 @@ int main(void)
 					}
 					
 				}
+				
+					//txmsg.id = ((USART_Data[0]&0x1F)<<24)+(USART_Data[1]<<16)+(USART_Data[2]<<8)+(USART_Data[3]);
+					//message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
 			rxIndex_old=rxIndex;
+				if(rxIndex_count==12)
+				{
+					tx_CAN_Enable = true;
+				}
 			rxIndex_count=0;
+				rxIndex_updated=false;
+				//tx_CAN_Enable = true;
 				
 			}
 			else
@@ -269,12 +276,15 @@ int main(void)
             txIndex %= DEMO_RING_BUFFER_SIZE;
         } 
     
+			
+			
         /* check for any received messages on CAN1 message buffer 0 */
         if (CAN_ReadRxMb(CAN0, 0, &rxmsg) == kStatus_Success)
         {
             //PRINTF("Rx buf 0: Received message 0x%3.3X\r\n", rxmsg.id);
+					message_received = true;
+          	//VfCANH_RxMSG_Data=rxmsg.dataByte[1]; Read the Rx buffer Byte1
 					
-          	VfCANH_RxMSG_Data=rxmsg.dataByte[1]; //Read the Rx buffer Byte1
 					VfCANH_RxMSG_ID=rxmsg.id;
 					if(VfCANH_RxMSG_ID==0x4C9)
 					{
@@ -286,6 +296,16 @@ int main(void)
 				   GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
         }
 				
+				/* When transmitted scuessful, then wait for the CAN Receive data, use the usart send to Host*/
+
+				while ((kUSART_TxFifoNotFullFlag & USART_GetStatusFlags(DEMO_USART)) && message_received)
+        {
+            USART_WriteByte(DEMO_USART, rxmsg.dataByte[1]);
+            //txIndex++;
+            //txIndex %= DEMO_RING_BUFFER_SIZE;
+					message_received = false;
+        } 
+				
 				/* Transmit the received data here*/
 				/***
 				
@@ -293,10 +313,14 @@ int main(void)
             txmsg.length = 8;
 				*/
 				
-				if ((gTimCnt % TRANSMIT_PERIOD == 0) && !message_transmitted)
+				if ((gTimCnt % TRANSMIT_PERIOD == 0) && !message_transmitted )
 				{
+					if(tx_CAN_Enable == true)
+					{
 					txmsg.id = ((USART_Data[0]&0x1F)<<24)+(USART_Data[1]<<16)+(USART_Data[2]<<8)+(USART_Data[3]);
 					message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
+					tx_CAN_Enable = false;
+					}
 					GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
 					 // USART_EnableInterrupts(DEMO_USART, kUSART_RxLevelInterruptEnable | kUSART_RxErrorInterruptEnable);
 				}
@@ -304,26 +328,7 @@ int main(void)
         {
             message_transmitted = false;
         }
-
-        /* check for any received messages on CAN1 message buffer 1 */
-        if (CAN_ReadRxMb(CAN1, 1, &rxmsg) == kStatus_Success)
-        {
-          //  PRINTF("Rx buf 1: Received message 0x%X (29-bit)\r\n", rxmsg.id);
-          
-            /* toggle LED3 */
-          //  GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
-					VfCANH_RxMSG_Data=rxmsg.dataByte[1]; //Read the Rx buffer Byte1
-					VfCANH_RxMSG_ID=rxmsg.id;
-					if(VfCANH_RxMSG_ID==0x4C9)
-					{
-						GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
-					}
-					//USART_WriteByte(USART0, VfCANH_RxMSG_Data);
-					//USART_WriteByte(USART0, 0x00);
-				
-        }
-			
-
+		
 
     }
 }

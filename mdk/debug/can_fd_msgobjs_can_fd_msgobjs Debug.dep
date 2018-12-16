@@ -206,7 +206,7 @@ F (..\drivers\fsl_iocon.h)(0x58E1B070)()
 F (..\drivers\fsl_power.h)(0x58E1B070)()
 F (..\drivers\fsl_reset.h)(0x58E1B070)()
 F (..\drivers\fsl_usart.h)(0x58E1B070)()
-F (..\source\can_fd_msgobjs.c)(0x5C0CEB08)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../CMSIS -I ../board -I ../drivers -I ../source -I .. -I ../utilities --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_can_fd_msgobjs_Debug-IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\LPCOpen\lpc5460x\chip_5460x\inc-D__UVISION_VERSION="524" -DLPC54608 -DDEBUG -DCPU_LPC54608 -DCPU_LPC54608J512ET180="1" -DUSE_FD -DCORE_M4-o debug\can_fd_msgobjs.o --omf_browse debug\can_fd_msgobjs.crf --depend debug\can_fd_msgobjs.d)
+F (..\source\can_fd_msgobjs.c)(0x5C15FB6B)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../CMSIS -I ../board -I ../drivers -I ../source -I .. -I ../utilities --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_can_fd_msgobjs_Debug-IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\LPCOpen\lpc5460x\chip_5460x\inc-D__UVISION_VERSION="524" -DLPC54608 -DDEBUG -DCPU_LPC54608 -DCPU_LPC54608J512ET180="1" -DUSE_FD -DCORE_M4-o debug\can_fd_msgobjs.o --omf_browse debug\can_fd_msgobjs.crf --depend debug\can_fd_msgobjs.d)
 I (../board/board.h)(0x5C0B75ED)
 I (../board/clock_config.h)(0x58E1B070)
 I (../drivers/fsl_common.h)(0x58E1B070)
