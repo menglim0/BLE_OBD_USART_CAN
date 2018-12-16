@@ -3,7 +3,7 @@
 <title>Static Call Graph - [debug\can_fd_msgobjs.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\can_fd_msgobjs.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Dec 16 15:16:52 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Dec 16 21:17:27 2018
 <BR><P>
 <H3>Maximum Stack Usage =        468 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -164,7 +164,7 @@ Global Symbols
 <P><STRONG><a name="[45]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
-<P><STRONG><a name="[df]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
+<P><STRONG><a name="[de]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
 
 <P><STRONG><a name="[82]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -174,15 +174,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[e0]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[df]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[e1]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[e0]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[e2]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[e1]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[e3]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[e2]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[e4]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[e3]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_lpc54608.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(RESET)
@@ -555,9 +555,9 @@ Global Symbols
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[e5]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[e4]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[e6]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[e5]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[84]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -569,7 +569,7 @@ Global Symbols
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e7]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[e6]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[86]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -585,7 +585,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[e8]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[e7]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[88]"></a>BOARD_BootClockFROHF48M</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, clock_config.o(i.BOARD_BootClockFROHF48M))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = BOARD_BootClockFROHF48M &rArr; CLOCK_AttachClk
@@ -753,7 +753,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_WriteTxMb
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
 </UL>
 
 <P><STRONG><a name="[b0]"></a>CAN_WriteTxMb</STRONG> (Thumb, 206 bytes, Stack size 24 bytes, can.o(i.CAN_WriteTxMb))
@@ -1054,7 +1054,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1070,7 +1070,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
-<P><STRONG><a name="[18]"></a>FLEXCOMM0_IRQHandler</STRONG> (Thumb, 126 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.FLEXCOMM0_IRQHandler))
+<P><STRONG><a name="[18]"></a>FLEXCOMM0_IRQHandler</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.FLEXCOMM0_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(RESET)
 </UL>
 <P><STRONG><a name="[55]"></a>FLEXCOMM1_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM1_DriverIRQHandler))
@@ -1281,19 +1281,18 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 </UL>
 
-<P><STRONG><a name="[e9]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[e8]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[ea]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[e9]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[eb]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[ea]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 836 bytes, Stack size 160 bytes, can_fd_msgobjs.o(i.main))
+<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 826 bytes, Stack size 160 bytes, can_fd_msgobjs.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 468<LI>Call Chain = main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteByte
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WritePinOutput
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
@@ -1302,7 +1301,7 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_AttachClk
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
@@ -1310,7 +1309,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[de]"></a>obd_can_TxMSG_Standard</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, obd_can.o(i.obd_can_TxMSG_Standard))
+<P><STRONG><a name="[dd]"></a>obd_can_TxMSG_Standard</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, obd_can.o(i.obd_can_TxMSG_Standard))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = obd_can_TxMSG_Standard &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferSendBlocking
@@ -1401,7 +1400,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[dd]"></a>GPIO_TogglePinsOutput</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.GPIO_TogglePinsOutput))
+<P><STRONG><a name="[dc]"></a>GPIO_TogglePinsOutput</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.GPIO_TogglePinsOutput))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1409,10 +1408,6 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_WritePinOutput
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[dc]"></a>USART_WriteByte</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.USART_WriteByte))
-<BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[89]"></a>POWER_DisablePD</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, clock_config.o(i.POWER_DisablePD))

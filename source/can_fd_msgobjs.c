@@ -75,7 +75,7 @@ static volatile uint32_t gTimCnt = 0; /* incremented every millisecond */
 
 volatile uint16_t txIndex; /* Index of the data to send out. */
 volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
-uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count;
+uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count,debug_count;
 bool rxIndex_updated,tx_CAN_Enable,message_received;
 
 uint8_t VfCANH_RxMSG_Data;
@@ -84,6 +84,7 @@ uint16_t VfCANH_RxMSG_ID;
 uint8_t VfUSART_Data[12];
 uint8_t USART_Data[DEMO_RING_BUFFER_SIZE],i;
 uint8_t demoRingBuffer[DEMO_RING_BUFFER_SIZE];
+uint8_t ReceiveDataFromCAN_to_USART[12];
 
 usart_handle_t usart0_Define;
 
@@ -105,7 +106,7 @@ uint8_t g_tipString[] =
 			
         data = USART_ReadByte(DEMO_USART);
         /* If ring buffer is not full, add data to ring buffer. */
-        if (((rxIndex + 1) % DEMO_RING_BUFFER_SIZE) != txIndex)
+        //if (((rxIndex + 1) % DEMO_RING_BUFFER_SIZE) != txIndex)
         {
             demoRingBuffer[rxIndex] = data;
             rxIndex++;
@@ -268,14 +269,14 @@ int main(void)
 				}
 			}
 
-			/* Send data only when USART TX register is empty and ring buffer has data to send out.*/
+			/* Send data only when USART TX register is empty and ring buffer has data to send out.
         while ((kUSART_TxFifoNotFullFlag & USART_GetStatusFlags(DEMO_USART)) && (rxIndex != txIndex))
         {
             USART_WriteByte(DEMO_USART, demoRingBuffer[txIndex]);
             txIndex++;
             txIndex %= DEMO_RING_BUFFER_SIZE;
         } 
-    
+    */
 			
 			
         /* check for any received messages on CAN1 message buffer 0 */
@@ -286,9 +287,32 @@ int main(void)
           	//VfCANH_RxMSG_Data=rxmsg.dataByte[1]; Read the Rx buffer Byte1
 					
 					VfCANH_RxMSG_ID=rxmsg.id;
+					
 					if(VfCANH_RxMSG_ID==0x4C9)
 					{
 						GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
+						
+						for(txIndex=0;txIndex<=12;txIndex++)
+						{
+							debug_count=0;
+							if(txIndex>=4)
+							{
+							ReceiveDataFromCAN_to_USART[txIndex]=rxmsg.dataByte[txIndex-4];
+							}
+							if(txIndex >= 12)
+							{
+								message_received = false;
+							}
+							/* When Receive scuessful, then wait for the CAN Receive data, use the usart send to Host*/
+							//while ((kUSART_TxFifoNotFullFlag & USART_GetStatusFlags(DEMO_USART)) )
+							{
+								
+									USART_WriteByte(DEMO_USART, ReceiveDataFromCAN_to_USART[txIndex]);
+									//txIndex++;
+								debug_count++;
+
+							} 
+						}
 					}
 					//USART_WriteByte(USART0, VfCANH_RxMSG_Data);
 					//USART_WriteByte(USART0, 0x00);
@@ -296,15 +320,9 @@ int main(void)
 				   GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
         }
 				
-				/* When transmitted scuessful, then wait for the CAN Receive data, use the usart send to Host*/
+				
 
-				while ((kUSART_TxFifoNotFullFlag & USART_GetStatusFlags(DEMO_USART)) && message_received)
-        {
-            USART_WriteByte(DEMO_USART, rxmsg.dataByte[1]);
-            //txIndex++;
-            //txIndex %= DEMO_RING_BUFFER_SIZE;
-					message_received = false;
-        } 
+				
 				
 				/* Transmit the received data here*/
 				/***
