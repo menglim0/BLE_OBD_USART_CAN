@@ -3,9 +3,9 @@
 <title>Static Call Graph - [debug\can_fd_msgobjs.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\can_fd_msgobjs.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Dec 16 21:17:27 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Dec 17 23:34:41 2018
 <BR><P>
-<H3>Maximum Stack Usage =        468 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        540 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 <P>
@@ -1287,8 +1287,8 @@ Global Symbols
 
 <P><STRONG><a name="[ea]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 826 bytes, Stack size 160 bytes, can_fd_msgobjs.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 468<LI>Call Chain = main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
+<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 970 bytes, Stack size 232 bytes, can_fd_msgobjs.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 540<LI>Call Chain = main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WritePinOutput

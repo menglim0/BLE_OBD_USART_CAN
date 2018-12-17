@@ -26,9 +26,9 @@ bool obd_can_TxMSG_Standard(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
 	
             //for (b = 0; b < txFrame.length; b++) txFrame.dataByte[b] = b;
             /* use message buffer 0 */
-            if (CAN_TransferSendBlocking(CAN0, 0, txFrame) != kStatus_Success)
+            if (CAN_TransferSendBlocking(CAN0, mbIdx, txFrame) != kStatus_Success)
             {
-              PRINTF("Failed to transmit message\r\n");
+              PRINTF("transmit");
 							
             }
             else

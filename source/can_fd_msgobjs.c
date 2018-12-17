@@ -70,13 +70,14 @@
 
 #define TICKRATE_HZ (1000)	          /* 1000 ticks per second */
 #define TRANSMIT_PERIOD (500)         /* milliseconds between transmission */
+#define KeepAlive_PERIOD (2000)         /* milliseconds between transmission */
 
 static volatile uint32_t gTimCnt = 0; /* incremented every millisecond */
 
 volatile uint16_t txIndex; /* Index of the data to send out. */
 volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count,debug_count;
-bool rxIndex_updated,tx_CAN_Enable,message_received;
+bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active;
 
 uint8_t VfCANH_RxMSG_Data;
 uint16_t VfCANH_RxMSG_ID;
@@ -141,6 +142,17 @@ int main(void)
 {
     usart_config_t config;
     can_frame_t txmsg = { 0 };
+		
+		can_frame_t Alive_msg_3E = { 0 };
+		
+		Alive_msg_3E.id=0x14dae1f1;
+		Alive_msg_3E.dataByte[0]=0x02;
+		Alive_msg_3E.dataByte[1]=0x3E;
+		Alive_msg_3E.format =kCAN_FrameFormatExtend;
+		Alive_msg_3E.type = kCAN_FrameTypeData;
+		Alive_msg_3E.proto = kCAN_ProtoTypeClassic;
+		Alive_msg_3E.bitratemode = kCAN_BitrateModeTypeSwitch;
+		Alive_msg_3E.length = 8;
 		
 		txmsg.dataByte[0] = 0xFC;
 		txmsg.dataByte[1] = 0x56;
@@ -246,6 +258,15 @@ int main(void)
 					
 				}
 				
+				/*if 3e receive, keep the 3e alive*/
+				if(txmsg.dataByte[1]==0x3e)
+				{
+				Keep_Service_Active = true;
+				
+				}
+				else if(txmsg.dataByte[1]==0x3f)
+				{Keep_Service_Active = false;}
+				
 					//txmsg.id = ((USART_Data[0]&0x1F)<<24)+(USART_Data[1]<<16)+(USART_Data[2]<<8)+(USART_Data[3]);
 					//message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
 			rxIndex_old=rxIndex;
@@ -347,7 +368,15 @@ int main(void)
             message_transmitted = false;
         }
 		
-
+				if ((gTimCnt % KeepAlive_PERIOD == 0) && Keep_Service_Active )
+				{
+				obd_can_TxMSG_Standard(CAN0, 0, &Alive_msg_3E);
+					//PRINTF("Keep_Alive");
+					//debug_count++;
+				}
+				
+				//for(debug_count=0;debug_count<10;debug_count++)
+				{;}
     }
 }
 
