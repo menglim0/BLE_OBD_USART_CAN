@@ -151,88 +151,7 @@
           <Name>-UAny -O206 -S9 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC1000 -FN1 -FF0LPC5460x_512.FLM -FS00 -FL080000 -FP0($$Device:LPC54608J512ET180$Flash\LPC5460x_512.FLM)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>378</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>12760</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\378</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>318</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>12494</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\318</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>375</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>12750</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\375</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>360</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>12658</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\360</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
-          <LineNumber>374</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>12744</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\374</Expression>
-        </Bp>
-      </Breakpoint>
+      <Breakpoint/>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -324,6 +243,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>gTimCnt</ItemText>
         </Ww>
+        <Ww>
+          <count>18</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Keep_Service_Active</ItemText>
+        </Ww>
+        <Ww>
+          <count>19</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>gTimCnt</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
@@ -345,6 +274,41 @@
           <count>3</count>
           <WinNumber>2</WinNumber>
           <ItemText>debug_count</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>debug_count</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>gTimCnt</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>gTimCnt_old</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>gTimCnt % (2000)</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>KeepAlive_PERIOD_flag</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>KeepAlive_PERIOD_flag_interrupt</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>txmsg</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -1589,7 +1553,7 @@
       <GroupNumber>6</GroupNumber>
       <FileNumber>37</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\utilities\obd_usart.c</PathWithFileName>

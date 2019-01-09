@@ -356,19 +356,18 @@ Section Cross References
     can_fd_msgobjs.o(i.main) refers to clock_config.o(i.BOARD_BootClockFROHF48M) for BOARD_BootClockFROHF48M
     can_fd_msgobjs.o(i.main) refers to board.o(i.BOARD_InitDebugConsole) for BOARD_InitDebugConsole
     can_fd_msgobjs.o(i.main) refers to board.o(i.BOARD_InitCAN) for BOARD_InitCAN
+    can_fd_msgobjs.o(i.main) refers to board.o(i.BOARD_InitGPIO) for BOARD_InitGPIO
     can_fd_msgobjs.o(i.main) refers to fsl_debug_console.o(i.DbgConsole_Printf) for DbgConsole_Printf
     can_fd_msgobjs.o(i.main) refers to fsl_usart.o(i.USART_GetDefaultConfig) for USART_GetDefaultConfig
     can_fd_msgobjs.o(i.main) refers to fsl_clock.o(i.CLOCK_GetFreq) for CLOCK_GetFreq
     can_fd_msgobjs.o(i.main) refers to fsl_usart.o(i.USART_Init) for USART_Init
-    can_fd_msgobjs.o(i.main) refers to fsl_gpio.o(i.GPIO_PinInit) for GPIO_PinInit
-    can_fd_msgobjs.o(i.main) refers to can_fd_msgobjs.o(i.GPIO_WritePinOutput) for GPIO_WritePinOutput
     can_fd_msgobjs.o(i.main) refers to can.o(i.CAN_ReadRxMb) for CAN_ReadRxMb
     can_fd_msgobjs.o(i.main) refers to can_fd_msgobjs.o(i.GPIO_TogglePinsOutput) for GPIO_TogglePinsOutput
     can_fd_msgobjs.o(i.main) refers to obd_can.o(i.obd_can_TxMSG_Standard) for obd_can_TxMSG_Standard
-    can_fd_msgobjs.o(i.main) refers to can_fd_msgobjs.o(.constdata) for .constdata
     can_fd_msgobjs.o(i.main) refers to system_lpc54608.o(.data) for SystemCoreClock
     can_fd_msgobjs.o(i.main) refers to can_fd_msgobjs.o(.data) for rxIndex_updated
     can_fd_msgobjs.o(i.main) refers to can_fd_msgobjs.o(.bss) for demoRingBuffer
+    can_fd_msgobjs.o(i.main) refers to can.o(i.CAN_TransferSendBlocking) for CAN_TransferSendBlocking
     board.o(i.BOARD_InitCAN) refers to can.o(i.CAN_GetDefaultConfig) for CAN_GetDefaultConfig
     board.o(i.BOARD_InitCAN) refers to can.o(i.CAN_Init) for CAN_Init
     board.o(i.BOARD_InitCAN) refers to can.o(i.CAN_SetRxIndividualMask) for CAN_SetRxIndividualMask
@@ -380,6 +379,9 @@ Section Cross References
     board.o(i.BOARD_InitDebugConsole) refers to fsl_clock.o(i.CLOCK_GetFreq) for CLOCK_GetFreq
     board.o(i.BOARD_InitDebugConsole) refers to fsl_debug_console.o(i.DbgConsole_Init) for DbgConsole_Init
     board.o(i.BOARD_InitDebugConsole) refers to fsl_common.o(i.__aeabi_assert) for __aeabi_assert
+    board.o(i.BOARD_InitGPIO) refers to fsl_gpio.o(i.GPIO_PinInit) for GPIO_PinInit
+    board.o(i.BOARD_InitGPIO) refers to board.o(i.GPIO_WritePinOutput) for GPIO_WritePinOutput
+    board.o(i.BOARD_InitGPIO) refers to board.o(.data) for led_config
     board.o(i.BOARD_InitSDRAM) refers to fsl_clock.o(i.CLOCK_GetFreq) for CLOCK_GetFreq
     board.o(i.BOARD_InitSDRAM) refers to fsl_emc.o(i.EMC_Init) for EMC_Init
     board.o(i.BOARD_InitSDRAM) refers to fsl_emc.o(i.EMC_DynamicMemInit) for EMC_DynamicMemInit
@@ -654,23 +656,23 @@ Image Symbol Table
 
     RESET                                    0x00000000   Section      292  startup_lpc54608.o(RESET)
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ..\CMSIS\system_LPC54608.c               0x00000000   Number         0  system_lpc54608.o ABSOLUTE
@@ -732,140 +734,140 @@ Image Symbol Table
     i.BOARD_BootClockFROHF48M                0x00000658   Section        0  clock_config.o(i.BOARD_BootClockFROHF48M)
     i.BOARD_InitCAN                          0x000006a0   Section        0  board.o(i.BOARD_InitCAN)
     i.BOARD_InitDebugConsole                 0x00000734   Section        0  board.o(i.BOARD_InitDebugConsole)
-    i.BOARD_InitPins                         0x000007a8   Section        0  pin_mux.o(i.BOARD_InitPins)
-    i.CAN0_IRQ0_DriverIRQHandler             0x000008b4   Section        0  can.o(i.CAN0_IRQ0_DriverIRQHandler)
-    i.CAN1_IRQ0_DriverIRQHandler             0x000008cc   Section        0  can.o(i.CAN1_IRQ0_DriverIRQHandler)
-    i.CAN_CalculateTimingValues              0x000008e4   Section        0  can.o(i.CAN_CalculateTimingValues)
-    CAN_CalculateTimingValues                0x000008e5   Thumb Code   302  can.o(i.CAN_CalculateTimingValues)
-    i.CAN_DecodeDLC                          0x00000a18   Section        0  can.o(i.CAN_DecodeDLC)
-    CAN_DecodeDLC                            0x00000a19   Thumb Code    62  can.o(i.CAN_DecodeDLC)
-    i.CAN_DisableInterrupts                  0x00000a56   Section        0  can.o(i.CAN_DisableInterrupts)
-    CAN_DisableInterrupts                    0x00000a57   Thumb Code     8  can.o(i.CAN_DisableInterrupts)
-    i.CAN_DisableMbInterrupts                0x00000a5e   Section        0  can.o(i.CAN_DisableMbInterrupts)
-    CAN_DisableMbInterrupts                  0x00000a5f   Thumb Code    12  can.o(i.CAN_DisableMbInterrupts)
-    i.CAN_Enable                             0x00000a6a   Section        0  can.o(i.CAN_Enable)
-    i.CAN_EnableInterrupts                   0x00000a98   Section        0  can.o(i.CAN_EnableInterrupts)
-    CAN_EnableInterrupts                     0x00000a99   Thumb Code     8  can.o(i.CAN_EnableInterrupts)
-    i.CAN_EncodeDLC                          0x00000aa0   Section        0  can.o(i.CAN_EncodeDLC)
-    CAN_EncodeDLC                            0x00000aa1   Thumb Code    62  can.o(i.CAN_EncodeDLC)
-    i.CAN_GetDefaultConfig                   0x00000ae0   Section        0  can.o(i.CAN_GetDefaultConfig)
-    i.CAN_GetInstance                        0x00000b14   Section        0  can.o(i.CAN_GetInstance)
-    CAN_GetInstance                          0x00000b15   Thumb Code    28  can.o(i.CAN_GetInstance)
-    i.CAN_GetSegments                        0x00000b34   Section        0  can.o(i.CAN_GetSegments)
-    CAN_GetSegments                          0x00000b35   Thumb Code   174  can.o(i.CAN_GetSegments)
-    i.CAN_Init                               0x00000bf0   Section        0  can.o(i.CAN_Init)
-    i.CAN_NumberofBytestoFieldSize           0x00000dcc   Section        0  can.o(i.CAN_NumberofBytestoFieldSize)
-    CAN_NumberofBytestoFieldSize             0x00000dcd   Thumb Code    62  can.o(i.CAN_NumberofBytestoFieldSize)
-    i.CAN_ReadRxFifo                         0x00000e0a   Section        0  can.o(i.CAN_ReadRxFifo)
-    i.CAN_ReadRxMb                           0x00000e90   Section        0  can.o(i.CAN_ReadRxMb)
-    i.CAN_ReadRxMessage                      0x00000f16   Section        0  can.o(i.CAN_ReadRxMessage)
-    CAN_ReadRxMessage                        0x00000f17   Thumb Code   214  can.o(i.CAN_ReadRxMessage)
-    i.CAN_SetRxExtIndividualMask             0x00000fec   Section        0  can.o(i.CAN_SetRxExtIndividualMask)
-    i.CAN_SetRxIndividualMask                0x0000100e   Section        0  can.o(i.CAN_SetRxIndividualMask)
-    i.CAN_SetTimingConfig                    0x0000102c   Section        0  can.o(i.CAN_SetTimingConfig)
-    i.CAN_TransferAbortReceive               0x000010c8   Section        0  can.o(i.CAN_TransferAbortReceive)
-    i.CAN_TransferAbortReceiveFifo           0x000010e4   Section        0  can.o(i.CAN_TransferAbortReceiveFifo)
-    i.CAN_TransferAbortSend                  0x00001112   Section        0  can.o(i.CAN_TransferAbortSend)
-    i.CAN_TransferHandleIRQ                  0x00001130   Section        0  can.o(i.CAN_TransferHandleIRQ)
-    i.CAN_TransferSendBlocking               0x0000133a   Section        0  can.o(i.CAN_TransferSendBlocking)
-    i.CAN_WriteTxMb                          0x00001368   Section        0  can.o(i.CAN_WriteTxMb)
-    i.CLOCK_AttachClk                        0x00001438   Section        0  fsl_clock.o(i.CLOCK_AttachClk)
-    i.CLOCK_EnableClock                      0x00001484   Section        0  can.o(i.CLOCK_EnableClock)
-    CLOCK_EnableClock                        0x00001485   Thumb Code    32  can.o(i.CLOCK_EnableClock)
-    i.CLOCK_EnableClock                      0x000014ac   Section        0  can_fd_msgobjs.o(i.CLOCK_EnableClock)
-    CLOCK_EnableClock                        0x000014ad   Thumb Code    32  can_fd_msgobjs.o(i.CLOCK_EnableClock)
-    i.CLOCK_GetAdcClkFreq                    0x000014d4   Section        0  fsl_clock.o(i.CLOCK_GetAdcClkFreq)
-    i.CLOCK_GetAsyncApbClkFreq               0x00001520   Section        0  fsl_clock.o(i.CLOCK_GetAsyncApbClkFreq)
-    i.CLOCK_GetAudioPllOutFreq               0x00001550   Section        0  fsl_clock.o(i.CLOCK_GetAudioPllOutFreq)
-    i.CLOCK_GetClockOutClkFreq               0x0000155c   Section        0  fsl_clock.o(i.CLOCK_GetClockOutClkFreq)
-    i.CLOCK_GetCoreSysClkFreq                0x000015d4   Section        0  fsl_clock.o(i.CLOCK_GetCoreSysClkFreq)
-    i.CLOCK_GetExtClkFreq                    0x00001650   Section        0  fsl_clock.o(i.CLOCK_GetExtClkFreq)
-    i.CLOCK_GetFlexCommClkFreq               0x00001658   Section        0  fsl_clock.o(i.CLOCK_GetFlexCommClkFreq)
-    i.CLOCK_GetFreq                          0x000016b4   Section        0  fsl_clock.o(i.CLOCK_GetFreq)
-    i.CLOCK_GetFro12MFreq                    0x0000197c   Section        0  fsl_clock.o(i.CLOCK_GetFro12MFreq)
-    i.CLOCK_GetFroHfFreq                     0x00001998   Section        0  fsl_clock.o(i.CLOCK_GetFroHfFreq)
-    i.CLOCK_GetI2SMClkFreq                   0x000019d8   Section        0  fsl_clock.o(i.CLOCK_GetI2SMClkFreq)
-    i.CLOCK_GetLcdClkFreq                    0x000019dc   Section        0  fsl_clock.o(i.CLOCK_GetLcdClkFreq)
-    i.CLOCK_GetLcdClkIn                      0x00001a1c   Section        0  fsl_clock.o(i.CLOCK_GetLcdClkIn)
-    i.CLOCK_GetMclkClkFreq                   0x00001a20   Section        0  fsl_clock.o(i.CLOCK_GetMclkClkFreq)
-    i.CLOCK_GetOsc32KFreq                    0x00001a60   Section        0  fsl_clock.o(i.CLOCK_GetOsc32KFreq)
-    i.CLOCK_GetPllOutFreq                    0x00001a68   Section        0  fsl_clock.o(i.CLOCK_GetPllOutFreq)
-    i.CLOCK_GetSctClkFreq                    0x00001a74   Section        0  fsl_clock.o(i.CLOCK_GetSctClkFreq)
-    i.CLOCK_GetSdioClkFreq                   0x00001ac0   Section        0  fsl_clock.o(i.CLOCK_GetSdioClkFreq)
-    i.CLOCK_GetSpifiClkFreq                  0x00001b1c   Section        0  fsl_clock.o(i.CLOCK_GetSpifiClkFreq)
-    i.CLOCK_GetUsb0ClkFreq                   0x00001b78   Section        0  fsl_clock.o(i.CLOCK_GetUsb0ClkFreq)
-    i.CLOCK_GetUsb1ClkFreq                   0x00001bb8   Section        0  fsl_clock.o(i.CLOCK_GetUsb1ClkFreq)
-    i.CLOCK_GetUsbPllOutFreq                 0x00001bf8   Section        0  fsl_clock.o(i.CLOCK_GetUsbPllOutFreq)
-    i.CLOCK_GetWdtOscFreq                    0x00001c04   Section        0  fsl_clock.o(i.CLOCK_GetWdtOscFreq)
-    i.CLOCK_SetClkDiv                        0x00001c44   Section        0  fsl_clock.o(i.CLOCK_SetClkDiv)
-    i.CLOCK_SetFLASHAccessCycles             0x00001c6c   Section        0  fsl_clock.o(i.CLOCK_SetFLASHAccessCycles)
-    CLOCK_SetFLASHAccessCycles               0x00001c6d   Thumb Code    18  fsl_clock.o(i.CLOCK_SetFLASHAccessCycles)
-    i.CLOCK_SetFLASHAccessCyclesForFreq      0x00001c84   Section        0  fsl_clock.o(i.CLOCK_SetFLASHAccessCyclesForFreq)
-    i.CLOCK_SetupFROClocking                 0x00001d20   Section        0  fsl_clock.o(i.CLOCK_SetupFROClocking)
-    i.DbgConsole_ConvertRadixNumToString     0x00001dbc   Section        0  fsl_debug_console.o(i.DbgConsole_ConvertRadixNumToString)
-    DbgConsole_ConvertRadixNumToString       0x00001dbd   Thumb Code   168  fsl_debug_console.o(i.DbgConsole_ConvertRadixNumToString)
-    i.DbgConsole_Init                        0x00001e64   Section        0  fsl_debug_console.o(i.DbgConsole_Init)
-    i.DbgConsole_Printf                      0x00001ebc   Section        0  fsl_debug_console.o(i.DbgConsole_Printf)
-    i.DbgConsole_PrintfFormattedData         0x00001ef0   Section        0  fsl_debug_console.o(i.DbgConsole_PrintfFormattedData)
-    DbgConsole_PrintfFormattedData           0x00001ef1   Thumb Code   570  fsl_debug_console.o(i.DbgConsole_PrintfFormattedData)
-    i.DbgConsole_PrintfPaddingCharacter      0x0000212a   Section        0  fsl_debug_console.o(i.DbgConsole_PrintfPaddingCharacter)
-    DbgConsole_PrintfPaddingCharacter        0x0000212b   Thumb Code    40  fsl_debug_console.o(i.DbgConsole_PrintfPaddingCharacter)
-    i.DbgConsole_Putchar                     0x00002154   Section        0  fsl_debug_console.o(i.DbgConsole_Putchar)
-    i.FLEXCOMM0_DriverIRQHandler             0x00002178   Section        0  fsl_flexcomm.o(i.FLEXCOMM0_DriverIRQHandler)
-    i.FLEXCOMM0_IRQHandler                   0x000021dc   Section        0  can_fd_msgobjs.o(i.FLEXCOMM0_IRQHandler)
-    i.FLEXCOMM1_DriverIRQHandler             0x00002258   Section        0  fsl_flexcomm.o(i.FLEXCOMM1_DriverIRQHandler)
-    i.FLEXCOMM2_DriverIRQHandler             0x000022bc   Section        0  fsl_flexcomm.o(i.FLEXCOMM2_DriverIRQHandler)
-    i.FLEXCOMM3_DriverIRQHandler             0x00002320   Section        0  fsl_flexcomm.o(i.FLEXCOMM3_DriverIRQHandler)
-    i.FLEXCOMM4_DriverIRQHandler             0x00002384   Section        0  fsl_flexcomm.o(i.FLEXCOMM4_DriverIRQHandler)
-    i.FLEXCOMM5_DriverIRQHandler             0x000023e8   Section        0  fsl_flexcomm.o(i.FLEXCOMM5_DriverIRQHandler)
-    i.FLEXCOMM6_DriverIRQHandler             0x0000244c   Section        0  fsl_flexcomm.o(i.FLEXCOMM6_DriverIRQHandler)
-    i.FLEXCOMM7_DriverIRQHandler             0x000024b0   Section        0  fsl_flexcomm.o(i.FLEXCOMM7_DriverIRQHandler)
-    i.FLEXCOMM8_DriverIRQHandler             0x00002514   Section        0  fsl_flexcomm.o(i.FLEXCOMM8_DriverIRQHandler)
-    i.FLEXCOMM9_DriverIRQHandler             0x00002578   Section        0  fsl_flexcomm.o(i.FLEXCOMM9_DriverIRQHandler)
-    i.FLEXCOMM_GetInstance                   0x000025dc   Section        0  fsl_flexcomm.o(i.FLEXCOMM_GetInstance)
-    i.FLEXCOMM_Init                          0x0000262c   Section        0  fsl_flexcomm.o(i.FLEXCOMM_Init)
-    i.FLEXCOMM_PeripheralIsPresent           0x00002680   Section        0  fsl_flexcomm.o(i.FLEXCOMM_PeripheralIsPresent)
-    FLEXCOMM_PeripheralIsPresent             0x00002681   Thumb Code    58  fsl_flexcomm.o(i.FLEXCOMM_PeripheralIsPresent)
-    i.FLEXCOMM_SetPeriph                     0x000026ba   Section        0  fsl_flexcomm.o(i.FLEXCOMM_SetPeriph)
-    i.GPIO_PinInit                           0x000026fe   Section        0  fsl_gpio.o(i.GPIO_PinInit)
-    i.GPIO_TogglePinsOutput                  0x00002752   Section        0  can_fd_msgobjs.o(i.GPIO_TogglePinsOutput)
-    GPIO_TogglePinsOutput                    0x00002753   Thumb Code    10  can_fd_msgobjs.o(i.GPIO_TogglePinsOutput)
-    i.GPIO_WritePinOutput                    0x0000275c   Section        0  can_fd_msgobjs.o(i.GPIO_WritePinOutput)
-    GPIO_WritePinOutput                      0x0000275d   Thumb Code    10  can_fd_msgobjs.o(i.GPIO_WritePinOutput)
-    i.IOCON_PinMuxSet                        0x00002766   Section        0  pin_mux.o(i.IOCON_PinMuxSet)
-    IOCON_PinMuxSet                          0x00002767   Thumb Code    12  pin_mux.o(i.IOCON_PinMuxSet)
-    i.NVIC_EnableIRQ                         0x00002772   Section        0  can.o(i.NVIC_EnableIRQ)
-    NVIC_EnableIRQ                           0x00002773   Thumb Code    22  can.o(i.NVIC_EnableIRQ)
-    i.POWER_DisablePD                        0x00002788   Section        0  fsl_clock.o(i.POWER_DisablePD)
-    POWER_DisablePD                          0x00002789   Thumb Code    14  fsl_clock.o(i.POWER_DisablePD)
-    i.POWER_DisablePD                        0x0000279c   Section        0  clock_config.o(i.POWER_DisablePD)
-    POWER_DisablePD                          0x0000279d   Thumb Code    14  clock_config.o(i.POWER_DisablePD)
-    i.POWER_SetVoltageForFreq                0x000027b0   Section        0  fsl_power_lib.o(i.POWER_SetVoltageForFreq)
-    i.POWER_setVdLevel                       0x00002824   Section        0  fsl_power_lib.o(i.POWER_setVdLevel)
-    i.RESET_ClearPeripheralReset             0x00002838   Section        0  fsl_reset.o(i.RESET_ClearPeripheralReset)
-    i.RESET_PeripheralReset                  0x000028b8   Section        0  fsl_reset.o(i.RESET_PeripheralReset)
-    i.RESET_SetPeripheralReset               0x000028cc   Section        0  fsl_reset.o(i.RESET_SetPeripheralReset)
-    i.SysTick_Handler                        0x0000294c   Section        0  can_fd_msgobjs.o(i.SysTick_Handler)
-    i.SystemInit                             0x0000295c   Section        0  system_lpc54608.o(i.SystemInit)
-    i.USART_GetDefaultConfig                 0x0000298c   Section        0  fsl_usart.o(i.USART_GetDefaultConfig)
-    i.USART_Init                             0x000029e4   Section        0  fsl_usart.o(i.USART_Init)
-    i.USART_ReadBlocking                     0x00002b1c   Section        0  fsl_usart.o(i.USART_ReadBlocking)
-    i.USART_SetBaudRate                      0x00002c14   Section        0  fsl_usart.o(i.USART_SetBaudRate)
-    i.USART_WriteBlocking                    0x00002d04   Section        0  fsl_usart.o(i.USART_WriteBlocking)
-    i.__aeabi_assert                         0x00002d9c   Section        0  fsl_common.o(i.__aeabi_assert)
-    i.__scatterload_copy                     0x00002de0   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00002dee   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00002df0   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.main                                   0x00002e00   Section        0  can_fd_msgobjs.o(i.main)
-    i.obd_can_TxMSG_Standard                 0x0000325c   Section        0  obd_can.o(i.obd_can_TxMSG_Standard)
-    .constdata                               0x00003290   Section        8  can.o(.constdata)
-    s_canBases                               0x00003290   Data           8  can.o(.constdata)
-    .constdata                               0x00003298   Section       92  fsl_clock.o(.constdata)
-    wdtFreqLookup                            0x000032a4   Data          32  fsl_clock.o(.constdata)
-    .constdata                               0x000032f4   Section       72  fsl_flexcomm.o(.constdata)
-    s_flexcommBaseAddrs                      0x00003300   Data          40  fsl_flexcomm.o(.constdata)
-    s_flexcommClocks                         0x00003328   Data          20  fsl_flexcomm.o(.constdata)
-    .constdata                               0x0000333c   Section        2  can_fd_msgobjs.o(.constdata)
+    i.BOARD_InitGPIO                         0x000007a8   Section        0  board.o(i.BOARD_InitGPIO)
+    i.BOARD_InitPins                         0x000007fc   Section        0  pin_mux.o(i.BOARD_InitPins)
+    i.CAN0_IRQ0_DriverIRQHandler             0x00000908   Section        0  can.o(i.CAN0_IRQ0_DriverIRQHandler)
+    i.CAN1_IRQ0_DriverIRQHandler             0x00000920   Section        0  can.o(i.CAN1_IRQ0_DriverIRQHandler)
+    i.CAN_CalculateTimingValues              0x00000938   Section        0  can.o(i.CAN_CalculateTimingValues)
+    CAN_CalculateTimingValues                0x00000939   Thumb Code   302  can.o(i.CAN_CalculateTimingValues)
+    i.CAN_DecodeDLC                          0x00000a6c   Section        0  can.o(i.CAN_DecodeDLC)
+    CAN_DecodeDLC                            0x00000a6d   Thumb Code    62  can.o(i.CAN_DecodeDLC)
+    i.CAN_DisableInterrupts                  0x00000aaa   Section        0  can.o(i.CAN_DisableInterrupts)
+    CAN_DisableInterrupts                    0x00000aab   Thumb Code     8  can.o(i.CAN_DisableInterrupts)
+    i.CAN_DisableMbInterrupts                0x00000ab2   Section        0  can.o(i.CAN_DisableMbInterrupts)
+    CAN_DisableMbInterrupts                  0x00000ab3   Thumb Code    12  can.o(i.CAN_DisableMbInterrupts)
+    i.CAN_Enable                             0x00000abe   Section        0  can.o(i.CAN_Enable)
+    i.CAN_EnableInterrupts                   0x00000aec   Section        0  can.o(i.CAN_EnableInterrupts)
+    CAN_EnableInterrupts                     0x00000aed   Thumb Code     8  can.o(i.CAN_EnableInterrupts)
+    i.CAN_EncodeDLC                          0x00000af4   Section        0  can.o(i.CAN_EncodeDLC)
+    CAN_EncodeDLC                            0x00000af5   Thumb Code    62  can.o(i.CAN_EncodeDLC)
+    i.CAN_GetDefaultConfig                   0x00000b34   Section        0  can.o(i.CAN_GetDefaultConfig)
+    i.CAN_GetInstance                        0x00000b68   Section        0  can.o(i.CAN_GetInstance)
+    CAN_GetInstance                          0x00000b69   Thumb Code    28  can.o(i.CAN_GetInstance)
+    i.CAN_GetSegments                        0x00000b88   Section        0  can.o(i.CAN_GetSegments)
+    CAN_GetSegments                          0x00000b89   Thumb Code   174  can.o(i.CAN_GetSegments)
+    i.CAN_Init                               0x00000c44   Section        0  can.o(i.CAN_Init)
+    i.CAN_NumberofBytestoFieldSize           0x00000e20   Section        0  can.o(i.CAN_NumberofBytestoFieldSize)
+    CAN_NumberofBytestoFieldSize             0x00000e21   Thumb Code    62  can.o(i.CAN_NumberofBytestoFieldSize)
+    i.CAN_ReadRxFifo                         0x00000e5e   Section        0  can.o(i.CAN_ReadRxFifo)
+    i.CAN_ReadRxMb                           0x00000ee4   Section        0  can.o(i.CAN_ReadRxMb)
+    i.CAN_ReadRxMessage                      0x00000f6a   Section        0  can.o(i.CAN_ReadRxMessage)
+    CAN_ReadRxMessage                        0x00000f6b   Thumb Code   214  can.o(i.CAN_ReadRxMessage)
+    i.CAN_SetRxExtIndividualMask             0x00001040   Section        0  can.o(i.CAN_SetRxExtIndividualMask)
+    i.CAN_SetRxIndividualMask                0x00001062   Section        0  can.o(i.CAN_SetRxIndividualMask)
+    i.CAN_SetTimingConfig                    0x00001080   Section        0  can.o(i.CAN_SetTimingConfig)
+    i.CAN_TransferAbortReceive               0x0000111c   Section        0  can.o(i.CAN_TransferAbortReceive)
+    i.CAN_TransferAbortReceiveFifo           0x00001138   Section        0  can.o(i.CAN_TransferAbortReceiveFifo)
+    i.CAN_TransferAbortSend                  0x00001166   Section        0  can.o(i.CAN_TransferAbortSend)
+    i.CAN_TransferHandleIRQ                  0x00001184   Section        0  can.o(i.CAN_TransferHandleIRQ)
+    i.CAN_TransferSendBlocking               0x0000138e   Section        0  can.o(i.CAN_TransferSendBlocking)
+    i.CAN_WriteTxMb                          0x000013bc   Section        0  can.o(i.CAN_WriteTxMb)
+    i.CLOCK_AttachClk                        0x0000148c   Section        0  fsl_clock.o(i.CLOCK_AttachClk)
+    i.CLOCK_EnableClock                      0x000014d8   Section        0  can.o(i.CLOCK_EnableClock)
+    CLOCK_EnableClock                        0x000014d9   Thumb Code    32  can.o(i.CLOCK_EnableClock)
+    i.CLOCK_EnableClock                      0x00001500   Section        0  can_fd_msgobjs.o(i.CLOCK_EnableClock)
+    CLOCK_EnableClock                        0x00001501   Thumb Code    32  can_fd_msgobjs.o(i.CLOCK_EnableClock)
+    i.CLOCK_GetAdcClkFreq                    0x00001528   Section        0  fsl_clock.o(i.CLOCK_GetAdcClkFreq)
+    i.CLOCK_GetAsyncApbClkFreq               0x00001574   Section        0  fsl_clock.o(i.CLOCK_GetAsyncApbClkFreq)
+    i.CLOCK_GetAudioPllOutFreq               0x000015a4   Section        0  fsl_clock.o(i.CLOCK_GetAudioPllOutFreq)
+    i.CLOCK_GetClockOutClkFreq               0x000015b0   Section        0  fsl_clock.o(i.CLOCK_GetClockOutClkFreq)
+    i.CLOCK_GetCoreSysClkFreq                0x00001628   Section        0  fsl_clock.o(i.CLOCK_GetCoreSysClkFreq)
+    i.CLOCK_GetExtClkFreq                    0x000016a4   Section        0  fsl_clock.o(i.CLOCK_GetExtClkFreq)
+    i.CLOCK_GetFlexCommClkFreq               0x000016ac   Section        0  fsl_clock.o(i.CLOCK_GetFlexCommClkFreq)
+    i.CLOCK_GetFreq                          0x00001708   Section        0  fsl_clock.o(i.CLOCK_GetFreq)
+    i.CLOCK_GetFro12MFreq                    0x000019d0   Section        0  fsl_clock.o(i.CLOCK_GetFro12MFreq)
+    i.CLOCK_GetFroHfFreq                     0x000019ec   Section        0  fsl_clock.o(i.CLOCK_GetFroHfFreq)
+    i.CLOCK_GetI2SMClkFreq                   0x00001a2c   Section        0  fsl_clock.o(i.CLOCK_GetI2SMClkFreq)
+    i.CLOCK_GetLcdClkFreq                    0x00001a30   Section        0  fsl_clock.o(i.CLOCK_GetLcdClkFreq)
+    i.CLOCK_GetLcdClkIn                      0x00001a70   Section        0  fsl_clock.o(i.CLOCK_GetLcdClkIn)
+    i.CLOCK_GetMclkClkFreq                   0x00001a74   Section        0  fsl_clock.o(i.CLOCK_GetMclkClkFreq)
+    i.CLOCK_GetOsc32KFreq                    0x00001ab4   Section        0  fsl_clock.o(i.CLOCK_GetOsc32KFreq)
+    i.CLOCK_GetPllOutFreq                    0x00001abc   Section        0  fsl_clock.o(i.CLOCK_GetPllOutFreq)
+    i.CLOCK_GetSctClkFreq                    0x00001ac8   Section        0  fsl_clock.o(i.CLOCK_GetSctClkFreq)
+    i.CLOCK_GetSdioClkFreq                   0x00001b14   Section        0  fsl_clock.o(i.CLOCK_GetSdioClkFreq)
+    i.CLOCK_GetSpifiClkFreq                  0x00001b70   Section        0  fsl_clock.o(i.CLOCK_GetSpifiClkFreq)
+    i.CLOCK_GetUsb0ClkFreq                   0x00001bcc   Section        0  fsl_clock.o(i.CLOCK_GetUsb0ClkFreq)
+    i.CLOCK_GetUsb1ClkFreq                   0x00001c0c   Section        0  fsl_clock.o(i.CLOCK_GetUsb1ClkFreq)
+    i.CLOCK_GetUsbPllOutFreq                 0x00001c4c   Section        0  fsl_clock.o(i.CLOCK_GetUsbPllOutFreq)
+    i.CLOCK_GetWdtOscFreq                    0x00001c58   Section        0  fsl_clock.o(i.CLOCK_GetWdtOscFreq)
+    i.CLOCK_SetClkDiv                        0x00001c98   Section        0  fsl_clock.o(i.CLOCK_SetClkDiv)
+    i.CLOCK_SetFLASHAccessCycles             0x00001cc0   Section        0  fsl_clock.o(i.CLOCK_SetFLASHAccessCycles)
+    CLOCK_SetFLASHAccessCycles               0x00001cc1   Thumb Code    18  fsl_clock.o(i.CLOCK_SetFLASHAccessCycles)
+    i.CLOCK_SetFLASHAccessCyclesForFreq      0x00001cd8   Section        0  fsl_clock.o(i.CLOCK_SetFLASHAccessCyclesForFreq)
+    i.CLOCK_SetupFROClocking                 0x00001d74   Section        0  fsl_clock.o(i.CLOCK_SetupFROClocking)
+    i.DbgConsole_ConvertRadixNumToString     0x00001e10   Section        0  fsl_debug_console.o(i.DbgConsole_ConvertRadixNumToString)
+    DbgConsole_ConvertRadixNumToString       0x00001e11   Thumb Code   168  fsl_debug_console.o(i.DbgConsole_ConvertRadixNumToString)
+    i.DbgConsole_Init                        0x00001eb8   Section        0  fsl_debug_console.o(i.DbgConsole_Init)
+    i.DbgConsole_Printf                      0x00001f10   Section        0  fsl_debug_console.o(i.DbgConsole_Printf)
+    i.DbgConsole_PrintfFormattedData         0x00001f44   Section        0  fsl_debug_console.o(i.DbgConsole_PrintfFormattedData)
+    DbgConsole_PrintfFormattedData           0x00001f45   Thumb Code   570  fsl_debug_console.o(i.DbgConsole_PrintfFormattedData)
+    i.DbgConsole_PrintfPaddingCharacter      0x0000217e   Section        0  fsl_debug_console.o(i.DbgConsole_PrintfPaddingCharacter)
+    DbgConsole_PrintfPaddingCharacter        0x0000217f   Thumb Code    40  fsl_debug_console.o(i.DbgConsole_PrintfPaddingCharacter)
+    i.DbgConsole_Putchar                     0x000021a8   Section        0  fsl_debug_console.o(i.DbgConsole_Putchar)
+    i.FLEXCOMM0_DriverIRQHandler             0x000021cc   Section        0  fsl_flexcomm.o(i.FLEXCOMM0_DriverIRQHandler)
+    i.FLEXCOMM0_IRQHandler                   0x00002230   Section        0  can_fd_msgobjs.o(i.FLEXCOMM0_IRQHandler)
+    i.FLEXCOMM1_DriverIRQHandler             0x000022ac   Section        0  fsl_flexcomm.o(i.FLEXCOMM1_DriverIRQHandler)
+    i.FLEXCOMM2_DriverIRQHandler             0x00002310   Section        0  fsl_flexcomm.o(i.FLEXCOMM2_DriverIRQHandler)
+    i.FLEXCOMM3_DriverIRQHandler             0x00002374   Section        0  fsl_flexcomm.o(i.FLEXCOMM3_DriverIRQHandler)
+    i.FLEXCOMM4_DriverIRQHandler             0x000023d8   Section        0  fsl_flexcomm.o(i.FLEXCOMM4_DriverIRQHandler)
+    i.FLEXCOMM5_DriverIRQHandler             0x0000243c   Section        0  fsl_flexcomm.o(i.FLEXCOMM5_DriverIRQHandler)
+    i.FLEXCOMM6_DriverIRQHandler             0x000024a0   Section        0  fsl_flexcomm.o(i.FLEXCOMM6_DriverIRQHandler)
+    i.FLEXCOMM7_DriverIRQHandler             0x00002504   Section        0  fsl_flexcomm.o(i.FLEXCOMM7_DriverIRQHandler)
+    i.FLEXCOMM8_DriverIRQHandler             0x00002568   Section        0  fsl_flexcomm.o(i.FLEXCOMM8_DriverIRQHandler)
+    i.FLEXCOMM9_DriverIRQHandler             0x000025cc   Section        0  fsl_flexcomm.o(i.FLEXCOMM9_DriverIRQHandler)
+    i.FLEXCOMM_GetInstance                   0x00002630   Section        0  fsl_flexcomm.o(i.FLEXCOMM_GetInstance)
+    i.FLEXCOMM_Init                          0x00002680   Section        0  fsl_flexcomm.o(i.FLEXCOMM_Init)
+    i.FLEXCOMM_PeripheralIsPresent           0x000026d4   Section        0  fsl_flexcomm.o(i.FLEXCOMM_PeripheralIsPresent)
+    FLEXCOMM_PeripheralIsPresent             0x000026d5   Thumb Code    58  fsl_flexcomm.o(i.FLEXCOMM_PeripheralIsPresent)
+    i.FLEXCOMM_SetPeriph                     0x0000270e   Section        0  fsl_flexcomm.o(i.FLEXCOMM_SetPeriph)
+    i.GPIO_PinInit                           0x00002752   Section        0  fsl_gpio.o(i.GPIO_PinInit)
+    i.GPIO_TogglePinsOutput                  0x000027a6   Section        0  can_fd_msgobjs.o(i.GPIO_TogglePinsOutput)
+    GPIO_TogglePinsOutput                    0x000027a7   Thumb Code    10  can_fd_msgobjs.o(i.GPIO_TogglePinsOutput)
+    i.GPIO_WritePinOutput                    0x000027b0   Section        0  board.o(i.GPIO_WritePinOutput)
+    GPIO_WritePinOutput                      0x000027b1   Thumb Code    10  board.o(i.GPIO_WritePinOutput)
+    i.IOCON_PinMuxSet                        0x000027ba   Section        0  pin_mux.o(i.IOCON_PinMuxSet)
+    IOCON_PinMuxSet                          0x000027bb   Thumb Code    12  pin_mux.o(i.IOCON_PinMuxSet)
+    i.NVIC_EnableIRQ                         0x000027c6   Section        0  can.o(i.NVIC_EnableIRQ)
+    NVIC_EnableIRQ                           0x000027c7   Thumb Code    22  can.o(i.NVIC_EnableIRQ)
+    i.POWER_DisablePD                        0x000027dc   Section        0  fsl_clock.o(i.POWER_DisablePD)
+    POWER_DisablePD                          0x000027dd   Thumb Code    14  fsl_clock.o(i.POWER_DisablePD)
+    i.POWER_DisablePD                        0x000027f0   Section        0  clock_config.o(i.POWER_DisablePD)
+    POWER_DisablePD                          0x000027f1   Thumb Code    14  clock_config.o(i.POWER_DisablePD)
+    i.POWER_SetVoltageForFreq                0x00002804   Section        0  fsl_power_lib.o(i.POWER_SetVoltageForFreq)
+    i.POWER_setVdLevel                       0x00002878   Section        0  fsl_power_lib.o(i.POWER_setVdLevel)
+    i.RESET_ClearPeripheralReset             0x0000288c   Section        0  fsl_reset.o(i.RESET_ClearPeripheralReset)
+    i.RESET_PeripheralReset                  0x0000290c   Section        0  fsl_reset.o(i.RESET_PeripheralReset)
+    i.RESET_SetPeripheralReset               0x00002920   Section        0  fsl_reset.o(i.RESET_SetPeripheralReset)
+    i.SysTick_Handler                        0x000029a0   Section        0  can_fd_msgobjs.o(i.SysTick_Handler)
+    i.SystemInit                             0x000029b0   Section        0  system_lpc54608.o(i.SystemInit)
+    i.USART_GetDefaultConfig                 0x000029e0   Section        0  fsl_usart.o(i.USART_GetDefaultConfig)
+    i.USART_Init                             0x00002a38   Section        0  fsl_usart.o(i.USART_Init)
+    i.USART_ReadBlocking                     0x00002b70   Section        0  fsl_usart.o(i.USART_ReadBlocking)
+    i.USART_SetBaudRate                      0x00002c68   Section        0  fsl_usart.o(i.USART_SetBaudRate)
+    i.USART_WriteBlocking                    0x00002d58   Section        0  fsl_usart.o(i.USART_WriteBlocking)
+    i.__aeabi_assert                         0x00002df0   Section        0  fsl_common.o(i.__aeabi_assert)
+    i.__scatterload_copy                     0x00002e34   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00002e42   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00002e44   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x00002e54   Section        0  can_fd_msgobjs.o(i.main)
+    i.obd_can_TxMSG_Standard                 0x00003394   Section        0  obd_can.o(i.obd_can_TxMSG_Standard)
+    .constdata                               0x000033c8   Section        8  can.o(.constdata)
+    s_canBases                               0x000033c8   Data           8  can.o(.constdata)
+    .constdata                               0x000033d0   Section       92  fsl_clock.o(.constdata)
+    wdtFreqLookup                            0x000033dc   Data          32  fsl_clock.o(.constdata)
+    .constdata                               0x0000342c   Section       72  fsl_flexcomm.o(.constdata)
+    s_flexcommBaseAddrs                      0x00003438   Data          40  fsl_flexcomm.o(.constdata)
+    s_flexcommClocks                         0x00003460   Data          20  fsl_flexcomm.o(.constdata)
     .data                                    0x20000000   Section        4  system_lpc54608.o(.data)
     .data                                    0x20000004   Section       12  can.o(.data)
     s_canHandle                              0x20000004   Data           8  can.o(.data)
@@ -875,14 +877,17 @@ Image Symbol Table
     s_Pll_Freq                               0x20000010   Data           4  fsl_clock.o(.data)
     s_Usb_Pll_Freq                           0x20000014   Data           4  fsl_clock.o(.data)
     s_Audio_Pll_Freq                         0x20000018   Data           4  fsl_clock.o(.data)
-    .data                                    0x2000001c   Section      134  can_fd_msgobjs.o(.data)
+    .data                                    0x2000001c   Section      158  can_fd_msgobjs.o(.data)
     gTimCnt                                  0x2000001c   Data           4  can_fd_msgobjs.o(.data)
-    .bss                                     0x200000a4   Section       80  fsl_flexcomm.o(.bss)
-    s_flexcommIrqHandler                     0x200000a4   Data          40  fsl_flexcomm.o(.bss)
-    s_flexcommHandle                         0x200000cc   Data          40  fsl_flexcomm.o(.bss)
-    .bss                                     0x200000f4   Section      104  can_fd_msgobjs.o(.bss)
-    .bss                                     0x2000015c   Section       16  fsl_debug_console.o(.bss)
-    s_debugConsole                           0x2000015c   Data          16  fsl_debug_console.o(.bss)
+    gTimCnt_old                              0x20000020   Data           4  can_fd_msgobjs.o(.data)
+    KeepAlive_PERIOD_flag_interrupt          0x20000024   Data           1  can_fd_msgobjs.o(.data)
+    .data                                    0x200000ba   Section        2  board.o(.data)
+    .bss                                     0x200000bc   Section       80  fsl_flexcomm.o(.bss)
+    s_flexcommIrqHandler                     0x200000bc   Data          40  fsl_flexcomm.o(.bss)
+    s_flexcommHandle                         0x200000e4   Data          40  fsl_flexcomm.o(.bss)
+    .bss                                     0x2000010c   Section      104  can_fd_msgobjs.o(.bss)
+    .bss                                     0x20000174   Section       16  fsl_debug_console.o(.bss)
+    s_debugConsole                           0x20000174   Data          16  fsl_debug_console.o(.bss)
 
     Global Symbols
 
@@ -1030,114 +1035,119 @@ Image Symbol Table
     BOARD_BootClockFROHF48M                  0x00000659   Thumb Code    56  clock_config.o(i.BOARD_BootClockFROHF48M)
     BOARD_InitCAN                            0x000006a1   Thumb Code   112  board.o(i.BOARD_InitCAN)
     BOARD_InitDebugConsole                   0x00000735   Thumb Code    58  board.o(i.BOARD_InitDebugConsole)
-    BOARD_InitPins                           0x000007a9   Thumb Code   256  pin_mux.o(i.BOARD_InitPins)
-    CAN0_IRQ0_DriverIRQHandler               0x000008b5   Thumb Code    14  can.o(i.CAN0_IRQ0_DriverIRQHandler)
-    CAN1_IRQ0_DriverIRQHandler               0x000008cd   Thumb Code    14  can.o(i.CAN1_IRQ0_DriverIRQHandler)
-    CAN_Enable                               0x00000a6b   Thumb Code    46  can.o(i.CAN_Enable)
-    CAN_GetDefaultConfig                     0x00000ae1   Thumb Code    44  can.o(i.CAN_GetDefaultConfig)
-    CAN_Init                                 0x00000bf1   Thumb Code   464  can.o(i.CAN_Init)
-    CAN_ReadRxFifo                           0x00000e0b   Thumb Code   134  can.o(i.CAN_ReadRxFifo)
-    CAN_ReadRxMb                             0x00000e91   Thumb Code   134  can.o(i.CAN_ReadRxMb)
-    CAN_SetRxExtIndividualMask               0x00000fed   Thumb Code    34  can.o(i.CAN_SetRxExtIndividualMask)
-    CAN_SetRxIndividualMask                  0x0000100f   Thumb Code    30  can.o(i.CAN_SetRxIndividualMask)
-    CAN_SetTimingConfig                      0x0000102d   Thumb Code   152  can.o(i.CAN_SetTimingConfig)
-    CAN_TransferAbortReceive                 0x000010c9   Thumb Code    28  can.o(i.CAN_TransferAbortReceive)
-    CAN_TransferAbortReceiveFifo             0x000010e5   Thumb Code    46  can.o(i.CAN_TransferAbortReceiveFifo)
-    CAN_TransferAbortSend                    0x00001113   Thumb Code    30  can.o(i.CAN_TransferAbortSend)
-    CAN_TransferHandleIRQ                    0x00001131   Thumb Code   522  can.o(i.CAN_TransferHandleIRQ)
-    CAN_TransferSendBlocking                 0x0000133b   Thumb Code    46  can.o(i.CAN_TransferSendBlocking)
-    CAN_WriteTxMb                            0x00001369   Thumb Code   206  can.o(i.CAN_WriteTxMb)
-    CLOCK_AttachClk                          0x00001439   Thumb Code    66  fsl_clock.o(i.CLOCK_AttachClk)
-    CLOCK_GetAdcClkFreq                      0x000014d5   Thumb Code    72  fsl_clock.o(i.CLOCK_GetAdcClkFreq)
-    CLOCK_GetAsyncApbClkFreq                 0x00001521   Thumb Code    40  fsl_clock.o(i.CLOCK_GetAsyncApbClkFreq)
-    CLOCK_GetAudioPllOutFreq                 0x00001551   Thumb Code     6  fsl_clock.o(i.CLOCK_GetAudioPllOutFreq)
-    CLOCK_GetClockOutClkFreq                 0x0000155d   Thumb Code   116  fsl_clock.o(i.CLOCK_GetClockOutClkFreq)
-    CLOCK_GetCoreSysClkFreq                  0x000015d5   Thumb Code   120  fsl_clock.o(i.CLOCK_GetCoreSysClkFreq)
-    CLOCK_GetExtClkFreq                      0x00001651   Thumb Code     4  fsl_clock.o(i.CLOCK_GetExtClkFreq)
-    CLOCK_GetFlexCommClkFreq                 0x00001659   Thumb Code    88  fsl_clock.o(i.CLOCK_GetFlexCommClkFreq)
-    CLOCK_GetFreq                            0x000016b5   Thumb Code   708  fsl_clock.o(i.CLOCK_GetFreq)
-    CLOCK_GetFro12MFreq                      0x0000197d   Thumb Code    18  fsl_clock.o(i.CLOCK_GetFro12MFreq)
-    CLOCK_GetFroHfFreq                       0x00001999   Thumb Code    46  fsl_clock.o(i.CLOCK_GetFroHfFreq)
-    CLOCK_GetI2SMClkFreq                     0x000019d9   Thumb Code     4  fsl_clock.o(i.CLOCK_GetI2SMClkFreq)
-    CLOCK_GetLcdClkFreq                      0x000019dd   Thumb Code    58  fsl_clock.o(i.CLOCK_GetLcdClkFreq)
-    CLOCK_GetLcdClkIn                        0x00001a1d   Thumb Code     4  fsl_clock.o(i.CLOCK_GetLcdClkIn)
-    CLOCK_GetMclkClkFreq                     0x00001a21   Thumb Code    58  fsl_clock.o(i.CLOCK_GetMclkClkFreq)
-    CLOCK_GetOsc32KFreq                      0x00001a61   Thumb Code     6  fsl_clock.o(i.CLOCK_GetOsc32KFreq)
-    CLOCK_GetPllOutFreq                      0x00001a69   Thumb Code     6  fsl_clock.o(i.CLOCK_GetPllOutFreq)
-    CLOCK_GetSctClkFreq                      0x00001a75   Thumb Code    72  fsl_clock.o(i.CLOCK_GetSctClkFreq)
-    CLOCK_GetSdioClkFreq                     0x00001ac1   Thumb Code    86  fsl_clock.o(i.CLOCK_GetSdioClkFreq)
-    CLOCK_GetSpifiClkFreq                    0x00001b1d   Thumb Code    86  fsl_clock.o(i.CLOCK_GetSpifiClkFreq)
-    CLOCK_GetUsb0ClkFreq                     0x00001b79   Thumb Code    58  fsl_clock.o(i.CLOCK_GetUsb0ClkFreq)
-    CLOCK_GetUsb1ClkFreq                     0x00001bb9   Thumb Code    58  fsl_clock.o(i.CLOCK_GetUsb1ClkFreq)
-    CLOCK_GetUsbPllOutFreq                   0x00001bf9   Thumb Code     6  fsl_clock.o(i.CLOCK_GetUsbPllOutFreq)
-    CLOCK_GetWdtOscFreq                      0x00001c05   Thumb Code    50  fsl_clock.o(i.CLOCK_GetWdtOscFreq)
-    CLOCK_SetClkDiv                          0x00001c45   Thumb Code    36  fsl_clock.o(i.CLOCK_SetClkDiv)
-    CLOCK_SetFLASHAccessCyclesForFreq        0x00001c85   Thumb Code   124  fsl_clock.o(i.CLOCK_SetFLASHAccessCyclesForFreq)
-    CLOCK_SetupFROClocking                   0x00001d21   Thumb Code   138  fsl_clock.o(i.CLOCK_SetupFROClocking)
-    DbgConsole_Init                          0x00001e65   Thumb Code    74  fsl_debug_console.o(i.DbgConsole_Init)
-    DbgConsole_Printf                        0x00001ebd   Thumb Code    44  fsl_debug_console.o(i.DbgConsole_Printf)
-    DbgConsole_Putchar                       0x00002155   Thumb Code    30  fsl_debug_console.o(i.DbgConsole_Putchar)
-    FLEXCOMM0_DriverIRQHandler               0x00002179   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM0_DriverIRQHandler)
-    FLEXCOMM0_IRQHandler                     0x000021dd   Thumb Code   100  can_fd_msgobjs.o(i.FLEXCOMM0_IRQHandler)
-    FLEXCOMM1_DriverIRQHandler               0x00002259   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM1_DriverIRQHandler)
-    FLEXCOMM2_DriverIRQHandler               0x000022bd   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM2_DriverIRQHandler)
-    FLEXCOMM3_DriverIRQHandler               0x00002321   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM3_DriverIRQHandler)
-    FLEXCOMM4_DriverIRQHandler               0x00002385   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM4_DriverIRQHandler)
-    FLEXCOMM5_DriverIRQHandler               0x000023e9   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM5_DriverIRQHandler)
-    FLEXCOMM6_DriverIRQHandler               0x0000244d   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM6_DriverIRQHandler)
-    FLEXCOMM7_DriverIRQHandler               0x000024b1   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM7_DriverIRQHandler)
-    FLEXCOMM8_DriverIRQHandler               0x00002515   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM8_DriverIRQHandler)
-    FLEXCOMM9_DriverIRQHandler               0x00002579   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM9_DriverIRQHandler)
-    FLEXCOMM_GetInstance                     0x000025dd   Thumb Code    38  fsl_flexcomm.o(i.FLEXCOMM_GetInstance)
-    FLEXCOMM_Init                            0x0000262d   Thumb Code    72  fsl_flexcomm.o(i.FLEXCOMM_Init)
-    FLEXCOMM_SetPeriph                       0x000026bb   Thumb Code    68  fsl_flexcomm.o(i.FLEXCOMM_SetPeriph)
-    GPIO_PinInit                             0x000026ff   Thumb Code    84  fsl_gpio.o(i.GPIO_PinInit)
-    POWER_SetVoltageForFreq                  0x000027b1   Thumb Code   110  fsl_power_lib.o(i.POWER_SetVoltageForFreq)
-    POWER_setVdLevel                         0x00002825   Thumb Code    14  fsl_power_lib.o(i.POWER_setVdLevel)
-    RESET_ClearPeripheralReset               0x00002839   Thumb Code    80  fsl_reset.o(i.RESET_ClearPeripheralReset)
-    RESET_PeripheralReset                    0x000028b9   Thumb Code    18  fsl_reset.o(i.RESET_PeripheralReset)
-    RESET_SetPeripheralReset                 0x000028cd   Thumb Code    80  fsl_reset.o(i.RESET_SetPeripheralReset)
-    SysTick_Handler                          0x0000294d   Thumb Code    12  can_fd_msgobjs.o(i.SysTick_Handler)
-    SystemInit                               0x0000295d   Thumb Code    36  system_lpc54608.o(i.SystemInit)
-    USART_GetDefaultConfig                   0x0000298d   Thumb Code    48  fsl_usart.o(i.USART_GetDefaultConfig)
-    USART_Init                               0x000029e5   Thumb Code   226  fsl_usart.o(i.USART_Init)
-    USART_ReadBlocking                       0x00002b1d   Thumb Code   188  fsl_usart.o(i.USART_ReadBlocking)
-    USART_SetBaudRate                        0x00002c15   Thumb Code   152  fsl_usart.o(i.USART_SetBaudRate)
-    USART_WriteBlocking                      0x00002d05   Thumb Code    90  fsl_usart.o(i.USART_WriteBlocking)
-    __aeabi_assert                           0x00002d9d   Thumb Code    24  fsl_common.o(i.__aeabi_assert)
-    __scatterload_copy                       0x00002de1   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00002def   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00002df1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x00002e01   Thumb Code   970  can_fd_msgobjs.o(i.main)
-    obd_can_TxMSG_Standard                   0x0000325d   Thumb Code    36  obd_can.o(i.obd_can_TxMSG_Standard)
-    g_I2S_Mclk_Freq                          0x00003298   Data           4  fsl_clock.o(.constdata)
-    g_Ext_Clk_Freq                           0x0000329c   Data           4  fsl_clock.o(.constdata)
-    g_Lcd_Clk_In_Freq                        0x000032a0   Data           4  fsl_clock.o(.constdata)
-    kFlexcommIrqs                            0x000032f4   Data          10  fsl_flexcomm.o(.constdata)
-    Region$$Table$$Base                      0x00003340   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00003360   Number         0  anon$$obj.o(Region$$Table)
+    BOARD_InitGPIO                           0x000007a9   Thumb Code    76  board.o(i.BOARD_InitGPIO)
+    BOARD_InitPins                           0x000007fd   Thumb Code   256  pin_mux.o(i.BOARD_InitPins)
+    CAN0_IRQ0_DriverIRQHandler               0x00000909   Thumb Code    14  can.o(i.CAN0_IRQ0_DriverIRQHandler)
+    CAN1_IRQ0_DriverIRQHandler               0x00000921   Thumb Code    14  can.o(i.CAN1_IRQ0_DriverIRQHandler)
+    CAN_Enable                               0x00000abf   Thumb Code    46  can.o(i.CAN_Enable)
+    CAN_GetDefaultConfig                     0x00000b35   Thumb Code    44  can.o(i.CAN_GetDefaultConfig)
+    CAN_Init                                 0x00000c45   Thumb Code   464  can.o(i.CAN_Init)
+    CAN_ReadRxFifo                           0x00000e5f   Thumb Code   134  can.o(i.CAN_ReadRxFifo)
+    CAN_ReadRxMb                             0x00000ee5   Thumb Code   134  can.o(i.CAN_ReadRxMb)
+    CAN_SetRxExtIndividualMask               0x00001041   Thumb Code    34  can.o(i.CAN_SetRxExtIndividualMask)
+    CAN_SetRxIndividualMask                  0x00001063   Thumb Code    30  can.o(i.CAN_SetRxIndividualMask)
+    CAN_SetTimingConfig                      0x00001081   Thumb Code   152  can.o(i.CAN_SetTimingConfig)
+    CAN_TransferAbortReceive                 0x0000111d   Thumb Code    28  can.o(i.CAN_TransferAbortReceive)
+    CAN_TransferAbortReceiveFifo             0x00001139   Thumb Code    46  can.o(i.CAN_TransferAbortReceiveFifo)
+    CAN_TransferAbortSend                    0x00001167   Thumb Code    30  can.o(i.CAN_TransferAbortSend)
+    CAN_TransferHandleIRQ                    0x00001185   Thumb Code   522  can.o(i.CAN_TransferHandleIRQ)
+    CAN_TransferSendBlocking                 0x0000138f   Thumb Code    46  can.o(i.CAN_TransferSendBlocking)
+    CAN_WriteTxMb                            0x000013bd   Thumb Code   206  can.o(i.CAN_WriteTxMb)
+    CLOCK_AttachClk                          0x0000148d   Thumb Code    66  fsl_clock.o(i.CLOCK_AttachClk)
+    CLOCK_GetAdcClkFreq                      0x00001529   Thumb Code    72  fsl_clock.o(i.CLOCK_GetAdcClkFreq)
+    CLOCK_GetAsyncApbClkFreq                 0x00001575   Thumb Code    40  fsl_clock.o(i.CLOCK_GetAsyncApbClkFreq)
+    CLOCK_GetAudioPllOutFreq                 0x000015a5   Thumb Code     6  fsl_clock.o(i.CLOCK_GetAudioPllOutFreq)
+    CLOCK_GetClockOutClkFreq                 0x000015b1   Thumb Code   116  fsl_clock.o(i.CLOCK_GetClockOutClkFreq)
+    CLOCK_GetCoreSysClkFreq                  0x00001629   Thumb Code   120  fsl_clock.o(i.CLOCK_GetCoreSysClkFreq)
+    CLOCK_GetExtClkFreq                      0x000016a5   Thumb Code     4  fsl_clock.o(i.CLOCK_GetExtClkFreq)
+    CLOCK_GetFlexCommClkFreq                 0x000016ad   Thumb Code    88  fsl_clock.o(i.CLOCK_GetFlexCommClkFreq)
+    CLOCK_GetFreq                            0x00001709   Thumb Code   708  fsl_clock.o(i.CLOCK_GetFreq)
+    CLOCK_GetFro12MFreq                      0x000019d1   Thumb Code    18  fsl_clock.o(i.CLOCK_GetFro12MFreq)
+    CLOCK_GetFroHfFreq                       0x000019ed   Thumb Code    46  fsl_clock.o(i.CLOCK_GetFroHfFreq)
+    CLOCK_GetI2SMClkFreq                     0x00001a2d   Thumb Code     4  fsl_clock.o(i.CLOCK_GetI2SMClkFreq)
+    CLOCK_GetLcdClkFreq                      0x00001a31   Thumb Code    58  fsl_clock.o(i.CLOCK_GetLcdClkFreq)
+    CLOCK_GetLcdClkIn                        0x00001a71   Thumb Code     4  fsl_clock.o(i.CLOCK_GetLcdClkIn)
+    CLOCK_GetMclkClkFreq                     0x00001a75   Thumb Code    58  fsl_clock.o(i.CLOCK_GetMclkClkFreq)
+    CLOCK_GetOsc32KFreq                      0x00001ab5   Thumb Code     6  fsl_clock.o(i.CLOCK_GetOsc32KFreq)
+    CLOCK_GetPllOutFreq                      0x00001abd   Thumb Code     6  fsl_clock.o(i.CLOCK_GetPllOutFreq)
+    CLOCK_GetSctClkFreq                      0x00001ac9   Thumb Code    72  fsl_clock.o(i.CLOCK_GetSctClkFreq)
+    CLOCK_GetSdioClkFreq                     0x00001b15   Thumb Code    86  fsl_clock.o(i.CLOCK_GetSdioClkFreq)
+    CLOCK_GetSpifiClkFreq                    0x00001b71   Thumb Code    86  fsl_clock.o(i.CLOCK_GetSpifiClkFreq)
+    CLOCK_GetUsb0ClkFreq                     0x00001bcd   Thumb Code    58  fsl_clock.o(i.CLOCK_GetUsb0ClkFreq)
+    CLOCK_GetUsb1ClkFreq                     0x00001c0d   Thumb Code    58  fsl_clock.o(i.CLOCK_GetUsb1ClkFreq)
+    CLOCK_GetUsbPllOutFreq                   0x00001c4d   Thumb Code     6  fsl_clock.o(i.CLOCK_GetUsbPllOutFreq)
+    CLOCK_GetWdtOscFreq                      0x00001c59   Thumb Code    50  fsl_clock.o(i.CLOCK_GetWdtOscFreq)
+    CLOCK_SetClkDiv                          0x00001c99   Thumb Code    36  fsl_clock.o(i.CLOCK_SetClkDiv)
+    CLOCK_SetFLASHAccessCyclesForFreq        0x00001cd9   Thumb Code   124  fsl_clock.o(i.CLOCK_SetFLASHAccessCyclesForFreq)
+    CLOCK_SetupFROClocking                   0x00001d75   Thumb Code   138  fsl_clock.o(i.CLOCK_SetupFROClocking)
+    DbgConsole_Init                          0x00001eb9   Thumb Code    74  fsl_debug_console.o(i.DbgConsole_Init)
+    DbgConsole_Printf                        0x00001f11   Thumb Code    44  fsl_debug_console.o(i.DbgConsole_Printf)
+    DbgConsole_Putchar                       0x000021a9   Thumb Code    30  fsl_debug_console.o(i.DbgConsole_Putchar)
+    FLEXCOMM0_DriverIRQHandler               0x000021cd   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM0_DriverIRQHandler)
+    FLEXCOMM0_IRQHandler                     0x00002231   Thumb Code   100  can_fd_msgobjs.o(i.FLEXCOMM0_IRQHandler)
+    FLEXCOMM1_DriverIRQHandler               0x000022ad   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM1_DriverIRQHandler)
+    FLEXCOMM2_DriverIRQHandler               0x00002311   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM2_DriverIRQHandler)
+    FLEXCOMM3_DriverIRQHandler               0x00002375   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM3_DriverIRQHandler)
+    FLEXCOMM4_DriverIRQHandler               0x000023d9   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM4_DriverIRQHandler)
+    FLEXCOMM5_DriverIRQHandler               0x0000243d   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM5_DriverIRQHandler)
+    FLEXCOMM6_DriverIRQHandler               0x000024a1   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM6_DriverIRQHandler)
+    FLEXCOMM7_DriverIRQHandler               0x00002505   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM7_DriverIRQHandler)
+    FLEXCOMM8_DriverIRQHandler               0x00002569   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM8_DriverIRQHandler)
+    FLEXCOMM9_DriverIRQHandler               0x000025cd   Thumb Code    36  fsl_flexcomm.o(i.FLEXCOMM9_DriverIRQHandler)
+    FLEXCOMM_GetInstance                     0x00002631   Thumb Code    38  fsl_flexcomm.o(i.FLEXCOMM_GetInstance)
+    FLEXCOMM_Init                            0x00002681   Thumb Code    72  fsl_flexcomm.o(i.FLEXCOMM_Init)
+    FLEXCOMM_SetPeriph                       0x0000270f   Thumb Code    68  fsl_flexcomm.o(i.FLEXCOMM_SetPeriph)
+    GPIO_PinInit                             0x00002753   Thumb Code    84  fsl_gpio.o(i.GPIO_PinInit)
+    POWER_SetVoltageForFreq                  0x00002805   Thumb Code   110  fsl_power_lib.o(i.POWER_SetVoltageForFreq)
+    POWER_setVdLevel                         0x00002879   Thumb Code    14  fsl_power_lib.o(i.POWER_setVdLevel)
+    RESET_ClearPeripheralReset               0x0000288d   Thumb Code    80  fsl_reset.o(i.RESET_ClearPeripheralReset)
+    RESET_PeripheralReset                    0x0000290d   Thumb Code    18  fsl_reset.o(i.RESET_PeripheralReset)
+    RESET_SetPeripheralReset                 0x00002921   Thumb Code    80  fsl_reset.o(i.RESET_SetPeripheralReset)
+    SysTick_Handler                          0x000029a1   Thumb Code    12  can_fd_msgobjs.o(i.SysTick_Handler)
+    SystemInit                               0x000029b1   Thumb Code    36  system_lpc54608.o(i.SystemInit)
+    USART_GetDefaultConfig                   0x000029e1   Thumb Code    48  fsl_usart.o(i.USART_GetDefaultConfig)
+    USART_Init                               0x00002a39   Thumb Code   226  fsl_usart.o(i.USART_Init)
+    USART_ReadBlocking                       0x00002b71   Thumb Code   188  fsl_usart.o(i.USART_ReadBlocking)
+    USART_SetBaudRate                        0x00002c69   Thumb Code   152  fsl_usart.o(i.USART_SetBaudRate)
+    USART_WriteBlocking                      0x00002d59   Thumb Code    90  fsl_usart.o(i.USART_WriteBlocking)
+    __aeabi_assert                           0x00002df1   Thumb Code    24  fsl_common.o(i.__aeabi_assert)
+    __scatterload_copy                       0x00002e35   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00002e43   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00002e45   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x00002e55   Thumb Code  1320  can_fd_msgobjs.o(i.main)
+    obd_can_TxMSG_Standard                   0x00003395   Thumb Code    36  obd_can.o(i.obd_can_TxMSG_Standard)
+    g_I2S_Mclk_Freq                          0x000033d0   Data           4  fsl_clock.o(.constdata)
+    g_Ext_Clk_Freq                           0x000033d4   Data           4  fsl_clock.o(.constdata)
+    g_Lcd_Clk_In_Freq                        0x000033d8   Data           4  fsl_clock.o(.constdata)
+    kFlexcommIrqs                            0x0000342c   Data          10  fsl_flexcomm.o(.constdata)
+    Region$$Table$$Base                      0x00003474   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00003494   Number         0  anon$$obj.o(Region$$Table)
     Image$$RW_m_data$$Base                   0x20000000   Number         0  anon$$obj.o ABSOLUTE
     SystemCoreClock                          0x20000000   Data           4  system_lpc54608.o(.data)
-    txIndex                                  0x20000020   Data           2  can_fd_msgobjs.o(.data)
-    rxIndex                                  0x20000022   Data           2  can_fd_msgobjs.o(.data)
-    rxIndex_old                              0x20000024   Data           2  can_fd_msgobjs.o(.data)
-    rxIndex_count                            0x20000026   Data           2  can_fd_msgobjs.o(.data)
-    rxIndex_loop                             0x20000028   Data           2  can_fd_msgobjs.o(.data)
-    delay_count                              0x2000002a   Data           2  can_fd_msgobjs.o(.data)
-    debug_count                              0x2000002c   Data           2  can_fd_msgobjs.o(.data)
-    rxIndex_updated                          0x2000002e   Data           1  can_fd_msgobjs.o(.data)
-    tx_CAN_Enable                            0x2000002f   Data           1  can_fd_msgobjs.o(.data)
-    message_received                         0x20000030   Data           1  can_fd_msgobjs.o(.data)
-    Keep_Service_Active                      0x20000031   Data           1  can_fd_msgobjs.o(.data)
-    VfCANH_RxMSG_Data                        0x20000032   Data           1  can_fd_msgobjs.o(.data)
-    VfCANH_RxMSG_ID                          0x20000034   Data           2  can_fd_msgobjs.o(.data)
-    i                                        0x20000036   Data           1  can_fd_msgobjs.o(.data)
-    g_tipString                              0x20000037   Data         107  can_fd_msgobjs.o(.data)
-    VfUSART_Data                             0x200000f4   Data          12  can_fd_msgobjs.o(.bss)
-    USART_Data                               0x20000100   Data          16  can_fd_msgobjs.o(.bss)
-    demoRingBuffer                           0x20000110   Data          16  can_fd_msgobjs.o(.bss)
-    ReceiveDataFromCAN_to_USART              0x20000120   Data          12  can_fd_msgobjs.o(.bss)
-    usart0_Define                            0x2000012c   Data          48  can_fd_msgobjs.o(.bss)
+    txIndex                                  0x20000026   Data           2  can_fd_msgobjs.o(.data)
+    rxIndex                                  0x20000028   Data           2  can_fd_msgobjs.o(.data)
+    rxIndex_old                              0x2000002a   Data           2  can_fd_msgobjs.o(.data)
+    rxIndex_count                            0x2000002c   Data           2  can_fd_msgobjs.o(.data)
+    rxIndex_loop                             0x2000002e   Data           2  can_fd_msgobjs.o(.data)
+    delay_count                              0x20000030   Data           2  can_fd_msgobjs.o(.data)
+    debug_count                              0x20000032   Data           2  can_fd_msgobjs.o(.data)
+    rxIndex_updated                          0x20000034   Data           1  can_fd_msgobjs.o(.data)
+    tx_CAN_Enable                            0x20000035   Data           1  can_fd_msgobjs.o(.data)
+    message_received                         0x20000036   Data           1  can_fd_msgobjs.o(.data)
+    Keep_Service_Active                      0x20000037   Data           1  can_fd_msgobjs.o(.data)
+    KeepAlive_PERIOD_flag                    0x20000038   Data           1  can_fd_msgobjs.o(.data)
+    VfCANH_RxMSG_Data                        0x20000039   Data           1  can_fd_msgobjs.o(.data)
+    VfCANH_RxMSG_ID                          0x2000003a   Data           2  can_fd_msgobjs.o(.data)
+    Array_Cycle                              0x2000003c   Data           2  can_fd_msgobjs.o(.data)
+    i                                        0x2000003e   Data           1  can_fd_msgobjs.o(.data)
+    g_tipString                              0x2000003f   Data         107  can_fd_msgobjs.o(.data)
+    Multi_Frame_Key                          0x200000aa   Data          16  can_fd_msgobjs.o(.data)
+    led_config                               0x200000ba   Data           2  board.o(.data)
+    VfUSART_Data                             0x2000010c   Data          12  can_fd_msgobjs.o(.bss)
+    USART_Data                               0x20000118   Data          16  can_fd_msgobjs.o(.bss)
+    demoRingBuffer                           0x20000128   Data          16  can_fd_msgobjs.o(.bss)
+    ReceiveDataFromCAN_to_USART              0x20000138   Data          12  can_fd_msgobjs.o(.bss)
+    usart0_Define                            0x20000144   Data          48  can_fd_msgobjs.o(.bss)
     Image$$ARM_LIB_STACK$$ZI$$Limit          0x20028000   Number         0  anon$$obj.o ABSOLUTE
 
 
@@ -1148,7 +1158,7 @@ Memory Map of the image
 
   Image Entry point : 0x00000401
 
-  Load Region LR_m_text (Base: 0x00000000, Size: 0x00003404, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_m_text (Base: 0x00000000, Size: 0x00003550, Max: 0x00080000, ABSOLUTE)
 
     Execution Region VECTOR_ROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000124, Max: 0x00000400, ABSOLUTE)
 
@@ -1157,173 +1167,172 @@ Memory Map of the image
     0x00000000   0x00000000   0x00000124   Data   RO          108    RESET               startup_lpc54608.o
 
 
-    Execution Region VECTOR_RAM (Exec base: 0x00000000, Load base: 0x00003360, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
+    Execution Region VECTOR_RAM (Exec base: 0x00000000, Load base: 0x00003494, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000        -       0x00000000   Zero   RW            1    VECTOR_RAM.bss      anon$$obj.o
 
 
-    Execution Region ER_m_text (Exec base: 0x00000400, Load base: 0x00000400, Size: 0x00002f60, Max: 0x0007fc00, ABSOLUTE, FIXED)
+    Execution Region ER_m_text (Exec base: 0x00000400, Load base: 0x00000400, Size: 0x00003094, Max: 0x0007fc00, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000400   0x00000400   0x00000000   Code   RO         1857  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000400   0x00000400   0x00000004   Code   RO         1870    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x00000404   0x00000404   0x00000004   Code   RO         1873    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00000408   0x00000408   0x00000000   Code   RO         1875    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00000408   0x00000408   0x00000000   Code   RO         1877    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00000408   0x00000408   0x00000008   Code   RO         1878    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000410   0x00000410   0x00000000   Code   RO         1880    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000410   0x00000410   0x00000000   Code   RO         1882    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000410   0x00000410   0x00000004   Code   RO         1871    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x00000400   0x00000400   0x00000000   Code   RO         1863  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000400   0x00000400   0x00000004   Code   RO         1876    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x00000404   0x00000404   0x00000004   Code   RO         1879    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000408   0x00000408   0x00000000   Code   RO         1881    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000408   0x00000408   0x00000000   Code   RO         1883    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000408   0x00000408   0x00000008   Code   RO         1884    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000410   0x00000410   0x00000000   Code   RO         1886    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000410   0x00000410   0x00000000   Code   RO         1888    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000410   0x00000410   0x00000004   Code   RO         1877    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
     0x00000414   0x00000414   0x000001ec   Code   RO          109    .text               startup_lpc54608.o
-    0x00000600   0x00000600   0x00000024   Code   RO         1864    .text               mc_w.l(memseta.o)
-    0x00000624   0x00000624   0x0000000e   Code   RO         1866    .text               mc_w.l(strlen.o)
+    0x00000600   0x00000600   0x00000024   Code   RO         1870    .text               mc_w.l(memseta.o)
+    0x00000624   0x00000624   0x0000000e   Code   RO         1872    .text               mc_w.l(strlen.o)
     0x00000632   0x00000632   0x00000002   PAD
-    0x00000634   0x00000634   0x00000024   Code   RO         1888    .text               mc_w.l(init.o)
-    0x00000658   0x00000658   0x00000048   Code   RO         1559    i.BOARD_BootClockFROHF48M  clock_config.o
-    0x000006a0   0x000006a0   0x00000094   Code   RO         1495    i.BOARD_InitCAN     board.o
-    0x00000734   0x00000734   0x00000074   Code   RO         1496    i.BOARD_InitDebugConsole  board.o
-    0x000007a8   0x000007a8   0x0000010c   Code   RO         1609    i.BOARD_InitPins    pin_mux.o
-    0x000008b4   0x000008b4   0x00000018   Code   RO          116    i.CAN0_IRQ0_DriverIRQHandler  can.o
-    0x000008cc   0x000008cc   0x00000018   Code   RO          117    i.CAN1_IRQ0_DriverIRQHandler  can.o
-    0x000008e4   0x000008e4   0x00000134   Code   RO          119    i.CAN_CalculateTimingValues  can.o
-    0x00000a18   0x00000a18   0x0000003e   Code   RO          120    i.CAN_DecodeDLC     can.o
-    0x00000a56   0x00000a56   0x00000008   Code   RO          122    i.CAN_DisableInterrupts  can.o
-    0x00000a5e   0x00000a5e   0x0000000c   Code   RO          123    i.CAN_DisableMbInterrupts  can.o
-    0x00000a6a   0x00000a6a   0x0000002e   Code   RO          124    i.CAN_Enable        can.o
-    0x00000a98   0x00000a98   0x00000008   Code   RO          125    i.CAN_EnableInterrupts  can.o
-    0x00000aa0   0x00000aa0   0x0000003e   Code   RO          126    i.CAN_EncodeDLC     can.o
-    0x00000ade   0x00000ade   0x00000002   PAD
-    0x00000ae0   0x00000ae0   0x00000034   Code   RO          127    i.CAN_GetDefaultConfig  can.o
-    0x00000b14   0x00000b14   0x00000020   Code   RO          128    i.CAN_GetInstance   can.o
-    0x00000b34   0x00000b34   0x000000bc   Code   RO          129    i.CAN_GetSegments   can.o
-    0x00000bf0   0x00000bf0   0x000001dc   Code   RO          130    i.CAN_Init          can.o
-    0x00000dcc   0x00000dcc   0x0000003e   Code   RO          131    i.CAN_NumberofBytestoFieldSize  can.o
-    0x00000e0a   0x00000e0a   0x00000086   Code   RO          132    i.CAN_ReadRxFifo    can.o
-    0x00000e90   0x00000e90   0x00000086   Code   RO          133    i.CAN_ReadRxMb      can.o
-    0x00000f16   0x00000f16   0x000000d6   Code   RO          134    i.CAN_ReadRxMessage  can.o
-    0x00000fec   0x00000fec   0x00000022   Code   RO          135    i.CAN_SetRxExtIndividualMask  can.o
-    0x0000100e   0x0000100e   0x0000001e   Code   RO          138    i.CAN_SetRxIndividualMask  can.o
-    0x0000102c   0x0000102c   0x0000009c   Code   RO          139    i.CAN_SetTimingConfig  can.o
-    0x000010c8   0x000010c8   0x0000001c   Code   RO          140    i.CAN_TransferAbortReceive  can.o
-    0x000010e4   0x000010e4   0x0000002e   Code   RO          141    i.CAN_TransferAbortReceiveFifo  can.o
-    0x00001112   0x00001112   0x0000001e   Code   RO          142    i.CAN_TransferAbortSend  can.o
-    0x00001130   0x00001130   0x0000020a   Code   RO          144    i.CAN_TransferHandleIRQ  can.o
-    0x0000133a   0x0000133a   0x0000002e   Code   RO          149    i.CAN_TransferSendBlocking  can.o
-    0x00001368   0x00001368   0x000000ce   Code   RO          151    i.CAN_WriteTxMb     can.o
-    0x00001436   0x00001436   0x00000002   PAD
-    0x00001438   0x00001438   0x0000004c   Code   RO          408    i.CLOCK_AttachClk   fsl_clock.o
-    0x00001484   0x00001484   0x00000028   Code   RO          153    i.CLOCK_EnableClock  can.o
-    0x000014ac   0x000014ac   0x00000028   Code   RO         1402    i.CLOCK_EnableClock  can_fd_msgobjs.o
-    0x000014d4   0x000014d4   0x0000004c   Code   RO          416    i.CLOCK_GetAdcClkFreq  fsl_clock.o
-    0x00001520   0x00001520   0x00000030   Code   RO          417    i.CLOCK_GetAsyncApbClkFreq  fsl_clock.o
-    0x00001550   0x00001550   0x0000000c   Code   RO          422    i.CLOCK_GetAudioPllOutFreq  fsl_clock.o
-    0x0000155c   0x0000155c   0x00000078   Code   RO          423    i.CLOCK_GetClockOutClkFreq  fsl_clock.o
-    0x000015d4   0x000015d4   0x0000007c   Code   RO          424    i.CLOCK_GetCoreSysClkFreq  fsl_clock.o
-    0x00001650   0x00001650   0x00000008   Code   RO          425    i.CLOCK_GetExtClkFreq  fsl_clock.o
-    0x00001658   0x00001658   0x0000005c   Code   RO          427    i.CLOCK_GetFlexCommClkFreq  fsl_clock.o
-    0x000016b4   0x000016b4   0x000002c8   Code   RO          428    i.CLOCK_GetFreq     fsl_clock.o
-    0x0000197c   0x0000197c   0x0000001c   Code   RO          429    i.CLOCK_GetFro12MFreq  fsl_clock.o
-    0x00001998   0x00001998   0x00000040   Code   RO          430    i.CLOCK_GetFroHfFreq  fsl_clock.o
-    0x000019d8   0x000019d8   0x00000004   Code   RO          431    i.CLOCK_GetI2SMClkFreq  fsl_clock.o
-    0x000019dc   0x000019dc   0x00000040   Code   RO          432    i.CLOCK_GetLcdClkFreq  fsl_clock.o
-    0x00001a1c   0x00001a1c   0x00000004   Code   RO          433    i.CLOCK_GetLcdClkIn  fsl_clock.o
-    0x00001a20   0x00001a20   0x00000040   Code   RO          434    i.CLOCK_GetMclkClkFreq  fsl_clock.o
-    0x00001a60   0x00001a60   0x00000006   Code   RO          435    i.CLOCK_GetOsc32KFreq  fsl_clock.o
-    0x00001a66   0x00001a66   0x00000002   PAD
-    0x00001a68   0x00001a68   0x0000000c   Code   RO          437    i.CLOCK_GetPllOutFreq  fsl_clock.o
-    0x00001a74   0x00001a74   0x0000004c   Code   RO          438    i.CLOCK_GetSctClkFreq  fsl_clock.o
-    0x00001ac0   0x00001ac0   0x0000005c   Code   RO          439    i.CLOCK_GetSdioClkFreq  fsl_clock.o
-    0x00001b1c   0x00001b1c   0x0000005c   Code   RO          440    i.CLOCK_GetSpifiClkFreq  fsl_clock.o
-    0x00001b78   0x00001b78   0x00000040   Code   RO          445    i.CLOCK_GetUsb0ClkFreq  fsl_clock.o
-    0x00001bb8   0x00001bb8   0x00000040   Code   RO          446    i.CLOCK_GetUsb1ClkFreq  fsl_clock.o
-    0x00001bf8   0x00001bf8   0x0000000c   Code   RO          450    i.CLOCK_GetUsbPllOutFreq  fsl_clock.o
-    0x00001c04   0x00001c04   0x00000040   Code   RO          451    i.CLOCK_GetWdtOscFreq  fsl_clock.o
-    0x00001c44   0x00001c44   0x00000028   Code   RO          453    i.CLOCK_SetClkDiv   fsl_clock.o
-    0x00001c6c   0x00001c6c   0x00000018   Code   RO          454    i.CLOCK_SetFLASHAccessCycles  fsl_clock.o
-    0x00001c84   0x00001c84   0x0000009c   Code   RO          455    i.CLOCK_SetFLASHAccessCyclesForFreq  fsl_clock.o
-    0x00001d20   0x00001d20   0x0000009c   Code   RO          464    i.CLOCK_SetupFROClocking  fsl_clock.o
-    0x00001dbc   0x00001dbc   0x000000a8   Code   RO         1647    i.DbgConsole_ConvertRadixNumToString  fsl_debug_console.o
-    0x00001e64   0x00001e64   0x00000058   Code   RO         1650    i.DbgConsole_Init   fsl_debug_console.o
-    0x00001ebc   0x00001ebc   0x00000034   Code   RO         1651    i.DbgConsole_Printf  fsl_debug_console.o
-    0x00001ef0   0x00001ef0   0x0000023a   Code   RO         1652    i.DbgConsole_PrintfFormattedData  fsl_debug_console.o
-    0x0000212a   0x0000212a   0x00000028   Code   RO         1653    i.DbgConsole_PrintfPaddingCharacter  fsl_debug_console.o
-    0x00002152   0x00002152   0x00000002   PAD
-    0x00002154   0x00002154   0x00000024   Code   RO         1654    i.DbgConsole_Putchar  fsl_debug_console.o
-    0x00002178   0x00002178   0x00000064   Code   RO         1013    i.FLEXCOMM0_DriverIRQHandler  fsl_flexcomm.o
-    0x000021dc   0x000021dc   0x0000007c   Code   RO         1403    i.FLEXCOMM0_IRQHandler  can_fd_msgobjs.o
-    0x00002258   0x00002258   0x00000064   Code   RO         1014    i.FLEXCOMM1_DriverIRQHandler  fsl_flexcomm.o
-    0x000022bc   0x000022bc   0x00000064   Code   RO         1015    i.FLEXCOMM2_DriverIRQHandler  fsl_flexcomm.o
-    0x00002320   0x00002320   0x00000064   Code   RO         1016    i.FLEXCOMM3_DriverIRQHandler  fsl_flexcomm.o
-    0x00002384   0x00002384   0x00000064   Code   RO         1017    i.FLEXCOMM4_DriverIRQHandler  fsl_flexcomm.o
-    0x000023e8   0x000023e8   0x00000064   Code   RO         1018    i.FLEXCOMM5_DriverIRQHandler  fsl_flexcomm.o
-    0x0000244c   0x0000244c   0x00000064   Code   RO         1019    i.FLEXCOMM6_DriverIRQHandler  fsl_flexcomm.o
-    0x000024b0   0x000024b0   0x00000064   Code   RO         1020    i.FLEXCOMM7_DriverIRQHandler  fsl_flexcomm.o
-    0x00002514   0x00002514   0x00000064   Code   RO         1021    i.FLEXCOMM8_DriverIRQHandler  fsl_flexcomm.o
-    0x00002578   0x00002578   0x00000064   Code   RO         1022    i.FLEXCOMM9_DriverIRQHandler  fsl_flexcomm.o
-    0x000025dc   0x000025dc   0x00000050   Code   RO         1023    i.FLEXCOMM_GetInstance  fsl_flexcomm.o
-    0x0000262c   0x0000262c   0x00000054   Code   RO         1024    i.FLEXCOMM_Init     fsl_flexcomm.o
-    0x00002680   0x00002680   0x0000003a   Code   RO         1025    i.FLEXCOMM_PeripheralIsPresent  fsl_flexcomm.o
-    0x000026ba   0x000026ba   0x00000044   Code   RO         1027    i.FLEXCOMM_SetPeriph  fsl_flexcomm.o
-    0x000026fe   0x000026fe   0x00000054   Code   RO         1130    i.GPIO_PinInit      fsl_gpio.o
-    0x00002752   0x00002752   0x0000000a   Code   RO         1404    i.GPIO_TogglePinsOutput  can_fd_msgobjs.o
-    0x0000275c   0x0000275c   0x0000000a   Code   RO         1405    i.GPIO_WritePinOutput  can_fd_msgobjs.o
-    0x00002766   0x00002766   0x0000000c   Code   RO         1610    i.IOCON_PinMuxSet   pin_mux.o
-    0x00002772   0x00002772   0x00000016   Code   RO          154    i.NVIC_EnableIRQ    can.o
-    0x00002788   0x00002788   0x00000014   Code   RO          469    i.POWER_DisablePD   fsl_clock.o
-    0x0000279c   0x0000279c   0x00000014   Code   RO         1562    i.POWER_DisablePD   clock_config.o
-    0x000027b0   0x000027b0   0x00000074   Code   RO         1838    i.POWER_SetVoltageForFreq  keil_lib_power.lib(fsl_power_lib.o)
-    0x00002824   0x00002824   0x00000014   Code   RO         1840    i.POWER_setVdLevel  keil_lib_power.lib(fsl_power_lib.o)
-    0x00002838   0x00002838   0x00000080   Code   RO         1220    i.RESET_ClearPeripheralReset  fsl_reset.o
-    0x000028b8   0x000028b8   0x00000012   Code   RO         1221    i.RESET_PeripheralReset  fsl_reset.o
-    0x000028ca   0x000028ca   0x00000002   PAD
-    0x000028cc   0x000028cc   0x00000080   Code   RO         1222    i.RESET_SetPeripheralReset  fsl_reset.o
-    0x0000294c   0x0000294c   0x00000010   Code   RO         1406    i.SysTick_Handler   can_fd_msgobjs.o
-    0x0000295c   0x0000295c   0x00000030   Code   RO            8    i.SystemInit        system_lpc54608.o
-    0x0000298c   0x0000298c   0x00000058   Code   RO         1257    i.USART_GetDefaultConfig  fsl_usart.o
-    0x000029e4   0x000029e4   0x00000138   Code   RO         1259    i.USART_Init        fsl_usart.o
-    0x00002b1c   0x00002b1c   0x000000f8   Code   RO         1260    i.USART_ReadBlocking  fsl_usart.o
-    0x00002c14   0x00002c14   0x000000f0   Code   RO         1261    i.USART_SetBaudRate  fsl_usart.o
-    0x00002d04   0x00002d04   0x00000098   Code   RO         1274    i.USART_WriteBlocking  fsl_usart.o
-    0x00002d9c   0x00002d9c   0x00000044   Code   RO          891    i.__aeabi_assert    fsl_common.o
-    0x00002de0   0x00002de0   0x0000000e   Code   RO         1892    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00002dee   0x00002dee   0x00000002   Code   RO         1893    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00002df0   0x00002df0   0x0000000e   Code   RO         1894    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00002dfe   0x00002dfe   0x00000002   PAD
-    0x00002e00   0x00002e00   0x0000045c   Code   RO         1407    i.main              can_fd_msgobjs.o
-    0x0000325c   0x0000325c   0x00000034   Code   RO         1766    i.obd_can_TxMSG_Standard  obd_can.o
-    0x00003290   0x00003290   0x00000008   Data   RO          155    .constdata          can.o
-    0x00003298   0x00003298   0x0000005c   Data   RO          481    .constdata          fsl_clock.o
-    0x000032f4   0x000032f4   0x00000048   Data   RO         1029    .constdata          fsl_flexcomm.o
-    0x0000333c   0x0000333c   0x00000002   Data   RO         1409    .constdata          can_fd_msgobjs.o
-    0x0000333e   0x0000333e   0x00000002   PAD
-    0x00003340   0x00003340   0x00000020   Data   RO         1890    Region$$Table       anon$$obj.o
+    0x00000634   0x00000634   0x00000024   Code   RO         1894    .text               mc_w.l(init.o)
+    0x00000658   0x00000658   0x00000048   Code   RO         1566    i.BOARD_BootClockFROHF48M  clock_config.o
+    0x000006a0   0x000006a0   0x00000094   Code   RO         1489    i.BOARD_InitCAN     board.o
+    0x00000734   0x00000734   0x00000074   Code   RO         1490    i.BOARD_InitDebugConsole  board.o
+    0x000007a8   0x000007a8   0x00000054   Code   RO         1491    i.BOARD_InitGPIO    board.o
+    0x000007fc   0x000007fc   0x0000010c   Code   RO         1628    i.BOARD_InitPins    pin_mux.o
+    0x00000908   0x00000908   0x00000018   Code   RO          116    i.CAN0_IRQ0_DriverIRQHandler  can.o
+    0x00000920   0x00000920   0x00000018   Code   RO          117    i.CAN1_IRQ0_DriverIRQHandler  can.o
+    0x00000938   0x00000938   0x00000134   Code   RO          119    i.CAN_CalculateTimingValues  can.o
+    0x00000a6c   0x00000a6c   0x0000003e   Code   RO          120    i.CAN_DecodeDLC     can.o
+    0x00000aaa   0x00000aaa   0x00000008   Code   RO          122    i.CAN_DisableInterrupts  can.o
+    0x00000ab2   0x00000ab2   0x0000000c   Code   RO          123    i.CAN_DisableMbInterrupts  can.o
+    0x00000abe   0x00000abe   0x0000002e   Code   RO          124    i.CAN_Enable        can.o
+    0x00000aec   0x00000aec   0x00000008   Code   RO          125    i.CAN_EnableInterrupts  can.o
+    0x00000af4   0x00000af4   0x0000003e   Code   RO          126    i.CAN_EncodeDLC     can.o
+    0x00000b32   0x00000b32   0x00000002   PAD
+    0x00000b34   0x00000b34   0x00000034   Code   RO          127    i.CAN_GetDefaultConfig  can.o
+    0x00000b68   0x00000b68   0x00000020   Code   RO          128    i.CAN_GetInstance   can.o
+    0x00000b88   0x00000b88   0x000000bc   Code   RO          129    i.CAN_GetSegments   can.o
+    0x00000c44   0x00000c44   0x000001dc   Code   RO          130    i.CAN_Init          can.o
+    0x00000e20   0x00000e20   0x0000003e   Code   RO          131    i.CAN_NumberofBytestoFieldSize  can.o
+    0x00000e5e   0x00000e5e   0x00000086   Code   RO          132    i.CAN_ReadRxFifo    can.o
+    0x00000ee4   0x00000ee4   0x00000086   Code   RO          133    i.CAN_ReadRxMb      can.o
+    0x00000f6a   0x00000f6a   0x000000d6   Code   RO          134    i.CAN_ReadRxMessage  can.o
+    0x00001040   0x00001040   0x00000022   Code   RO          135    i.CAN_SetRxExtIndividualMask  can.o
+    0x00001062   0x00001062   0x0000001e   Code   RO          138    i.CAN_SetRxIndividualMask  can.o
+    0x00001080   0x00001080   0x0000009c   Code   RO          139    i.CAN_SetTimingConfig  can.o
+    0x0000111c   0x0000111c   0x0000001c   Code   RO          140    i.CAN_TransferAbortReceive  can.o
+    0x00001138   0x00001138   0x0000002e   Code   RO          141    i.CAN_TransferAbortReceiveFifo  can.o
+    0x00001166   0x00001166   0x0000001e   Code   RO          142    i.CAN_TransferAbortSend  can.o
+    0x00001184   0x00001184   0x0000020a   Code   RO          144    i.CAN_TransferHandleIRQ  can.o
+    0x0000138e   0x0000138e   0x0000002e   Code   RO          149    i.CAN_TransferSendBlocking  can.o
+    0x000013bc   0x000013bc   0x000000ce   Code   RO          151    i.CAN_WriteTxMb     can.o
+    0x0000148a   0x0000148a   0x00000002   PAD
+    0x0000148c   0x0000148c   0x0000004c   Code   RO          408    i.CLOCK_AttachClk   fsl_clock.o
+    0x000014d8   0x000014d8   0x00000028   Code   RO          153    i.CLOCK_EnableClock  can.o
+    0x00001500   0x00001500   0x00000028   Code   RO         1402    i.CLOCK_EnableClock  can_fd_msgobjs.o
+    0x00001528   0x00001528   0x0000004c   Code   RO          416    i.CLOCK_GetAdcClkFreq  fsl_clock.o
+    0x00001574   0x00001574   0x00000030   Code   RO          417    i.CLOCK_GetAsyncApbClkFreq  fsl_clock.o
+    0x000015a4   0x000015a4   0x0000000c   Code   RO          422    i.CLOCK_GetAudioPllOutFreq  fsl_clock.o
+    0x000015b0   0x000015b0   0x00000078   Code   RO          423    i.CLOCK_GetClockOutClkFreq  fsl_clock.o
+    0x00001628   0x00001628   0x0000007c   Code   RO          424    i.CLOCK_GetCoreSysClkFreq  fsl_clock.o
+    0x000016a4   0x000016a4   0x00000008   Code   RO          425    i.CLOCK_GetExtClkFreq  fsl_clock.o
+    0x000016ac   0x000016ac   0x0000005c   Code   RO          427    i.CLOCK_GetFlexCommClkFreq  fsl_clock.o
+    0x00001708   0x00001708   0x000002c8   Code   RO          428    i.CLOCK_GetFreq     fsl_clock.o
+    0x000019d0   0x000019d0   0x0000001c   Code   RO          429    i.CLOCK_GetFro12MFreq  fsl_clock.o
+    0x000019ec   0x000019ec   0x00000040   Code   RO          430    i.CLOCK_GetFroHfFreq  fsl_clock.o
+    0x00001a2c   0x00001a2c   0x00000004   Code   RO          431    i.CLOCK_GetI2SMClkFreq  fsl_clock.o
+    0x00001a30   0x00001a30   0x00000040   Code   RO          432    i.CLOCK_GetLcdClkFreq  fsl_clock.o
+    0x00001a70   0x00001a70   0x00000004   Code   RO          433    i.CLOCK_GetLcdClkIn  fsl_clock.o
+    0x00001a74   0x00001a74   0x00000040   Code   RO          434    i.CLOCK_GetMclkClkFreq  fsl_clock.o
+    0x00001ab4   0x00001ab4   0x00000006   Code   RO          435    i.CLOCK_GetOsc32KFreq  fsl_clock.o
+    0x00001aba   0x00001aba   0x00000002   PAD
+    0x00001abc   0x00001abc   0x0000000c   Code   RO          437    i.CLOCK_GetPllOutFreq  fsl_clock.o
+    0x00001ac8   0x00001ac8   0x0000004c   Code   RO          438    i.CLOCK_GetSctClkFreq  fsl_clock.o
+    0x00001b14   0x00001b14   0x0000005c   Code   RO          439    i.CLOCK_GetSdioClkFreq  fsl_clock.o
+    0x00001b70   0x00001b70   0x0000005c   Code   RO          440    i.CLOCK_GetSpifiClkFreq  fsl_clock.o
+    0x00001bcc   0x00001bcc   0x00000040   Code   RO          445    i.CLOCK_GetUsb0ClkFreq  fsl_clock.o
+    0x00001c0c   0x00001c0c   0x00000040   Code   RO          446    i.CLOCK_GetUsb1ClkFreq  fsl_clock.o
+    0x00001c4c   0x00001c4c   0x0000000c   Code   RO          450    i.CLOCK_GetUsbPllOutFreq  fsl_clock.o
+    0x00001c58   0x00001c58   0x00000040   Code   RO          451    i.CLOCK_GetWdtOscFreq  fsl_clock.o
+    0x00001c98   0x00001c98   0x00000028   Code   RO          453    i.CLOCK_SetClkDiv   fsl_clock.o
+    0x00001cc0   0x00001cc0   0x00000018   Code   RO          454    i.CLOCK_SetFLASHAccessCycles  fsl_clock.o
+    0x00001cd8   0x00001cd8   0x0000009c   Code   RO          455    i.CLOCK_SetFLASHAccessCyclesForFreq  fsl_clock.o
+    0x00001d74   0x00001d74   0x0000009c   Code   RO          464    i.CLOCK_SetupFROClocking  fsl_clock.o
+    0x00001e10   0x00001e10   0x000000a8   Code   RO         1666    i.DbgConsole_ConvertRadixNumToString  fsl_debug_console.o
+    0x00001eb8   0x00001eb8   0x00000058   Code   RO         1669    i.DbgConsole_Init   fsl_debug_console.o
+    0x00001f10   0x00001f10   0x00000034   Code   RO         1670    i.DbgConsole_Printf  fsl_debug_console.o
+    0x00001f44   0x00001f44   0x0000023a   Code   RO         1671    i.DbgConsole_PrintfFormattedData  fsl_debug_console.o
+    0x0000217e   0x0000217e   0x00000028   Code   RO         1672    i.DbgConsole_PrintfPaddingCharacter  fsl_debug_console.o
+    0x000021a6   0x000021a6   0x00000002   PAD
+    0x000021a8   0x000021a8   0x00000024   Code   RO         1673    i.DbgConsole_Putchar  fsl_debug_console.o
+    0x000021cc   0x000021cc   0x00000064   Code   RO         1013    i.FLEXCOMM0_DriverIRQHandler  fsl_flexcomm.o
+    0x00002230   0x00002230   0x0000007c   Code   RO         1403    i.FLEXCOMM0_IRQHandler  can_fd_msgobjs.o
+    0x000022ac   0x000022ac   0x00000064   Code   RO         1014    i.FLEXCOMM1_DriverIRQHandler  fsl_flexcomm.o
+    0x00002310   0x00002310   0x00000064   Code   RO         1015    i.FLEXCOMM2_DriverIRQHandler  fsl_flexcomm.o
+    0x00002374   0x00002374   0x00000064   Code   RO         1016    i.FLEXCOMM3_DriverIRQHandler  fsl_flexcomm.o
+    0x000023d8   0x000023d8   0x00000064   Code   RO         1017    i.FLEXCOMM4_DriverIRQHandler  fsl_flexcomm.o
+    0x0000243c   0x0000243c   0x00000064   Code   RO         1018    i.FLEXCOMM5_DriverIRQHandler  fsl_flexcomm.o
+    0x000024a0   0x000024a0   0x00000064   Code   RO         1019    i.FLEXCOMM6_DriverIRQHandler  fsl_flexcomm.o
+    0x00002504   0x00002504   0x00000064   Code   RO         1020    i.FLEXCOMM7_DriverIRQHandler  fsl_flexcomm.o
+    0x00002568   0x00002568   0x00000064   Code   RO         1021    i.FLEXCOMM8_DriverIRQHandler  fsl_flexcomm.o
+    0x000025cc   0x000025cc   0x00000064   Code   RO         1022    i.FLEXCOMM9_DriverIRQHandler  fsl_flexcomm.o
+    0x00002630   0x00002630   0x00000050   Code   RO         1023    i.FLEXCOMM_GetInstance  fsl_flexcomm.o
+    0x00002680   0x00002680   0x00000054   Code   RO         1024    i.FLEXCOMM_Init     fsl_flexcomm.o
+    0x000026d4   0x000026d4   0x0000003a   Code   RO         1025    i.FLEXCOMM_PeripheralIsPresent  fsl_flexcomm.o
+    0x0000270e   0x0000270e   0x00000044   Code   RO         1027    i.FLEXCOMM_SetPeriph  fsl_flexcomm.o
+    0x00002752   0x00002752   0x00000054   Code   RO         1130    i.GPIO_PinInit      fsl_gpio.o
+    0x000027a6   0x000027a6   0x0000000a   Code   RO         1404    i.GPIO_TogglePinsOutput  can_fd_msgobjs.o
+    0x000027b0   0x000027b0   0x0000000a   Code   RO         1493    i.GPIO_WritePinOutput  board.o
+    0x000027ba   0x000027ba   0x0000000c   Code   RO         1629    i.IOCON_PinMuxSet   pin_mux.o
+    0x000027c6   0x000027c6   0x00000016   Code   RO          154    i.NVIC_EnableIRQ    can.o
+    0x000027dc   0x000027dc   0x00000014   Code   RO          469    i.POWER_DisablePD   fsl_clock.o
+    0x000027f0   0x000027f0   0x00000014   Code   RO         1569    i.POWER_DisablePD   clock_config.o
+    0x00002804   0x00002804   0x00000074   Code   RO         1844    i.POWER_SetVoltageForFreq  keil_lib_power.lib(fsl_power_lib.o)
+    0x00002878   0x00002878   0x00000014   Code   RO         1846    i.POWER_setVdLevel  keil_lib_power.lib(fsl_power_lib.o)
+    0x0000288c   0x0000288c   0x00000080   Code   RO         1220    i.RESET_ClearPeripheralReset  fsl_reset.o
+    0x0000290c   0x0000290c   0x00000012   Code   RO         1221    i.RESET_PeripheralReset  fsl_reset.o
+    0x0000291e   0x0000291e   0x00000002   PAD
+    0x00002920   0x00002920   0x00000080   Code   RO         1222    i.RESET_SetPeripheralReset  fsl_reset.o
+    0x000029a0   0x000029a0   0x00000010   Code   RO         1405    i.SysTick_Handler   can_fd_msgobjs.o
+    0x000029b0   0x000029b0   0x00000030   Code   RO            8    i.SystemInit        system_lpc54608.o
+    0x000029e0   0x000029e0   0x00000058   Code   RO         1257    i.USART_GetDefaultConfig  fsl_usart.o
+    0x00002a38   0x00002a38   0x00000138   Code   RO         1259    i.USART_Init        fsl_usart.o
+    0x00002b70   0x00002b70   0x000000f8   Code   RO         1260    i.USART_ReadBlocking  fsl_usart.o
+    0x00002c68   0x00002c68   0x000000f0   Code   RO         1261    i.USART_SetBaudRate  fsl_usart.o
+    0x00002d58   0x00002d58   0x00000098   Code   RO         1274    i.USART_WriteBlocking  fsl_usart.o
+    0x00002df0   0x00002df0   0x00000044   Code   RO          891    i.__aeabi_assert    fsl_common.o
+    0x00002e34   0x00002e34   0x0000000e   Code   RO         1898    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00002e42   0x00002e42   0x00000002   Code   RO         1899    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00002e44   0x00002e44   0x0000000e   Code   RO         1900    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00002e52   0x00002e52   0x00000002   PAD
+    0x00002e54   0x00002e54   0x00000540   Code   RO         1406    i.main              can_fd_msgobjs.o
+    0x00003394   0x00003394   0x00000034   Code   RO         1785    i.obd_can_TxMSG_Standard  obd_can.o
+    0x000033c8   0x000033c8   0x00000008   Data   RO          155    .constdata          can.o
+    0x000033d0   0x000033d0   0x0000005c   Data   RO          481    .constdata          fsl_clock.o
+    0x0000342c   0x0000342c   0x00000048   Data   RO         1029    .constdata          fsl_flexcomm.o
+    0x00003474   0x00003474   0x00000020   Data   RO         1896    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_m_data (Exec base: 0x20000000, Load base: 0x00003360, Size: 0x0000016c, Max: 0x00027800, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x20000000   0x00003360   0x00000004   Data   RW           17    .data               system_lpc54608.o
-    0x20000004   0x00003364   0x0000000c   Data   RW          156    .data               can.o
-    0x20000010   0x00003370   0x0000000c   Data   RW          482    .data               fsl_clock.o
-    0x2000001c   0x0000337c   0x00000086   Data   RW         1410    .data               can_fd_msgobjs.o
-    0x200000a2   0x00003402   0x00000002   PAD
-    0x200000a4        -       0x00000050   Zero   RW         1028    .bss                fsl_flexcomm.o
-    0x200000f4        -       0x00000068   Zero   RW         1408    .bss                can_fd_msgobjs.o
-    0x2000015c        -       0x00000010   Zero   RW         1660    .bss                fsl_debug_console.o
-
-
-    Execution Region ARM_LIB_HEAP (Exec base: 0x2000016c, Load base: 0x00003404, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
+    Execution Region RW_m_data (Exec base: 0x20000000, Load base: 0x00003494, Size: 0x00000184, Max: 0x00027800, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x2000016c        -       0x00000400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
+    0x20000000   0x00003494   0x00000004   Data   RW           17    .data               system_lpc54608.o
+    0x20000004   0x00003498   0x0000000c   Data   RW          156    .data               can.o
+    0x20000010   0x000034a4   0x0000000c   Data   RW          482    .data               fsl_clock.o
+    0x2000001c   0x000034b0   0x0000009e   Data   RW         1408    .data               can_fd_msgobjs.o
+    0x200000ba   0x0000354e   0x00000002   Data   RW         1495    .data               board.o
+    0x200000bc        -       0x00000050   Zero   RW         1028    .bss                fsl_flexcomm.o
+    0x2000010c        -       0x00000068   Zero   RW         1407    .bss                can_fd_msgobjs.o
+    0x20000174        -       0x00000010   Zero   RW         1679    .bss                fsl_debug_console.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x20027c00, Load base: 0x00003404, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x20000184, Load base: 0x00003550, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000184        -       0x00000400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x20027c00, Load base: 0x00003550, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1353,10 +1362,10 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       264         94          0          0          0       9181   board.o
+       358        102          0          2          0      12174   board.o
       3006         76          8         12          0     606962   can.o
-      1316        182          2        134        104      57588   can_fd_msgobjs.o
-        92         22          0          0          0       2442   clock_config.o
+      1534        212          0        158        104      57406   can_fd_msgobjs.o
+        92         22          0          0          0       5462   clock_config.o
       2374        244         92         12          0     580855   fsl_clock.o
         68         44          0          0          0        669   fsl_common.o
        954         28          0          0         16      13609   fsl_debug_console.o
@@ -1364,15 +1373,15 @@ Image component sizes
         84          0          0          0          0       2111   fsl_gpio.o
        274         96          0          0          0       2436   fsl_reset.o
       1040        336          0          0          0      10973   fsl_usart.o
-        52         16          0          0          0       9069   obd_can.o
+        52         16          0          0          0       1141   obd_can.o
        280         12          0          0          0      16577   pin_mux.o
        492        236        292          0          0       3604   startup_lpc54608.o
         48         12          0          4          0       6035   system_lpc54608.o
 
     ----------------------------------------------------------------------
-     11644       2092        500        164       2248    1344485   Object Totals
+     11956       2130        496        188       2248    1342388   Object Totals
          0          0         32          0       2048          0   (incl. Generated)
-        10          0          2          2          0          0   (incl. Padding)
+        10          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1413,15 +1422,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11920       2120        500        164       2248    1335381   Grand Totals
-     11920       2120        500        164       2248    1335381   ELF Image Totals
-     11920       2120        500        164          0          0   ROM Totals
+     12232       2158        496        188       2248    1333184   Grand Totals
+     12232       2158        496        188       2248    1333184   ELF Image Totals
+     12232       2158        496        188          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                12420 (  12.13kB)
-    Total RW  Size (RW Data + ZI Data)              2412 (   2.36kB)
-    Total ROM Size (Code + RO Data + RW Data)      12584 (  12.29kB)
+    Total RO  Size (Code + RO Data)                12728 (  12.43kB)
+    Total RW  Size (RW Data + ZI Data)              2436 (   2.38kB)
+    Total ROM Size (Code + RO Data + RW Data)      12916 (  12.61kB)
 
 ==============================================================================
 

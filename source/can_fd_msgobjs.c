@@ -72,15 +72,17 @@
 #define TRANSMIT_PERIOD (500)         /* milliseconds between transmission */
 #define KeepAlive_PERIOD (2000)         /* milliseconds between transmission */
 
-static volatile uint32_t gTimCnt = 0; /* incremented every millisecond */
+static volatile uint32_t gTimCnt = 0,gTimCnt_old; /* incremented every millisecond */
+
+static volatile bool KeepAlive_PERIOD_flag_interrupt;
 
 volatile uint16_t txIndex; /* Index of the data to send out. */
 volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count,debug_count;
-bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active;
+bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAlive_PERIOD_flag;
 
 uint8_t VfCANH_RxMSG_Data;
-uint16_t VfCANH_RxMSG_ID;
+uint16_t VfCANH_RxMSG_ID,Array_Cycle;
 
 uint8_t VfUSART_Data[12];
 uint8_t USART_Data[DEMO_RING_BUFFER_SIZE],i;
@@ -91,6 +93,9 @@ usart_handle_t usart0_Define;
 
 uint8_t g_tipString[] =
     "Usart functional API interrupt example\r\nBoard receives characters then sends them out\r\nNow please input:\r\n";
+		
+uint8_t Multi_Frame_Key[2][8]={{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
+																{0x22,0x20,0x00,0x00,0x00,0x00,0x00,0x00}};
 
 
 /*******************************************************************************
@@ -111,7 +116,7 @@ uint8_t g_tipString[] =
         {
             demoRingBuffer[rxIndex] = data;
             rxIndex++;
-					rxIndex_count++;
+						rxIndex_count++;
             rxIndex %= DEMO_RING_BUFFER_SIZE;
 					
         }
@@ -133,6 +138,7 @@ void SysTick_Handler(void)
 {
 	// count milliseconds
 	gTimCnt++;
+
 }
 
 /*!
@@ -161,15 +167,8 @@ int main(void)
     bool message_transmitted = false;
     uint32_t next_id = 0x4C8;
 
-    /* Define the init structure for the output LED pin*/
-    gpio_pin_config_t led_config = {
-        kGPIO_DigitalOutput, 0,
-    };
-
     /* Board pin, clock, debug console init */
-		
-
-		
+			
     CLOCK_EnableClock(kCLOCK_Gpio0);
     CLOCK_EnableClock(kCLOCK_Gpio1);
     CLOCK_EnableClock(kCLOCK_Gpio2);
@@ -182,7 +181,7 @@ int main(void)
     BOARD_BootClockFROHF48M();
     BOARD_InitDebugConsole();
 		BOARD_InitCAN();
-		
+		BOARD_InitGPIO();
 		
 		//USART_EnableInterrupts(USART1, kUSART_TxLevelInterruptEnable | kUSART_RxLevelInterruptEnable);
     /* print a note to terminal */
@@ -212,26 +211,7 @@ int main(void)
     USART_EnableInterrupts(DEMO_USART, kUSART_RxLevelInterruptEnable | kUSART_RxErrorInterruptEnable);
     EnableIRQ(DEMO_USART_IRQn);
 
-    /* Init output LED GPIO. */
-		
-    GPIO_PinInit(GPIO, BOARD_LED1_GPIO_PORT, BOARD_LED1_GPIO_PIN, &led_config);
-    GPIO_WritePinOutput(GPIO, BOARD_LED1_GPIO_PORT, BOARD_LED1_GPIO_PIN, 1);
-    GPIO_PinInit(GPIO, BOARD_LED2_GPIO_PORT, BOARD_LED2_GPIO_PIN, &led_config);
-    GPIO_WritePinOutput(GPIO, BOARD_LED2_GPIO_PORT, BOARD_LED2_GPIO_PIN, 1);
-    GPIO_PinInit(GPIO, BOARD_LED3_GPIO_PORT, BOARD_LED3_GPIO_PIN, &led_config);
-    GPIO_WritePinOutput(GPIO, BOARD_LED3_GPIO_PORT, BOARD_LED3_GPIO_PIN, 1);
-		
-		/*		init the control for CC2540 on the OBD module*/
-		/*
-		GPIO_PinInit(GPIO, BOARD_CC2540_EN_GPIO0, BOARD_CC2540_EN_GPIO_PIN, &led_config);
-		GPIO_WritePinOutput(GPIO, BOARD_CC2540_EN_GPIO0, BOARD_CC2540_EN_GPIO_PIN,0);
-		
-		GPIO_PinInit(GPIO, BOARD_CC2540_EN_GPIO0, BOARD_CC2540_BT_GPIO_PIN, &led_config);
-		GPIO_WritePinOutput(GPIO, BOARD_CC2540_EN_GPIO0, BOARD_CC2540_BT_GPIO_PIN,0);
-		
-		GPIO_PinInit(GPIO, BOARD_CC2540_EN_GPIO0, BOARD_CC2540_BC_GPIO_PIN, &led_config);
-		GPIO_WritePinOutput(GPIO, BOARD_CC2540_EN_GPIO0, BOARD_CC2540_BC_GPIO_PIN,0);
-		*/
+
 		        txmsg.id = 0x145;
             //txmsg.format = kCAN_FrameFormatStandard;
 						txmsg.format =kCAN_FrameFormatExtend;
@@ -253,28 +233,29 @@ int main(void)
 					USART_Data[rxIndex_loop]=demoRingBuffer[(rxIndex_old+rxIndex_loop)%16];
 					if(rxIndex_loop>=4)
 					{
-					txmsg.dataByte[rxIndex_loop-4] = USART_Data[rxIndex_loop];
-					}
-					
+						txmsg.dataByte[rxIndex_loop-4] = USART_Data[rxIndex_loop];
+					}					
 				}
 				
 				/*if 3e receive, keep the 3e alive*/
 				if(txmsg.dataByte[1]==0x3e)
 				{
-				Keep_Service_Active = true;
+					Keep_Service_Active = true;
 				
 				}
 				else if(txmsg.dataByte[1]==0x3f)
-				{Keep_Service_Active = false;}
+				{
+					Keep_Service_Active = false;
+				}
 				
 					//txmsg.id = ((USART_Data[0]&0x1F)<<24)+(USART_Data[1]<<16)+(USART_Data[2]<<8)+(USART_Data[3]);
 					//message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
-			rxIndex_old=rxIndex;
+				rxIndex_old=rxIndex;
 				if(rxIndex_count==12)
 				{
 					tx_CAN_Enable = true;
 				}
-			rxIndex_count=0;
+				rxIndex_count=0;
 				rxIndex_updated=false;
 				//tx_CAN_Enable = true;
 				
@@ -283,7 +264,9 @@ int main(void)
 			{
 			
 				if(delay_count>1000)
-				{rxIndex_updated=true;}
+				{
+					rxIndex_updated=true;
+				}
 				else
 				{
 					delay_count++;
@@ -330,7 +313,7 @@ int main(void)
 								
 									USART_WriteByte(DEMO_USART, ReceiveDataFromCAN_to_USART[txIndex]);
 									//txIndex++;
-								debug_count++;
+								//debug_count++;
 
 							} 
 						}
@@ -341,9 +324,7 @@ int main(void)
 				   GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
         }
 				
-				
-
-				
+						
 				
 				/* Transmit the received data here*/
 				/***
@@ -358,6 +339,26 @@ int main(void)
 					{
 					txmsg.id = ((USART_Data[0]&0x1F)<<24)+(USART_Data[1]<<16)+(USART_Data[2]<<8)+(USART_Data[3]);
 					message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
+						if( txmsg.dataWord[0] == 0x0A270E10)
+						{
+							for(Array_Cycle=0;Array_Cycle<8;Array_Cycle++)
+							{
+									txmsg.dataByte[Array_Cycle] = Multi_Frame_Key[0][Array_Cycle];
+							}
+							/*Delay then sendout*/
+							for(Array_Cycle=0;Array_Cycle<28300;Array_Cycle++){;}//delay
+							
+							message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
+								
+							for(Array_Cycle=0;Array_Cycle<8;Array_Cycle++)
+							{
+									txmsg.dataByte[Array_Cycle] = Multi_Frame_Key[1][Array_Cycle];
+							}
+							/*Delay then sendout*/
+							for(Array_Cycle=0;Array_Cycle<28300;Array_Cycle++){;}//delay
+							
+							message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
+						}
 					tx_CAN_Enable = false;
 					}
 					GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
@@ -368,15 +369,33 @@ int main(void)
             message_transmitted = false;
         }
 		
-				if ((gTimCnt % KeepAlive_PERIOD == 0) && Keep_Service_Active )
+				debug_count++;
+				/*gTimCnt_old != gTimCnt to make sure every time send once*/
+				//KeepAlive_PERIOD_flag = gTimCnt % KeepAlive_PERIOD;
+				
+				if(((gTimCnt-gTimCnt_old)>1000) || ((gTimCnt_old-gTimCnt)>1000))
 				{
-				obd_can_TxMSG_Standard(CAN0, 0, &Alive_msg_3E);
-					//PRINTF("Keep_Alive");
-					//debug_count++;
+					KeepAlive_PERIOD_flag = true;
+				}
+				else
+				{
+					KeepAlive_PERIOD_flag = false;
 				}
 				
-				//for(debug_count=0;debug_count<10;debug_count++)
-				{;}
+				//KeepAlive_PERIOD_flag_interrupt = gTimCnt % KeepAlive_PERIOD;
+				//if(gTimCnt!=gTimCnt_old&&(KeepAlive_PERIOD_flag_interrupt ==false)&&(KeepAlive_PERIOD_flag == true)&&Keep_Service_Active)
+				if(gTimCnt!=gTimCnt_old&&(gTimCnt % KeepAlive_PERIOD ==0)&&Keep_Service_Active)
+				{
+	
+						//obd_can_TxMSG_Standard(CAN0, 0, &Alive_msg_3E);
+						CAN_TransferSendBlocking(CAN0, 0, &Alive_msg_3E);
+						gTimCnt_old = gTimCnt;	
+						debug_count++;					
+	
+				}
+				debug_count++;
+				
+
     }
 }
 
