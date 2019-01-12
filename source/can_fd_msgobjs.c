@@ -98,6 +98,8 @@ uint8_t Multi_Frame_Key[2][8]={{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
 																{0x22,0x20,0x00,0x00,0x00,0x00,0x00,0x00}};
 
 
+																	
+
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -394,6 +396,14 @@ int main(void)
 	
 				}
 				debug_count++;
+				//
+					if ((gTimCnt % TRANSMIT_PERIOD == 0) && KeepAlive_PERIOD_flag)
+					{
+						gTimCnt_old = gTimCnt;	
+						obd_Service(CeOBD_Service_MODE_3E_KeepAlive);
+						//CAN_TransferSendBlocking(CAN0, 0, &Alive_msg_3E);
+						GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
+					}
 				
 
     }
