@@ -340,7 +340,7 @@
 </MiscControls>
               <Define>DEBUG, CPU_LPC54608, CPU_LPC54608J512ET180=1, USE_FD</Define>
               <Undefine></Undefine>
-              <IncludePath>../CMSIS;../board;../drivers;../source;..;../utilities</IncludePath>
+              <IncludePath>../CMSIS;../board;../drivers;../source;..;../utilities;..\rtos\freertos_9.0.0\template_application\ARM_CM4F;..\rtos\freertos_9.0.0\Source;..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F;..\rtos\freertos_9.0.0\Source\portable\MemMang;..\rtos\freertos_9.0.0\Source\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -536,6 +536,11 @@
               <FileType>1</FileType>
               <FilePath>..\source\can_fd_msgobjs.c</FilePath>
             </File>
+            <File>
+              <FileName>FreeRTOSConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\template_application\ARM_CM4F\FreeRTOSConfig.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -595,6 +600,66 @@
               <FileName>obd_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\utilities\obd_usart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>FreeRTOS</GroupName>
+          <Files>
+            <File>
+              <FileName>croutine.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\croutine.c</FilePath>
+            </File>
+            <File>
+              <FileName>event_groups.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\event_groups.c</FilePath>
+            </File>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>tasks.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\tasks.c</FilePath>
+            </File>
+            <File>
+              <FileName>timers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\timers.c</FilePath>
+            </File>
+            <File>
+              <FileName>heap_4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\MemMang\heap_4.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>FreeRTOS_Portable</GroupName>
+          <Files>
+            <File>
+              <FileName>fsl_tickless_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\fsl_tickless_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_tickless_systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\fsl_tickless_systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\port.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1129,6 +1194,11 @@
               <FileType>1</FileType>
               <FilePath>..\source\can_fd_msgobjs.c</FilePath>
             </File>
+            <File>
+              <FileName>FreeRTOSConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\template_application\ARM_CM4F\FreeRTOSConfig.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1188,6 +1258,66 @@
               <FileName>obd_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\utilities\obd_usart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>FreeRTOS</GroupName>
+          <Files>
+            <File>
+              <FileName>croutine.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\croutine.c</FilePath>
+            </File>
+            <File>
+              <FileName>event_groups.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\event_groups.c</FilePath>
+            </File>
+            <File>
+              <FileName>list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\list.c</FilePath>
+            </File>
+            <File>
+              <FileName>queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>tasks.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\tasks.c</FilePath>
+            </File>
+            <File>
+              <FileName>timers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\timers.c</FilePath>
+            </File>
+            <File>
+              <FileName>heap_4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\MemMang\heap_4.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>FreeRTOS_Portable</GroupName>
+          <Files>
+            <File>
+              <FileName>fsl_tickless_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\fsl_tickless_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_tickless_systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\fsl_tickless_systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\port.c</FilePath>
             </File>
           </Files>
         </Group>

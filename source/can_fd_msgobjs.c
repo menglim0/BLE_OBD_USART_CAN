@@ -27,7 +27,15 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+ 
+ /* FreeRTOS kernel includes. */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "timers.h"
+#include "semphr.h"
 
+/*  Standard C Included Files */
 #include "board.h"
 #include "fsl_debug_console.h"
 #include "fsl_gpio.h"
@@ -37,6 +45,37 @@
 
 #include "pin_mux.h"
 #include <stdbool.h>
+/*******************************************************************************
+ * Definitions for RTOS
+ ******************************************************************************/
+ 
+#define TOUCHTASK_STACKSIZE 100
+#define TOUCHTASK_PRIORITY  (tskIDLE_PRIORITY + 1UL)
+#define LCDTASK_PRIORITY  (tskIDLE_PRIORITY + 0UL)
+#define LCDTASK_STACKSIZE 100
+
+/**
+ * Touch status check delay
+ */
+#define TOUCH_DELAY   (1000)
+#define LCD_DELAY   (2000)
+
+
+static void vTouchTask(void *pvParameters);
+static void vLcdTask(void *pvParameters);
+
+TaskHandle_t xTouchTaskHandle = NULL;
+TaskHandle_t xLcdTaskHandle = NULL;
+ 
+volatile uint32_t g_systickCounter;
+
+void SysTick_DelayTicks(uint32_t n)
+{
+    g_systickCounter = n;
+    while(g_systickCounter != 0U)
+    {
+    }
+}
 /*******************************************************************************
  * Definitions For GPIO
  ******************************************************************************/
@@ -81,7 +120,7 @@ volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count,debug_count;
 bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAlive_PERIOD_flag;
 
-uint8_t VfCANH_RxMSG_Data;
+uint8_t VfCANH_RxMSG_Data,KeepSendOneTime;
 uint16_t VfCANH_RxMSG_ID,Array_Cycle;
 
 uint8_t VfUSART_Data[12];
@@ -97,6 +136,8 @@ uint8_t g_tipString[] =
 uint8_t Multi_Frame_Key[2][8]={{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
 																{0x22,0x20,0x00,0x00,0x00,0x00,0x00,0x00}};
 
+
+																	
 
 /*******************************************************************************
  * Code
@@ -134,12 +175,12 @@ uint8_t Multi_Frame_Key[2][8]={{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
 /*!
  * @brief Keeps track of time
  */
-void SysTick_Handler(void)
-{
-	// count milliseconds
-	gTimCnt++;
+////void SysTick_Handler(void)
+//{
+//	// count milliseconds
+//	gTimCnt++;
 
-}
+//}
 
 /*!
  * @brief Main function
@@ -163,9 +204,9 @@ int main(void)
 		txmsg.dataByte[0] = 0xFC;
 		txmsg.dataByte[1] = 0x56;
     can_frame_t rxmsg = { 0 };
-    int b;
+//    int b;
     bool message_transmitted = false;
-    uint32_t next_id = 0x4C8;
+    //uint32_t next_id = 0x4C8;
 
     /* Board pin, clock, debug console init */
 			
@@ -223,8 +264,15 @@ int main(void)
 		    /* Send g_tipString out. */
     //USART_WriteBlocking(DEMO_USART, g_tipString, sizeof(g_tipString) / sizeof(g_tipString[0]));
 		
-
-    while (true)
+		xTaskCreate(vTouchTask,"Touch Task",TOUCHTASK_STACKSIZE,NULL,TOUCHTASK_PRIORITY,&xTouchTaskHandle);
+	  xTaskCreate(vLcdTask,"LCD Task",LCDTASK_STACKSIZE,NULL,LCDTASK_PRIORITY,&xLcdTaskHandle);
+		vTaskStartScheduler();
+		while(1)
+		{
+			;
+		}
+		
+    while (0)
     {
 			if(rxIndex_updated==true)
 			{
@@ -281,122 +329,31 @@ int main(void)
             txIndex %= DEMO_RING_BUFFER_SIZE;
         } 
     */
-			
-			
-        /* check for any received messages on CAN1 message buffer 0 */
-        if (CAN_ReadRxMb(CAN0, 0, &rxmsg) == kStatus_Success)
-        {
-            //PRINTF("Rx buf 0: Received message 0x%3.3X\r\n", rxmsg.id);
-					message_received = true;
-          	//VfCANH_RxMSG_Data=rxmsg.dataByte[1]; Read the Rx buffer Byte1
-					
-					VfCANH_RxMSG_ID=rxmsg.id;
-					
-					if(VfCANH_RxMSG_ID==0x4C9)
-					{
-						GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
-						
-						for(txIndex=0;txIndex<=12;txIndex++)
-						{
-							debug_count=0;
-							if(txIndex>=4)
-							{
-							ReceiveDataFromCAN_to_USART[txIndex]=rxmsg.dataByte[txIndex-4];
-							}
-							if(txIndex >= 12)
-							{
-								message_received = false;
-							}
-							/* When Receive scuessful, then wait for the CAN Receive data, use the usart send to Host*/
-							//while ((kUSART_TxFifoNotFullFlag & USART_GetStatusFlags(DEMO_USART)) )
-							{
-								
-									USART_WriteByte(DEMO_USART, ReceiveDataFromCAN_to_USART[txIndex]);
-									//txIndex++;
-								//debug_count++;
-
-							} 
-						}
-					}
-					//USART_WriteByte(USART0, VfCANH_RxMSG_Data);
-					//USART_WriteByte(USART0, 0x00);
-            /* toggle LED2 */
-				   GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
-        }
-				
-						
-				
-				/* Transmit the received data here*/
-				/***
-				
-						txmsg.id = byte0-3;
-            txmsg.length = 8;
-				*/
-				
-				if ((gTimCnt % TRANSMIT_PERIOD == 0) && !message_transmitted )
-				{
-					if(tx_CAN_Enable == true)
-					{
-					txmsg.id = ((USART_Data[0]&0x1F)<<24)+(USART_Data[1]<<16)+(USART_Data[2]<<8)+(USART_Data[3]);
-					message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
-						if( txmsg.dataWord[0] == 0x0A270E10)
-						{
-							for(Array_Cycle=0;Array_Cycle<8;Array_Cycle++)
-							{
-									txmsg.dataByte[Array_Cycle] = Multi_Frame_Key[0][Array_Cycle];
-							}
-							/*Delay then sendout*/
-							for(Array_Cycle=0;Array_Cycle<28300;Array_Cycle++){;}//delay
-							
-							message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
-								
-							for(Array_Cycle=0;Array_Cycle<8;Array_Cycle++)
-							{
-									txmsg.dataByte[Array_Cycle] = Multi_Frame_Key[1][Array_Cycle];
-							}
-							/*Delay then sendout*/
-							for(Array_Cycle=0;Array_Cycle<28300;Array_Cycle++){;}//delay
-							
-							message_transmitted=obd_can_TxMSG_Standard(CAN0, 0, &txmsg);
-						}
-					tx_CAN_Enable = false;
-					}
-					GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
-					 // USART_EnableInterrupts(DEMO_USART, kUSART_RxLevelInterruptEnable | kUSART_RxErrorInterruptEnable);
-				}
-				else if (gTimCnt % TRANSMIT_PERIOD != 0)
-        {
-            message_transmitted = false;
-        }
-		
-				debug_count++;
-				/*gTimCnt_old != gTimCnt to make sure every time send once*/
-				//KeepAlive_PERIOD_flag = gTimCnt % KeepAlive_PERIOD;
-				
-				if(((gTimCnt-gTimCnt_old)>1000) || ((gTimCnt_old-gTimCnt)>1000))
-				{
-					KeepAlive_PERIOD_flag = true;
-				}
-				else
-				{
-					KeepAlive_PERIOD_flag = false;
-				}
-				
-				//KeepAlive_PERIOD_flag_interrupt = gTimCnt % KeepAlive_PERIOD;
-				//if(gTimCnt!=gTimCnt_old&&(KeepAlive_PERIOD_flag_interrupt ==false)&&(KeepAlive_PERIOD_flag == true)&&Keep_Service_Active)
-				if(gTimCnt!=gTimCnt_old&&(gTimCnt % KeepAlive_PERIOD ==0)&&Keep_Service_Active)
-				{
-	
-						//obd_can_TxMSG_Standard(CAN0, 0, &Alive_msg_3E);
-						CAN_TransferSendBlocking(CAN0, 0, &Alive_msg_3E);
-						gTimCnt_old = gTimCnt;	
-						debug_count++;					
-	
-				}
-				debug_count++;
-				
 
     }
+}
+
+static void vTouchTask(void *pvParameters)
+{
+	for(;;)
+	{
+		GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
+		KeepSendOneTime=KeepSendOneTime%10;
+		obd_Service(KeepSendOneTime);
+		KeepSendOneTime++;
+		
+		vTaskDelay(TOUCH_DELAY);
+	}
+}
+
+static void vLcdTask(void *pvParameters)
+{
+	for(;;)
+	{
+	GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
+	vTaskDelay(LCD_DELAY);
+	}
+	
 }
 
 

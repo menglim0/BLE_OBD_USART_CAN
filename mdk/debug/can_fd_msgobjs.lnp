@@ -18,6 +18,16 @@
 "debug\fsl_debug_console.o"
 "debug\obd_can.o"
 "debug\obd_usart.o"
+"debug\croutine.o"
+"debug\event_groups.o"
+"debug\list.o"
+"debug\queue.o"
+"debug\tasks.o"
+"debug\timers.o"
+"debug\heap_4.o"
+"debug\fsl_tickless_rtc.o"
+"debug\fsl_tickless_systick.o"
+"debug\port.o"
 --library_type=microlib --diag_suppress 6314 --strict --scatter "LPC54608J512_flash.scf"
 ../libs/keil_lib_power.lib --remove --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
