@@ -39,7 +39,7 @@ TeOBD_Service_MODE OBD_Service_Mode_CMD;
 TeOBD_Service_MODE OBD_Service_Mode_NextState;	
 																
 																
-bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
+bool obd_Service(TeOBD_Service_MODE state)
 {
 		FrameToTransmit.id=0x14dae1f1;
 		FrameToTransmit.format =kCAN_FrameFormatExtend;
@@ -48,9 +48,11 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 		FrameToTransmit.bitratemode = kCAN_BitrateModeTypeSwitch;
 		FrameToTransmit.length = 8;
 	
+	OBD_Service_Mode_CMD=state;
+	
 	if(OBD_Service_Mode_CMD!=CeOBD_Service_MODE_3E_KeepAlive)
 	{
-	OBD_Service_Mode_CMD=OBD_Service_Mode_NextState;
+	//OBD_Service_Mode_CMD=OBD_Service_Mode_NextState;
 	}
 	
 	switch( OBD_Service_Mode_CMD)
@@ -62,7 +64,7 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 					FrameToTransmit.dataByte[message_length_cnt]=Service_KeepAlive[message_length_cnt];
 				}
 				message_updateToTransmit=true;
-				OBD_Service_Mode_NextState=	CeOBD_Service_MODE_10_ExtSession;		
+			//	OBD_Service_Mode_NextState=	CeOBD_Service_MODE_10_ExtSession;		
 			break;
 			
 			case CeOBD_Service_MODE_10_ExtSession:
@@ -71,7 +73,7 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 					FrameToTransmit.dataByte[message_length_cnt]=Service_ExtSession[message_length_cnt];
 				}
 				message_updateToTransmit=true;
-				OBD_Service_Mode_NextState=	CeOBD_Service_MODE_29_ReqSeed;						
+				//OBD_Service_Mode_NextState=	CeOBD_Service_MODE_29_ReqSeed;						
 			break;
 				
 			case CeOBD_Service_MODE_29_ReqSeed:
@@ -81,7 +83,7 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 				}
 				message_updateToTransmit=true;	
 
-				OBD_Service_Mode_NextState=	CeOBD_Service_MODE_0E_SendKey_MF;			
+			//	OBD_Service_Mode_NextState=	CeOBD_Service_MODE_0E_SendKey_MF;			
 				
 			break;
 					
@@ -92,7 +94,7 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 				}
 				message_updateToTransmit=true;		
 				
-								OBD_Service_Mode_NextState=	CeOBD_Service_MODE_0E_SendKey_MF1;		
+				//				OBD_Service_Mode_NextState=	CeOBD_Service_MODE_0E_SendKey_MF1;		
 			break;
 				
 				case CeOBD_Service_MODE_0E_SendKey_MF1:
@@ -102,7 +104,7 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 				}
 				message_updateToTransmit=true;		
 				
-								OBD_Service_Mode_NextState=	CeOBD_Service_MODE_0E_SendKey_MF2;		
+				//				OBD_Service_Mode_NextState=	CeOBD_Service_MODE_0E_SendKey_MF2;		
 			break;
 				
 			case CeOBD_Service_MODE_0E_SendKey_MF2:
@@ -112,7 +114,7 @@ bool obd_Service(TeOBD_Service_MODE OBD_Service_Mode_CMD)
 				}
 				message_updateToTransmit=true;		
 				
-				OBD_Service_Mode_NextState=	CeOBD_Service_MODE_No_update;		
+				//OBD_Service_Mode_NextState=	CeOBD_Service_MODE_No_update;		
 			break;
 						
 			case CeOBD_Service_MODE_No_update:

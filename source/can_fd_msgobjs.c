@@ -57,17 +57,21 @@
 /**
  * Touch status check delay
  */
-#define TOUCH_DELAY   (1000)
+#define TOUCH_DELAY   (100)
 #define LCD_DELAY   (2000)
 
 
 static void vTouchTask(void *pvParameters);
 static void vLcdTask(void *pvParameters);
 
+void USART_ReceiveData(void);
+
 TaskHandle_t xTouchTaskHandle = NULL;
 TaskHandle_t xLcdTaskHandle = NULL;
  
 volatile uint32_t g_systickCounter;
+
+TeOBD_Service_MODE OBD_Service_Mode_Detection;	
 
 void SysTick_DelayTicks(uint32_t n)
 {
@@ -123,7 +127,7 @@ bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAliv
 uint8_t VfCANH_RxMSG_Data,KeepSendOneTime;
 uint16_t VfCANH_RxMSG_ID,Array_Cycle;
 
-uint8_t VfUSART_Data[12];
+uint8_t VfUSART_Data[DEMO_RING_BUFFER_SIZE];
 uint8_t USART_Data[DEMO_RING_BUFFER_SIZE],i;
 uint8_t demoRingBuffer[DEMO_RING_BUFFER_SIZE];
 uint8_t ReceiveDataFromCAN_to_USART[12];
@@ -136,7 +140,17 @@ uint8_t g_tipString[] =
 uint8_t Multi_Frame_Key[2][8]={{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
 																{0x22,0x20,0x00,0x00,0x00,0x00,0x00,0x00}};
 
-
+																
+//按键消息队列的数量
+#define KEYMSG_Q_NUM    1  		//按键消息队列的数量  
+#define MESSAGE_Q_NUM   4   	//发送数据的消息队列的数量 
+QueueHandle_t Key_Queue;   		//按键值消息队列句柄
+QueueHandle_t Message_Queue;	//信息队列句柄
+#define USART_REC_LEN  			20  	//定义最大接收字节数 50
+																
+/* Usart queue*/
+extern QueueHandle_t Message_Queue;	//信息队列句柄
+bool USART_RX_First=0,USART_RX_Last=0,USART_RX_Wait=0;       //接收状态标记
 																	
 
 /*******************************************************************************
@@ -147,22 +161,42 @@ uint8_t Multi_Frame_Key[2][8]={{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
     uint8_t data;
 		rxIndex_updated=false;
 		delay_count=0;
+
+	
+	BaseType_t xHigherPriorityTaskWoken=false;
+	
     /* If new data arrived. */
     if ((kUSART_RxFifoNotEmptyFlag | kUSART_RxError) & USART_GetStatusFlags(DEMO_USART))
     {
 			
         data = USART_ReadByte(DEMO_USART);
+					USART_RX_First = 1;
         /* If ring buffer is not full, add data to ring buffer. */
         //if (((rxIndex + 1) % DEMO_RING_BUFFER_SIZE) != txIndex)
         {
             demoRingBuffer[rxIndex] = data;
             rxIndex++;
 						rxIndex_count++;
+					if(rxIndex_count>=9)
+					{
+						USART_RX_Last=1;
+					}
             rxIndex %= DEMO_RING_BUFFER_SIZE;
 					
         }
 				  //USART_DisableInterrupts(DEMO_USART, kUSART_RxLevelInterruptEnable | kUSART_RxErrorInterruptEnable);
     }
+		
+		//就向队列发送接收到的数据
+//	if((USART_RX_STA)&&(Message_Queue!=NULL))
+//	{
+//		xQueueSendFromISR(Message_Queue,demoRingBuffer,&xHigherPriorityTaskWoken);//向队列中发送数据
+//		
+//		//demoRingBuffer[0]=0;	
+//		memset(demoRingBuffer,0,USART_REC_LEN);//清除数据接收缓冲区USART_RX_BUF,用于下一次数据接收
+//	
+//		portYIELD_FROM_ISR(xHigherPriorityTaskWoken);//如果需要的话进行一次任务切换
+//	}
     /* Add for ARM errata 838869, affects Cortex-M4, Cortex-M4F Store immediate overlapping
       exception return operation might vector to incorrect interrupt */
 #if defined __CORTEX_M && (__CORTEX_M == 4U)
@@ -245,10 +279,6 @@ int main(void)
     config.enableRx = true;
 
     USART_Init(DEMO_USART, &config, DEMO_USART_CLK_FREQ);
-    /* Send g_tipString out. */
-  //  USART_WriteBlocking(DEMO_USART, g_tipString, sizeof(g_tipString) / sizeof(g_tipString[0]));
-			
-   /* Enable RX interrupt. */
     USART_EnableInterrupts(DEMO_USART, kUSART_RxLevelInterruptEnable | kUSART_RxErrorInterruptEnable);
     EnableIRQ(DEMO_USART_IRQn);
 
@@ -261,12 +291,11 @@ int main(void)
             txmsg.bitratemode = kCAN_BitrateModeTypeSwitch;
             txmsg.length = 8;
 
-		    /* Send g_tipString out. */
-    //USART_WriteBlocking(DEMO_USART, g_tipString, sizeof(g_tipString) / sizeof(g_tipString[0]));
-		
+		/* scheduler the task here */   		
 		xTaskCreate(vTouchTask,"Touch Task",TOUCHTASK_STACKSIZE,NULL,TOUCHTASK_PRIORITY,&xTouchTaskHandle);
 	  xTaskCreate(vLcdTask,"LCD Task",LCDTASK_STACKSIZE,NULL,LCDTASK_PRIORITY,&xLcdTaskHandle);
 		vTaskStartScheduler();
+		
 		while(1)
 		{
 			;
@@ -335,11 +364,17 @@ int main(void)
 
 static void vTouchTask(void *pvParameters)
 {
+	uint8_t key[12];
+	//创建消息队列
+    //Key_Queue=xQueueCreate(KEYMSG_Q_NUM,sizeof(uint8_t));        //创建消息Key_Queue
+    //Message_Queue=xQueueCreate(MESSAGE_Q_NUM,USART_REC_LEN); //创建消息Message_Queue,队列项长度是串口接收缓冲区长度
 	for(;;)
 	{
 		GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
 		KeepSendOneTime=KeepSendOneTime%10;
-		obd_Service(KeepSendOneTime);
+		//xQueueReceive(Message_Queue,&key,portMAX_DELAY);
+		USART_ReceiveData();
+		obd_Service(OBD_Service_Mode_Detection);
 		KeepSendOneTime++;
 		
 		vTaskDelay(TOUCH_DELAY);
@@ -354,6 +389,48 @@ static void vLcdTask(void *pvParameters)
 	vTaskDelay(LCD_DELAY);
 	}
 	
+}
+
+void USART_ReceiveData()
+{ 
+	uint8_t i_cnt;
+	if(USART_RX_First==1&&USART_RX_Last==1)
+	{
+		for(i_cnt=0;i_cnt<DEMO_RING_BUFFER_SIZE;i_cnt++)
+		VfUSART_Data[i_cnt]=demoRingBuffer[i_cnt];
+		if(VfUSART_Data[0]==0xFF)
+		{
+			OBD_Service_Mode_Detection=VfUSART_Data[1];
+		}
+		rxIndex=0;
+		USART_RX_First=0;
+		USART_RX_Last=0;
+		USART_RX_Wait=0;
+		
+	}
+	else if(USART_RX_First==1&&USART_RX_Last==0)
+	{
+		if(USART_RX_Wait==0)
+		{
+		USART_RX_Wait=1;
+		}
+		else
+		{
+		rxIndex=0;
+		USART_RX_First=0;
+		USART_RX_Last=0;
+		USART_RX_Wait=0;
+		}
+		
+	}		
+	else
+	{
+		rxIndex=0;
+		USART_RX_First=0;
+		USART_RX_Last=0;
+		USART_RX_Wait=0;
+	}
+			
 }
 
 
