@@ -391,6 +391,8 @@ static void vLcdTask(void *pvParameters)
 	
 }
 
+
+/* receive data here*/
 void USART_ReceiveData()
 { 
 	uint8_t i_cnt;
