@@ -23,12 +23,13 @@
 
 typedef enum
 {
-   CeOBD_Service_MODE_3E_KeepAlive,        /* 00 */
-   CeOBD_Service_MODE_10_ExtSession,         /* 01 */
-   CeOBD_Service_MODE_29_ReqSeed,             /* 02 */
-   CeOBD_Service_MODE_0E_SendKey_MF,         /* 03 mutil frame*/
-	   CeOBD_Service_MODE_0E_SendKey_MF1,         /* 03 mutil frame1*/
-	   CeOBD_Service_MODE_0E_SendKey_MF2,         /* 03 mutil frame2*/
+	CeOBD_Service_MODE_Inactive,                /* 00 */
+   CeOBD_Service_MODE_3E_KeepAlive,           /* 01 */      
+   CeOBD_Service_MODE_10_ExtSession,            /* 02 */
+   CeOBD_Service_MODE_29_ReqSeed,             /* 03 */
+   CeOBD_Service_MODE_0E_SendKey_MF,           /* 04 mutil frame*/      
+	   CeOBD_Service_MODE_0E_SendKey_MF1,        /* 05 mutil frame1*/
+	   CeOBD_Service_MODE_0E_SendKey_MF2, /* 03 mutil frame2*/
 	 CeOBD_Service_MODE_No_update         /* No_Update*/
 } TeOBD_Service_MODE;
 
@@ -41,6 +42,9 @@ bool obd_Service(TeOBD_Service_MODE state);
 void obd_Service_MsgTrasmit(can_frame_t *txFrame);
 
 void obd_can_TxMSG_Extend(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame);
+
+bool obd_Service_KeepAlive();
+
 
 
 #endif /* _OBD_CAN_H_ */

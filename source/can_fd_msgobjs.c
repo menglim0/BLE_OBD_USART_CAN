@@ -123,6 +123,14 @@ volatile uint16_t txIndex; /* Index of the data to send out. */
 volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count,debug_count;
 bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAlive_PERIOD_flag;
+bool Keep_Service_Active_Send;
+
+
+#define KeepAlive_Peroid_Cnt_2s (2000/TOUCH_DELAY)
+
+
+uint16_t KeepAlive_Peroid_2s_Count;
+
 
 uint8_t VfCANH_RxMSG_Data,KeepSendOneTime;
 uint16_t VfCANH_RxMSG_ID,Array_Cycle;
@@ -374,8 +382,26 @@ static void vTouchTask(void *pvParameters)
 		KeepSendOneTime=KeepSendOneTime%10;
 		//xQueueReceive(Message_Queue,&key,portMAX_DELAY);
 		USART_ReceiveData();
+		if(VfUSART_Data[0]==0xFF&&VfUSART_Data[1] ==0x01)
+		{
+			OBD_Service_Mode_Detection=1;
+			VfUSART_Data[0]=0x00;
+			VfUSART_Data[1]=0x00;
+			Keep_Service_Active=true;
+		}
 		obd_Service(OBD_Service_Mode_Detection);
 		KeepSendOneTime++;
+		OBD_Service_Mode_Detection=0;
+		if(Keep_Service_Active==true)
+		{
+			KeepAlive_Peroid_2s_Count++;
+			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
+			{
+				obd_Service_KeepAlive();
+				KeepAlive_Peroid_2s_Count=0;
+			}
+	
+		}
 		
 		vTaskDelay(TOUCH_DELAY);
 	}

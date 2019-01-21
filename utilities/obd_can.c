@@ -22,25 +22,34 @@ uint8_t Service_ExtSession[8]=  {0x02,0x10,0x03,0x00,0x00,0x00,0x00,0x00};
 uint8_t Service_ReqSeed[8]   =  {0x02,0x27,0x09,0x00,0x00,0x00,0x00,0x00};
 
 uint8_t Service_SendKey[3][8]={ {0x10,0x0E,0x27,0x0A,0x20,0x20,0x20,0x20},
-																{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
-																{0x22,0x20,0x00,0x00,0x00,0x00,0x00,0x00}};
+								{0x21,0x20,0x20,0x20,0x20,0x20,0x20,0x20},
+								{0x22,0x20,0x00,0x00,0x00,0x00,0x00,0x00}};
 
 																
 
 bool message_transmitted = false;
 bool message_updateToTransmit = false;
+bool Service_FireWall_Pass_Cmd = false,Service_FireWall_Pass_Confirm=false;
+
 uint8_t message_length = 8;
 uint8_t message_length_cnt;
 can_frame_t FrameToTransmit;	
-																
+can_frame_t Keep_alive_frame_3E;
+
+
+
+															
 
 																
-TeOBD_Service_MODE OBD_Service_Mode_CMD;	
+TeOBD_Service_MODE OBD_Service_Mode_CMD,OBD_Service_Mode_CMD_Auto;	
 TeOBD_Service_MODE OBD_Service_Mode_NextState;	
 																
 																
 bool obd_Service(TeOBD_Service_MODE state)
 {
+
+		TeOBD_Service_MODE  LeService_CMD_Temp;
+
 		FrameToTransmit.id=0x14dae1f1;
 		FrameToTransmit.format =kCAN_FrameFormatExtend;
 		FrameToTransmit.type = kCAN_FrameTypeData;
@@ -50,12 +59,35 @@ bool obd_Service(TeOBD_Service_MODE state)
 	
 	OBD_Service_Mode_CMD=state;
 	
-	if(OBD_Service_Mode_CMD!=CeOBD_Service_MODE_3E_KeepAlive)
+	if((OBD_Service_Mode_CMD==CeOBD_Service_MODE_3E_KeepAlive||Service_FireWall_Pass_Cmd)&&Service_FireWall_Pass_Confirm == false)
 	{
-	//OBD_Service_Mode_CMD=OBD_Service_Mode_NextState;
+	Service_FireWall_Pass_Cmd =true;
+
+	}
+	else
+	{
+	Service_FireWall_Pass_Cmd=false;
+	OBD_Service_Mode_CMD_Auto=0;
+	}
+
+	if(Service_FireWall_Pass_Cmd ==true)
+	{
+		OBD_Service_Mode_CMD_Auto++;
+		LeService_CMD_Temp = OBD_Service_Mode_CMD_Auto;
+		
+		if(OBD_Service_Mode_CMD_Auto ==CeOBD_Service_MODE_No_update )
+			{
+			Service_FireWall_Pass_Confirm=true;
+			}
+	}
+	else
+	{
+	Service_FireWall_Pass_Confirm = false;
+		LeService_CMD_Temp = state;
 	}
 	
-	switch( OBD_Service_Mode_CMD)
+	
+	switch( LeService_CMD_Temp)
 	{
 			case CeOBD_Service_MODE_3E_KeepAlive:
 				
@@ -137,6 +169,24 @@ bool obd_Service(TeOBD_Service_MODE state)
 	
 return 0;
 }	
+
+
+bool obd_Service_KeepAlive()
+{
+	/*Keep_alive_frame_3E data */	
+	Keep_alive_frame_3E.id=0x14dae1f1;
+	Keep_alive_frame_3E.format =kCAN_FrameFormatExtend;
+	Keep_alive_frame_3E.type = kCAN_FrameTypeData;
+	Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
+	Keep_alive_frame_3E.bitratemode = kCAN_BitrateModeTypeSwitch;
+	Keep_alive_frame_3E.length = 8;
+	Keep_alive_frame_3E.dataWord[0]=0x00803E02;
+
+
+	obd_Service_MsgTrasmit(&Keep_alive_frame_3E);
+
+return 0;
+}
 
 
 void obd_Service_MsgTrasmit(can_frame_t *txFrame)
