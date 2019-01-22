@@ -58,7 +58,7 @@
  * Touch status check delay
  */
 #define TOUCH_DELAY   (100)
-#define LCD_DELAY   (20)
+#define LCD_DELAY   (2000)
 
 
 static void vTouchTask(void *pvParameters);
@@ -124,7 +124,7 @@ volatile uint16_t rxIndex; /* Index of the memory to save new arrived data. */
 uint16_t rxIndex_old,rxIndex_count,rxIndex_loop,delay_count,debug_count;
 bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAlive_PERIOD_flag;
 bool Keep_Service_Active_Send;
-uint16_t Rx_Msg_Cnt,Rx_Msg_Loop_Cnt;
+
 
 #define KeepAlive_Peroid_Cnt_2s (2000/TOUCH_DELAY)
 
@@ -161,8 +161,6 @@ extern QueueHandle_t Message_Queue;	//信息队列句柄
 bool USART_RX_First=0,USART_RX_Last=0,USART_RX_Wait=0;       //接收状态标记
 																	
 
-																
-can_frame_t Rxmsg_TransOilTem = { 0 };
 /*******************************************************************************
  * Code
  ******************************************************************************/
@@ -233,7 +231,7 @@ int main(void)
 {
     usart_config_t config;
     can_frame_t txmsg = { 0 };
-		 //can_frame_t rxmsg = { 0 };
+		
 		can_frame_t Alive_msg_3E = { 0 };
 		
 		Alive_msg_3E.id=0x14dae1f1;
@@ -413,16 +411,7 @@ static void vLcdTask(void *pvParameters)
 {
 	for(;;)
 	{
-	Rx_Msg_Loop_Cnt++;
-	if (CAN_ReadRxMb(CAN0, 0, &Rxmsg_TransOilTem) == kStatus_Success)
-	{
-		Rx_Msg_Cnt++;
-		PRINTF("Oil is %d \n", Rxmsg_TransOilTem.dataByte[1]);
-		
-		GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
-	}
-
-	
+	GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
 	vTaskDelay(LCD_DELAY);
 	}
 	
