@@ -71,16 +71,6 @@ PinsProfile:
 
 #define Use_LPC54616 1
 
-#define BOARD_CC2540_EN_GPIO0 0U
-#define BOARD_CC2540_EN_GPIO_PIN 24U
-
-#define BOARD_CC2540_BT_GPIO0 0U
-#define BOARD_CC2540_BT_GPIO_PIN 25U
-
-#define BOARD_CC2540_BC_GPIO0 0U
-#define BOARD_CC2540_BC_GPIO_PIN 26U
-
-
 /*
  * TEXT BELOW IS USED AS SETTING FOR THE PINS TOOL *****************************
 BOARD_InitPins:

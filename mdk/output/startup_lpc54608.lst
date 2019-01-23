@@ -1140,8 +1140,7 @@ ARM Macro Assembler    Page 18
 Command Line: --debug --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=interwork 
 --depend=debug\startup_lpc54608.d -odebug\startup_lpc54608.o -I.\RTE\_can_fd_ms
 gobjs_Debug -IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\Device\Include -IC:\K
-eil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\LPCOpen\
-lpc5460x\chip_5460x\inc --predefine="__MICROLIB SETA 1" --predefine="__UVISION_
-VERSION SETA 524" --predefine="LPC54608 SETA 1" --predefine="CPU_LPC54114J256_M
-4 SETA 1" --predefine="DEBUG SETA 1" --predefine="__CC_ARM SETA 1" --predefine=
-"KEIL SETA 1" --list=.\output\startup_lpc54608.lst startup_LPC54608.s
+eil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION
+_VERSION SETA 524" --predefine="LPC54608 SETA 1" --predefine="CPU_LPC54114J256_
+M4 SETA 1" --predefine="DEBUG SETA 1" --predefine="__CC_ARM SETA 1" --predefine
+="KEIL SETA 1" --list=.\output\startup_lpc54608.lst startup_LPC54608.s
