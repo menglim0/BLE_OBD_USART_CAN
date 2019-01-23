@@ -3,7 +3,7 @@
 <title>Static Call Graph - [debug\can_fd_msgobjs.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\can_fd_msgobjs.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jan 22 21:42:52 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Jan 23 19:48:10 2019
 <BR><P>
 <H3>Maximum Stack Usage =        548 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -623,7 +623,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>BOARD_InitCAN</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, board.o(i.BOARD_InitCAN))
+<P><STRONG><a name="[95]"></a>BOARD_InitCAN</STRONG> (Thumb, 118 bytes, Stack size 32 bytes, board.o(i.BOARD_InitCAN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = BOARD_InitCAN &rArr; CAN_Init &rArr; RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxIndividualMask
@@ -1331,7 +1331,7 @@ Global Symbols
 
 <P><STRONG><a name="[13b]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 442 bytes, Stack size 240 bytes, can_fd_msgobjs.o(i.main))
+<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 446 bytes, Stack size 240 bytes, can_fd_msgobjs.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 548<LI>Call Chain = main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
@@ -1351,7 +1351,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[e6]"></a>obd_Service</STRONG> (Thumb, 558 bytes, Stack size 16 bytes, obd_can.o(i.obd_Service))
+<P><STRONG><a name="[e6]"></a>obd_Service</STRONG> (Thumb, 562 bytes, Stack size 16 bytes, obd_can.o(i.obd_Service))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = obd_Service &rArr; CAN_TransferSendBlocking &rArr; CAN_WriteTxMb
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferSendBlocking
@@ -1359,7 +1359,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTouchTask
 </UL>
 
-<P><STRONG><a name="[e7]"></a>obd_Service_KeepAlive</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, obd_can.o(i.obd_Service_KeepAlive))
+<P><STRONG><a name="[e7]"></a>obd_Service_KeepAlive</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, obd_can.o(i.obd_Service_KeepAlive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = obd_Service_KeepAlive &rArr; obd_Service_MsgTrasmit &rArr; obd_can_TxMSG_Standard &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_MsgTrasmit
@@ -1863,7 +1863,7 @@ Local Symbols
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.vLcdTask))
+<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.vLcdTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = vLcdTask &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb

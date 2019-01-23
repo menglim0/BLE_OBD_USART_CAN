@@ -418,14 +418,7 @@ static void vLcdTask(void *pvParameters)
 	if (CAN_ReadRxMb(CAN0, 0, &Rxmsg_TransOilTem) == kStatus_Success)
 	{
 		Rx_Msg_Cnt++;
-		if( Rxmsg_TransOilTem.dataByte[1]>40)
-			{
-			PRINTF("Oil is %d \n", (Rxmsg_TransOilTem.dataByte[1]-40));
-			}
-		else
-			{
-			PRINTF("Oil is Low \n") ;
-			}
+		PRINTF("Oil is %d \n", Rxmsg_TransOilTem.dataByte[1]);
 		
 		GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
 	}

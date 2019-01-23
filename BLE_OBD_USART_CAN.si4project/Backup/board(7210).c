@@ -137,8 +137,6 @@ void BOARD_InitCAN(void)
     config.nominalBaudRate = 500000;                  // nominal bit rate is 500kbps
     config.dataBaudRate = 2000000;                     //the data bit rate is 2Mbps
     config.timestampClock_Hz = 100000;
-		config.enableNonISOMode = 1;
-	
     CAN_Init(CAN0, &config, SystemCoreClock);
     CAN_Init(CAN1, &config, SystemCoreClock);
 

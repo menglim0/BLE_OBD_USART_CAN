@@ -53,7 +53,7 @@ bool obd_Service(TeOBD_Service_MODE state)
 		FrameToTransmit.id=0x14dae1f1;
 		FrameToTransmit.format =kCAN_FrameFormatExtend;
 		FrameToTransmit.type = kCAN_FrameTypeData;
-		FrameToTransmit.proto = kCAN_ProtoTypeFD;;
+		FrameToTransmit.proto = kCAN_ProtoTypeClassic;
 		FrameToTransmit.bitratemode = kCAN_BitrateModeTypeSwitch;
 		FrameToTransmit.length = 8;
 	
@@ -179,7 +179,6 @@ bool obd_Service_KeepAlive()
 	Keep_alive_frame_3E.type = kCAN_FrameTypeData;
 	Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
 	Keep_alive_frame_3E.bitratemode = kCAN_BitrateModeTypeSwitch;
-	Keep_alive_frame_3E.proto = kCAN_ProtoTypeFD;
 	Keep_alive_frame_3E.length = 8;
 	Keep_alive_frame_3E.dataWord[0]=0x00803E02;
 
