@@ -135,13 +135,11 @@ void BOARD_InitCAN(void)
     CAN_GetDefaultConfig(&config);
     config.baseAddress = 0x20010000;
     config.nominalBaudRate = 500000;                  // nominal bit rate is 500kbps
-    config.dataBaudRate = 5000000;                     //the data bit rate is 2Mbps
+    config.dataBaudRate = 2000000;                     //the data bit rate is 2Mbps
     config.timestampClock_Hz = 100000;
-	//config.enableNonISOMode = 1;
+		config.enableNonISOMode = 1;
 	
     CAN_Init(CAN0, &config, SystemCoreClock);
-
-	//config.enableNonISOMode = 1; //CAN1 set as non ISO mode
     CAN_Init(CAN1, &config, SystemCoreClock);
 
     /* receive 0x100 in CAN1 rx message buffer 0 by setting mask 0 */

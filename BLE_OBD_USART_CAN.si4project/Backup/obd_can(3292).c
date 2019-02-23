@@ -165,7 +165,6 @@ bool obd_Service(TeOBD_Service_MODE state)
 	{
 		//obd_Service_MsgTrasmit(&FrameToTransmit);
 		CAN_TransferSendBlocking(CAN0, 0, &FrameToTransmit);
-		//CAN_TransferSendBlocking(CAN1, 0, &FrameToTransmit);
 	}
 	
 return 0;
@@ -195,7 +194,6 @@ void obd_Service_MsgTrasmit(can_frame_t *txFrame)
 {
 	
 	obd_can_TxMSG_Standard(CAN0, 0, txFrame);
-	obd_can_TxMSG_Standard(CAN1, 0, txFrame);
 	
 }
 
@@ -220,11 +218,6 @@ bool obd_can_TxMSG_Standard(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
               return true;
                 //message_transmitted = true;
              }
-
-			if (CAN_TransferSendBlocking(CAN1, mbIdx, txFrame) != kStatus_Success)
-				{
-				//do nothing
-				}
 		return true;
 }
 

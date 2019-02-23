@@ -1,0 +1,5 @@
+---- dataPhaseSeg1 Matches (4 in 2 files) ----
+CAN_GetSegments in can.c (drivers) :         pconfig->dataPhaseSeg1 = p1 - 1;
+CAN_GetSegments in can.c (drivers) :         pconfig->dataPhaseSeg1 = 0;
+CAN_SetTimingConfig in can.c (drivers) :              ((((config->dataPhaseSeg1 + config->dataPropSeg) & 0x1F) - 1) << 8) +
+_can_timing_config in can.h (drivers) :     uint8_t  dataPhaseSeg1;     /*!< Data Phase Segment 1. */

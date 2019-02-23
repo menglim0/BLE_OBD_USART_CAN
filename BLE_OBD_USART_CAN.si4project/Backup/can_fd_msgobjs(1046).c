@@ -57,7 +57,7 @@
 /**
  * Touch status check delay
  */
-#define TOUCH_DELAY   (1000)
+#define TOUCH_DELAY   (100)
 #define LCD_DELAY   (20)
 
 
@@ -264,8 +264,7 @@ int main(void)
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 		
     BOARD_InitPins();
-		BOARD_BootClockFROHF48M();
-		//BOARD_BootClockPLL180M();
+    BOARD_BootClockFROHF48M();
     BOARD_InitDebugConsole();
 		BOARD_InitCAN();
 		BOARD_InitGPIO();
