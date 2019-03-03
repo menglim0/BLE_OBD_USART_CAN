@@ -57,7 +57,7 @@
 /**
  * Touch status check delay
  */
-#define TOUCH_DELAY   (1000)
+#define TOUCH_DELAY   (100)
 #define LCD_DELAY   (20)
 
 
@@ -264,8 +264,8 @@ int main(void)
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 		
     BOARD_InitPins();
-		BOARD_BootClockFROHF48M();
-		//BOARD_BootClockPLL180M();
+		//BOARD_BootClockFROHF48M();
+		BOARD_BootClockPLL180M();
     BOARD_InitDebugConsole();
 		BOARD_InitCAN();
 		BOARD_InitGPIO();
@@ -377,6 +377,7 @@ int main(void)
 static void vTouchTask(void *pvParameters)
 {
 	uint8_t key[12];
+	 can_frame_t txmsg = { 0 };
 	//创建消息队列
     //Key_Queue=xQueueCreate(KEYMSG_Q_NUM,sizeof(uint8_t));        //创建消息Key_Queue
     //Message_Queue=xQueueCreate(MESSAGE_Q_NUM,USART_REC_LEN); //创建消息Message_Queue,队列项长度是串口接收缓冲区长度
@@ -396,6 +397,7 @@ static void vTouchTask(void *pvParameters)
 		obd_Service(OBD_Service_Mode_Detection);
 		KeepSendOneTime++;
 		OBD_Service_Mode_Detection=0;
+
 		if(Keep_Service_Active==true)
 		{
 			KeepAlive_Peroid_2s_Count++;

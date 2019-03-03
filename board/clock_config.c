@@ -88,21 +88,40 @@ void BOARD_BootClockFRO12M(void)
 {
     /*!< Set up the clock sources */
     /*!< Set up FRO */
-    POWER_DisablePD(kPDRUNCFG_PD_FRO_EN); /*!< Ensure FRO is on  */
-    CLOCK_AttachClk(
-        kFRO12M_to_MAIN_CLK); /*!< Switch to FRO 12MHz first to ensure we can change voltage without accidentally
-                                   being below the voltage for current speed */
-    CLOCK_SetupFROClocking(12000000U); /*!< Set up FRO to the 12 MHz, just for sure */
-    POWER_SetVoltageForFreq(
-        12000000U); /*!< Set voltage for the one of the fastest clock outputs: System clock output */
-    CLOCK_SetFLASHAccessCyclesForFreq(12000000U); /*!< Set FLASH wait states for core */
+    POWER_DisablePD(kPDRUNCFG_PD_FRO_EN);                   /*!< Ensure FRO is on  */
+    CLOCK_AttachClk(kFRO12M_to_MAIN_CLK);                  /*!< Switch to FRO 12MHz first to ensure we can change voltage without accidentally
+                                                                being below the voltage for current speed */
+    POWER_DisablePD(kPDRUNCFG_PD_SYS_OSC);          /*!< Enable System Oscillator Power */
+    SYSCON->SYSOSCCTRL = ((SYSCON->SYSOSCCTRL & ~SYSCON_SYSOSCCTRL_FREQRANGE_MASK) | SYSCON_SYSOSCCTRL_FREQRANGE(1U)); /*!< Set system oscillator range */
+    CLOCK_SetupFROClocking(12000000U);                    /*!< Set up FRO to the 12 MHz, just for sure */
+    POWER_SetVoltageForFreq(180000000U);             /*!< Set voltage for the one of the fastest clock outputs: System clock output */
+    CLOCK_SetFLASHAccessCyclesForFreq(180000000U);    /*!< Set FLASH wait states for core */
+
+    /*!< Set up SYS PLL */
+    const pll_setup_t pllSetup = {
+        .pllctrl =  SYSCON_SYSPLLCTRL_SELI(59U) | SYSCON_SYSPLLCTRL_SELP(31U) | SYSCON_SYSPLLCTRL_SELR(0U),
+        .pllmdec = (SYSCON_SYSPLLMDEC_MDEC(27306U)),
+        .pllndec = (SYSCON_SYSPLLNDEC_NDEC(514U)),
+        .pllpdec = (SYSCON_SYSPLLPDEC_PDEC(98U)),
+        .pllRate = 180000000U,
+        .flags =  PLL_SETUPFLAG_WAITLOCK | PLL_SETUPFLAG_POWERUP
+    };
+    CLOCK_AttachClk(kEXT_CLK_to_SYS_PLL);        /*!< Set sys pll clock source*/
+    CLOCK_SetPLLFreq(&pllSetup);                 /*!< Configure PLL to the desired value */
 
     /*!< Set up dividers */
-    CLOCK_SetClkDiv(kCLOCK_DivAhbClk, 1U, false); /*!< Reset divider counter and set divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivAhbClk, 1U, false);                  /*!< Reset divider counter and set divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivSystickClk, 0U, true);                  /*!< Reset SYSTICKCLKDIV divider counter and halt it */
+    CLOCK_SetClkDiv(kCLOCK_DivSystickClk, 1U, false);                  /*!< Set SYSTICKCLKDIV divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivCan0Clk, 0U, true);                  /*!< Reset CAN0CLKDIV divider counter and halt it */
+    CLOCK_SetClkDiv(kCLOCK_DivCan0Clk, 1U, false);                  /*!< Set CAN0CLKDIV divider to value 9 */
+    CLOCK_SetClkDiv(kCLOCK_DivCan1Clk, 0U, true);                  /*!< Reset CAN1CLKDIV divider counter and halt it */
+    CLOCK_SetClkDiv(kCLOCK_DivCan1Clk, 1U, false);                  /*!< Set CAN1CLKDIV divider to value 9 */
 
     /*!< Set up clock selectors - Attach clocks to the peripheries */
-    CLOCK_AttachClk(kFRO12M_to_MAIN_CLK); /*!< Switch MAIN_CLK to FRO12M */
-    /*!< Set SystemCoreClock variable. */
+    CLOCK_AttachClk(kSYS_PLL_to_MAIN_CLK);                    /*!< Switch MAIN_CLK to SYS_PLL */
+    SYSCON->MAINCLKSELA = ((SYSCON->MAINCLKSELA & ~SYSCON_MAINCLKSELA_SEL_MASK) | SYSCON_MAINCLKSELA_SEL(1U)); /*!< Switch MAINCLKSELA to EXT_CLK even it is not used for MAINCLKSELB */
+    /* Set SystemCoreClock variable. */
     SystemCoreClock = BOARD_BOOTCLOCKFRO12M_CORE_CLOCK;
 }
 

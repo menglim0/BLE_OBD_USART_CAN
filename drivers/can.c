@@ -343,7 +343,7 @@ static int CAN_CalculateTimingValues(uint32_t nominalBaudRate,
             if (((sourceClock_Hz / nclk2) <= 256) && ((float)(sourceClock_Hz) / nclk2) == (sourceClock_Hz / nclk2))
             {
                 pconfig->preDivider = sourceClock_Hz / nclk2;
-
+									//pconfig->preDivider = 1;
 #ifdef USE_FD
                 /* if not using baudrate switch then we are done */
                 if (!dataBaudRate)
@@ -574,16 +574,31 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
     base->RXF0C = 0;
     base->RXF1C = 0;
 
-    /* calculate and apply timing */
+    /* calculate and apply timing 
     if (CAN_CalculateTimingValues(config->nominalBaudRate,
 #ifdef USE_FD
       config->dataBaudRate,
 #endif
-      sourceClock_Hz, &timingConfig))
+      sourceClock_Hz, &timingConfig))*/
     {
-        CAN_SetTimingConfig(base, &timingConfig);
+        //CAN_SetTimingConfig(base, &timingConfig);
     }
 
+		timingConfig.preDivider=0x03;         /*!< Global Clock Division Factor. 90M*/
+    timingConfig.nominalPrescaler=0x6;  /*!< Nominal clock prescaler.5M */
+    timingConfig.nominalRJumpwidth=4; /*!< Nominal Re-sync Jump Width. */
+    timingConfig.nominalPhaseSeg1=0x10;  /*!< Nominal Phase Segment 1. */
+    timingConfig.nominalPhaseSeg2=0x03;  /*!< Nominal Phase Segment 2. */
+    timingConfig.nominalPropSeg=0;    /*!< Nominal Propagation Segment. */
+#ifdef USE_FD
+    timingConfig.dataPrescaler=1;     /*!< Data clock prescaler. 60M*/
+    timingConfig.dataRJumpwidth=4;    /*!< Data Re-sync Jump Width. */
+    timingConfig.dataPhaseSeg1=0x9;     /*!< Data Phase Segment 1. */
+    timingConfig.dataPhaseSeg2=2;     /*!< Data Phase Segment 2. */
+    timingConfig.dataPropSeg=0;       /*!< Data Propagation Segment. */
+#endif
+
+		CAN_SetTimingConfig(base, &timingConfig);
     /* set base address */
     base->MRBA = config->baseAddress;
 
@@ -628,6 +643,7 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
     base->ILS = 0;
     base->ILE = CAN_ILE_EINT0_MASK;
 
+#include "LPC54608.h"                   // Device header
     if (config->enableLoopBack)
     {
         base->CCCR |= CAN_CCCR_TEST_MASK;
