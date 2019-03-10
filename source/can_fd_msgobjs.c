@@ -393,6 +393,7 @@ static void vTouchTask(void *pvParameters)
 			VfUSART_Data[0]=0x00;
 			VfUSART_Data[1]=0x00;
 			Keep_Service_Active=true;
+			KeepAlive_Peroid_2s_Count=0;
 		}
 		obd_Service(OBD_Service_Mode_Detection);
 		KeepSendOneTime++;
