@@ -383,7 +383,7 @@ static void vTouchTask(void *pvParameters)
     //Message_Queue=xQueueCreate(MESSAGE_Q_NUM,USART_REC_LEN); //创建消息Message_Queue,队列项长度是串口接收缓冲区长度
 	for(;;)
 	{
-		GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
+		//GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
 		KeepSendOneTime=KeepSendOneTime%10;
 		//xQueueReceive(Message_Queue,&key,portMAX_DELAY);
 		USART_ReceiveData();
@@ -395,7 +395,7 @@ static void vTouchTask(void *pvParameters)
 			Keep_Service_Active=true;
 			KeepAlive_Peroid_2s_Count=0;
 		}
-		obd_Service(OBD_Service_Mode_Detection);
+	//	obd_Service(OBD_Service_Mode_Detection);
 		KeepSendOneTime++;
 		OBD_Service_Mode_Detection=0;
 
@@ -404,7 +404,7 @@ static void vTouchTask(void *pvParameters)
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
 			{
-				obd_Service_KeepAlive();
+			//	obd_Service_KeepAlive();
 				KeepAlive_Peroid_2s_Count=0;
 			}
 	
@@ -424,14 +424,14 @@ static void vLcdTask(void *pvParameters)
 		Rx_Msg_Cnt++;
 		if( Rxmsg_TransOilTem.dataByte[1]>40)
 			{
-			PRINTF("Oil is %d \n", (Rxmsg_TransOilTem.dataByte[1]-40));
+			//PRINTF("Oil is %d \n", (Rxmsg_TransOilTem.dataByte[1]-40));
 			}
 		else
 			{
-			PRINTF("Oil is Low \n") ;
+			//PRINTF("Oil is Low \n") ;
 			}
 		
-		GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
+		//GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
 	}
 
 	

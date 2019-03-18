@@ -109,7 +109,7 @@ void BOARD_InitPins(void) {
     IOCON_PIO_DIGITAL_EN |                                   /* Enables digital function */
     IOCON_PIO_INPFILT_OFF |                                  /* Input filter disabled */
     IOCON_PIO_SLEW_STANDARD |                                /* Standard mode, output slew rate control is enabled */
-    IOCON_PIO_OPENDRAIN_EN                                   /* Open drain is disabled */
+    IOCON_PIO_OPENDRAIN_DI                                   /* Open drain is disabled */
   );
   IOCON_PinMuxSet(IOCON, PORT0_IDX, PIN24_IDX, port0_pin24_config); /* PORT0 PIN29 (coords: B13) is configured as FC0_RXD_SDA_MOSI */
 		
@@ -120,7 +120,7 @@ void BOARD_InitPins(void) {
     IOCON_PIO_DIGITAL_EN |                                   /* Enables digital function */
     IOCON_PIO_INPFILT_OFF |                                  /* Input filter disabled */
     IOCON_PIO_SLEW_STANDARD |                                /* Standard mode, output slew rate control is enabled */
-    IOCON_PIO_OPENDRAIN_EN                                   /* Open drain is disabled */
+    IOCON_PIO_OPENDRAIN_DI                                   /* Open drain is disabled */
   );
   IOCON_PinMuxSet(IOCON, PORT0_IDX, PIN25_IDX, port0_pin25_config); /* PORT0 PIN25 (coords: B13) is configured as FC0_RXD_SDA_MOSI */
 				
@@ -131,7 +131,7 @@ void BOARD_InitPins(void) {
     IOCON_PIO_DIGITAL_EN |                                   /* Enables digital function */
     IOCON_PIO_INPFILT_OFF |                                  /* Input filter disabled */
     IOCON_PIO_SLEW_STANDARD |                                /* Standard mode, output slew rate control is enabled */
-    IOCON_PIO_OPENDRAIN_EN                                   /* Open drain is disabled */
+    IOCON_PIO_OPENDRAIN_DI                                   /* Open drain is disabled */
   );
   IOCON_PinMuxSet(IOCON, PORT0_IDX, PIN26_IDX, port0_pin26_config); /* PORT0 PIN25 (coords: B13) is configured as FC0_RXD_SDA_MOSI */
 	
@@ -218,10 +218,10 @@ void BOARD_InitPins(void) {
 
 //<<<<<<< Updated upstream
   /* configure P3_18 for CAN0_TX and P3_19 for CAN0_RX */
-  IOCON_PinMuxSet(IOCON, 1, 2, IOCON_MODE_INACT | IOCON_FUNC1 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
-  IOCON_PinMuxSet(IOCON, 1, 3, IOCON_MODE_INACT | IOCON_FUNC1 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
-  //  IOCON_PinMuxSet(IOCON, 3, 18, IOCON_MODE_INACT | IOCON_FUNC4 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
-  //IOCON_PinMuxSet(IOCON, 3, 19, IOCON_MODE_INACT | IOCON_FUNC4 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
+  //IOCON_PinMuxSet(IOCON, 1, 2, IOCON_MODE_INACT | IOCON_FUNC1 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
+  //IOCON_PinMuxSet(IOCON, 1, 3, IOCON_MODE_INACT | IOCON_FUNC1 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
+    IOCON_PinMuxSet(IOCON, 3, 18, IOCON_MODE_INACT | IOCON_FUNC4 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
+  IOCON_PinMuxSet(IOCON, 3, 19, IOCON_MODE_INACT | IOCON_FUNC4 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
 //=======
   /* configure P3_18 for CAN0_TX and P3_19 for CAN0_RX,update here for LPC54616 */
   //IOCON_PinMuxSet(IOCON, 1, 2, IOCON_MODE_INACT | IOCON_FUNC1 | IOCON_DIGITAL_EN | IOCON_INPFILT_OFF);
