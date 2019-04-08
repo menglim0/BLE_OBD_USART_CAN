@@ -20,6 +20,9 @@ debug\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 debug\board.o: ../drivers/fsl_reset.h
 debug\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 debug\board.o: ../drivers/fsl_gpio.h
+debug\board.o: ../drivers/can.h
+debug\board.o: ../utilities/obd_control.h
+debug\board.o: ../board/board.h
+debug\board.o: ../utilities/obd_usart.h
 debug\board.o: ../utilities/fsl_debug_console.h
 debug\board.o: ../drivers/fsl_emc.h
-debug\board.o: ../drivers/can.h

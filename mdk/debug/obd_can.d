@@ -22,4 +22,7 @@ debug\obd_can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 debug\obd_can.o: ../board/board.h
 debug\obd_can.o: ../board/clock_config.h
 debug\obd_can.o: ../drivers/fsl_gpio.h
+debug\obd_can.o: ../utilities/obd_control.h
+debug\obd_can.o: ../board/board.h
+debug\obd_can.o: ../utilities/obd_usart.h
 debug\obd_can.o: ..\utilities\fsl_debug_console.h

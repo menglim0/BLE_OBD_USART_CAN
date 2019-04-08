@@ -18,6 +18,7 @@
 "debug\fsl_debug_console.o"
 "debug\obd_can.o"
 "debug\obd_usart.o"
+"debug\obd_control.o"
 "debug\croutine.o"
 "debug\event_groups.o"
 "debug\list.o"

@@ -601,6 +601,11 @@
               <FileType>1</FileType>
               <FilePath>..\utilities\obd_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>obd_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\utilities\obd_control.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1258,6 +1263,11 @@
               <FileName>obd_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\utilities\obd_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>obd_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\utilities\obd_control.c</FilePath>
             </File>
           </Files>
         </Group>

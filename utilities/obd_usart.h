@@ -28,9 +28,18 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
  
+ 
 #ifndef _OBD_USART_H_
 #define _OBD_USART_H_
 
-//#include "fsl_common.h"
+#include "board.h"
+#include "fsl_common.h"
+
+
+void usart_Data_convert(uint8_t databuffer[14]);
+extern bool usart_Confirm_BLE_Connected(uint8_t *receiveddata,uint8_t length);
+void USART_ReceiveData(uint8_t length,uint8_t *result);
+
+
 
 #endif /* _OBD_USART_H_ */

@@ -33,8 +33,11 @@ debug\can_fd_msgobjs.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 debug\can_fd_msgobjs.o: ../drivers/fsl_reset.h
 debug\can_fd_msgobjs.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 debug\can_fd_msgobjs.o: ../drivers/fsl_gpio.h
-debug\can_fd_msgobjs.o: ../utilities/fsl_debug_console.h
 debug\can_fd_msgobjs.o: ../drivers/can.h
+debug\can_fd_msgobjs.o: ../utilities/obd_control.h
+debug\can_fd_msgobjs.o: ../board/board.h
+debug\can_fd_msgobjs.o: ../utilities/obd_usart.h
+debug\can_fd_msgobjs.o: ../utilities/fsl_debug_console.h
 debug\can_fd_msgobjs.o: ../drivers/fsl_usart.h
 debug\can_fd_msgobjs.o: ../utilities/obd_can.h
 debug\can_fd_msgobjs.o: ../board/pin_mux.h

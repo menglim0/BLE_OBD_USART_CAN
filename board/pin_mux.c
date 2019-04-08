@@ -54,6 +54,7 @@ PinsProfile:
 #define IOCON_PIO_OPENDRAIN_DI        0x00u   /*!< Open drain is disabled */
 #define IOCON_PIO_OPENDRAIN_EN        0x800u   /*!< Open drain is disabled */
 #define IOCON_PIO_SLEW_STANDARD       0x00u   /*!< Standard mode, output slew rate control is enabled */
+#define PIN1_IDX                         1u   /*!< Pin number for pin 2 in a port 2 */
 #define PIN2_IDX                         2u   /*!< Pin number for pin 2 in a port 2 */
 #define PIN3_IDX                         3u   /*!< Pin number for pin 3 in a port 3 */
 #define PIN4_IDX                         4u   /*!< Pin number for pin 4 in a port 0 */
@@ -66,6 +67,7 @@ PinsProfile:
 #define PIN29_IDX                       29u   /*!< Pin number for pin 29 in a port 0 */
 #define PIN30_IDX                       30u   /*!< Pin number for pin 30 in a port 0 */
 #define PORT0_IDX                        0u   /*!< Port index */
+#define PORT1_IDX                        1u   /*!< Port index */
 #define PORT2_IDX                        2u   /*!< Port index */
 #define PORT3_IDX                        3u   /*!< Port index */
 
@@ -215,6 +217,17 @@ void BOARD_InitPins(void) {
     IOCON_PIO_OPENDRAIN_DI                                   /* Open drain is disabled */
   );
   IOCON_PinMuxSet(IOCON, PORT3_IDX, PIN3_IDX, port3_pin3_config); /* PORT3 PIN3 (coords: A13) is configured as PIO3_3 */
+	
+	const uint32_t port1_pin1_config = (
+    IOCON_PIO_FUNC0 |                                        /* Pin is configured as PIO0_4 */
+    IOCON_PIO_MODE_PULLUP |                                  /* Selects pull-up function */
+    IOCON_PIO_INV_DI |                                       /* Input function is not inverted */
+    IOCON_PIO_DIGITAL_EN |                                   /* Enables digital function */
+    IOCON_PIO_INPFILT_OFF |                                  /* Input filter disabled */
+    IOCON_PIO_SLEW_STANDARD |                                /* Standard mode, output slew rate control is enabled */
+    IOCON_PIO_OPENDRAIN_DI                                   /* Open drain is disabled */
+  );
+  IOCON_PinMuxSet(IOCON, PORT1_IDX, PIN1_IDX, port1_pin1_config); /* PORT0 PIN4 (coords: C8) is configured as PIO0_4 */
 
 //<<<<<<< Updated upstream
   /* configure P3_18 for CAN0_TX and P3_19 for CAN0_RX */

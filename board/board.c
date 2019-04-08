@@ -135,7 +135,7 @@ void BOARD_InitCAN(void)
     CAN_GetDefaultConfig(&config);
     config.baseAddress = 0x20010000;
     config.nominalBaudRate = 500000;                  // nominal bit rate is 500kbps
-    config.dataBaudRate = 5000000;                     //the data bit rate is 2Mbps
+    //config.dataBaudRate = 5000000;                     //the data bit rate is 5Mbps
     config.timestampClock_Hz = 100000;
 	//config.enableNonISOMode = 1;
 	
@@ -158,6 +158,18 @@ void BOARD_InitCAN(void)
     /* enable CAN 1 */
     CAN_Enable(CAN1, true);
 }
+
+void BOARD_ReInitCAN(CAN_Type *base, const can_config_t *config)
+{
+
+//can_config_t *reconfig;
+
+//reconfig = config;
+CAN_Deinit(base);
+CAN_Init(base, config, SystemCoreClock);
+
+}
+
 
 void BOARD_InitGPIO(void)
 {

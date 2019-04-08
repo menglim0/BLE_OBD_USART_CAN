@@ -179,8 +179,9 @@ bool obd_Service_KeepAlive()
 	Keep_alive_frame_3E.format =kCAN_FrameFormatExtend;
 	Keep_alive_frame_3E.type = kCAN_FrameTypeData;
 	Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
-	Keep_alive_frame_3E.bitratemode = kCAN_BitrateModeTypeSwitch;
-	Keep_alive_frame_3E.proto = kCAN_ProtoTypeFD;
+	Keep_alive_frame_3E.bitratemode = kCAN_BitrateModeTypeNoSwitch;
+	Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
+	//Keep_alive_frame_3E.proto = kCAN_ProtoTypeFD;
 	Keep_alive_frame_3E.length = 8;
 	Keep_alive_frame_3E.dataWord[0]=0x00803E02;
 
@@ -210,7 +211,8 @@ bool obd_can_TxMSG_Standard(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
             /* use message buffer 0 */
             if (CAN_TransferSendBlocking(CAN0, mbIdx, txFrame) != kStatus_Success)
             {
-              PRINTF("transmit");
+							
+             // PRINTF("transmit");
 							
             }
             else

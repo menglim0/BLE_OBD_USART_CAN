@@ -34,6 +34,10 @@
 #include "clock_config.h"
 #include "fsl_common.h"
 #include "fsl_gpio.h"
+#include "can.h"
+#include "obd_control.h"
+#include "obd_usart.h"
+
 
 /*******************************************************************************
  * Definitions
@@ -164,6 +168,8 @@
 #define LED3_TOGGLE()                                            \
     GPIO_TogglePinsOutput(BOARD_LED3_GPIO, BOARD_LED3_GPIO_PORT, \
                           1U << BOARD_LED3_GPIO_PIN) /*!< Toggle on target LED3 */
+							
+#define Global_DELAY 12
 
 #if defined(__cplusplus)
 extern "C" {
@@ -175,7 +181,10 @@ extern "C" {
 
 status_t BOARD_InitDebugConsole(void);
 void BOARD_InitSDRAM(void);
+	
 void BOARD_InitCAN(void);
+void BOARD_ReInitCAN(CAN_Type *base, const can_config_t *config);
+
 void BOARD_InitGPIO(void);
 
 #if defined(__cplusplus)
