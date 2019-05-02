@@ -60,7 +60,7 @@
  * Touch status check delay
  */
 #define TOUCH_DELAY   (100)
-#define LCD_DELAY   (20)
+#define LCD_DELAY   (5)
 
 
 static void vTouchTask(void *pvParameters);
@@ -197,6 +197,9 @@ TeOBD_Receive_list BLE_Command_Receive_list;
 																
 can_frame_t Rxmsg_TransOilTem = { 0 };
 
+
+can_frame_t Rxmsg_BrakePostion = { 0 };
+
 void vBLE_Command_Mode_Action(TeOBD_Control_MODE cmdMode);
 
 /*******************************************************************************
@@ -268,6 +271,9 @@ void vBLE_Command_Mode_Action(TeOBD_Control_MODE cmdMode);
 int main(void)
 {
     usart_config_t config;
+	
+	//Rxmsg_BrakePress.id=0x20E;
+	Rxmsg_BrakePostion.id=0x21B;
  
     /* Board pin, clock, debug console init */
 			
@@ -280,8 +286,8 @@ int main(void)
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 		
     BOARD_InitPins();
-		//BOARD_BootClockFROHF48M();
-	BOARD_BootClockPLL180M();
+		BOARD_BootClockFROHF48M();
+	//BOARD_BootClockPLL180M();
   BOARD_InitDebugConsole();
 	BOARD_InitCAN();
 	BOARD_InitGPIO();
@@ -305,10 +311,89 @@ int main(void)
 	xTaskCreate(vTouchTask,"Touch Task",TOUCHTASK_STACKSIZE,NULL,TOUCHTASK_PRIORITY,&xTouchTaskHandle);
 	xTaskCreate(vLcdTask,"LCD Task",LCDTASK_STACKSIZE,NULL,LCDTASK_PRIORITY,&xLcdTaskHandle);
 	vTaskStartScheduler();
-		
+	
 	while(1)
+	{;}
+	
+		uint8_t Receive_To_Usart[8]={0,0,0,0,0,0,0,0};
+	can_frame_t rxmsg = { 0 };
+	bool Brake_Press_Received=1,Brake_Position_Received=1;
+		
+	while(0)
 	{
-		;
+		/*
+		//	if(CAN_ReadRxFifo(CAN0,0, &Rxmsg_BrakePress))
+			{
+				if (CAN_ReadRxMb(CAN0,0, &rxmsg) == kStatus_Success)
+				{
+			//PRINTF("Rx fifo 0: Received message 0x%3.3X\r\n", Rxmsg_BrakePress.id);
+			Rx_Msg_Cnt++;
+				if(rxmsg.id ==0x20E)
+				{
+					Receive_To_Usart[1]=rxmsg.id & 0xFF;
+					Receive_To_Usart[0]=(rxmsg.id>>8)& 0xff;
+					Receive_To_Usart[2]=rxmsg.dataByte[1];
+					Receive_To_Usart[3]=rxmsg.dataByte[2];
+				//Brake_Press_Received=1;
+				}
+			}
+				if (CAN_ReadRxMb(CAN0,1, &rxmsg) == kStatus_Success)
+				{
+					if(rxmsg.id ==0x21B)
+					{
+					Rx_Msg_Cnt++;
+					Receive_To_Usart[5]=rxmsg.id & 0xFF;
+					Receive_To_Usart[4]=(rxmsg.id>>8)& 0xff;
+					Receive_To_Usart[6]=rxmsg.dataByte[1];
+					Receive_To_Usart[7]=rxmsg.dataByte[2];
+					//Brake_Position_Received=1;
+					}
+				}
+			}*/
+			
+			/* check for any received messages on CAN1 message buffer 0 */
+        if (CAN_ReadRxMb(CAN0, 0, &rxmsg) == kStatus_Success)
+        {
+            PRINTF("Rx buf 0: Received message 0x%3.3X\r\n", rxmsg.id);
+          
+            /* toggle LED2 */
+            GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
+        }
+
+        /* check for any received messages on CAN1 message buffer 1 */
+        if (CAN_ReadRxMb(CAN0, 1, &rxmsg) == kStatus_Success)
+        {
+            PRINTF("Rx buf 1: Received message 0x%X (29-bit)\r\n", rxmsg.id);
+          
+            /* toggle LED3 */
+            GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
+        }
+			/*
+			//if(CAN_ReadRxFifo(CAN0,1, &Rxmsg_BrakePostion))
+			{
+			//PRINTF("Rx fifo 1: Received message 0x%3.3X\r\n", Rxmsg_BrakePostion.id);
+				if (CAN_ReadRxMb(CAN0,0, &Rxmsg_BrakePostion) == kStatus_Success)
+				{
+					if(Rxmsg_BrakePostion.id ==0x20E)
+					{
+					Rx_Msg_Cnt++;
+					Receive_To_Usart[5]=Rxmsg_BrakePostion.id & 0xFF;
+					Receive_To_Usart[4]=(Rxmsg_BrakePostion.id>>8)& 0xff;
+					Receive_To_Usart[6]=Rxmsg_BrakePostion.dataByte[1];
+					Receive_To_Usart[7]=Rxmsg_BrakePostion.dataByte[2];
+				Brake_Position_Received=1;
+					}
+					
+					
+				}
+			}*/
+			
+			if(Brake_Position_Received==1&&Brake_Press_Received ==1)
+			{
+			  USART_WriteBlocking(DEMO_USART,Receive_To_Usart,8);
+				//Brake_Position_Received=0;
+				//Brake_Press_Received=0;
+			}
 	}
 	
 
@@ -325,6 +410,7 @@ static void vTouchTask(void *pvParameters)
     //Message_Queue=xQueueCreate(MESSAGE_Q_NUM,USART_REC_LEN); //创建消息Message_Queue,队列项长度是串口接收缓冲区长度
 	for(;;)
 	{
+		GPIO_TogglePinsOutput(GPIO, BOARD_LED3_GPIO_PORT, 1u << BOARD_LED3_GPIO_PIN);
 
 		/*confirm the logic running*/
 			KeepSendOneTime=KeepSendTimeCnt%10;
@@ -433,6 +519,10 @@ static void vTouchTask(void *pvParameters)
 static void vLcdTask(void *pvParameters)
 {
 	uint8_t ReceiveIndex;
+	uint8_t Receive_To_Usart[8]={0,0,0,0,0,0,0,0};
+	can_frame_t Rxmsg_BrakePress = { 0 };
+	
+	bool Brake_Press_Received=0,Brake_Position_Received=0;
 	for(;;)
 	{
 		
@@ -440,29 +530,100 @@ static void vLcdTask(void *pvParameters)
 		
 
 	/*mask with 0x4C9*/
-		for(ReceiveIndex=0;ReceiveIndex<4;ReceiveIndex++)
+		//for(ReceiveIndex=0;ReceiveIndex<4;ReceiveIndex++)
 		{
 			
-			Rxmsg_TransOilTem.id = BLE_Receive_Service_ID_List[ReceiveIndex+1];
+			//Rxmsg_TransOilTem.id = BLE_Receive_Service_ID_List[ReceiveIndex+1];
+				//Rxmsg_BrakePress.id=0x20E;
+	//Rxmsg_BrakePostion.id=0x20B;
+			if(CAN_ReadRxFifo(CAN0,0, &Rxmsg_BrakePress) == kStatus_Success)
+			{
+				
+			//PRINTF("Rx fifo 0: Received message 0x%3.3X\r\n", Rxmsg_BrakePress.id);
+				Rx_Msg_Cnt++;
+					if(Rxmsg_BrakePress.id ==0x20E)
+				{
+					Receive_To_Usart[1]=Rxmsg_BrakePress.id & 0xFF;
+					Receive_To_Usart[0]=(Rxmsg_BrakePress.id>>8)& 0xff;
+					Receive_To_Usart[2]=Rxmsg_BrakePress.dataByte[1];
+					Receive_To_Usart[3]=Rxmsg_BrakePress.dataByte[2];
+				Brake_Press_Received=1;
+					PRINTF("Rx_20E buf 0: Received message 0x%3.3X\r\n", gTimCnt);
+				}
+			
+			
+			
+				if(Rxmsg_BrakePress.id ==0x21B)
+					{
+					//Rx_Msg_Cnt++;
+					Receive_To_Usart[5]=Rxmsg_BrakePress.id & 0xFF;
+					Receive_To_Usart[4]=(Rxmsg_BrakePress.id>>8)& 0xff;						
+						//
+					Receive_To_Usart[6]=Rxmsg_BrakePress.dataByte[2];
+					Receive_To_Usart[7]=Rxmsg_BrakePress.dataByte[3];
+				
+		
+					Brake_Position_Received=1;
+						GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
+						PRINTF("Rx_21B buf 0: Received message 0x%3.3X\r\n", gTimCnt);
+					}
+				}
+			
+			if(Brake_Position_Received==1&&Brake_Press_Received ==1)
+			{
+			  USART_WriteBlocking(DEMO_USART,Receive_To_Usart,8);
+				Brake_Position_Received=0;
+				Brake_Press_Received=0;
+			}
+/*
+				if (CAN_ReadRxMb(CAN0,0, &Rxmsg_BrakePress) == kStatus_Success)
+				{
+					//Receive_To_Usart[8]={0,0,0,0,0,0,0,0};
+					//PRINTF("Rx buf 0: Received message 0x%3.3X\r\n", Rxmsg_BrakePress.id);
+					for(i=0;i<8;i++)
+					{
+						Receive_To_Usart[i]=0;
+						//Usart_Received_Feedback_1[6+i]=Rxmsg_TransOilTem.dataByte[i];
+					}
+					
+					if(Rxmsg_BrakePress.id==0x20E)
+					{
 
-				if (CAN_ReadRxMb(CAN0,0, &Rxmsg_TransOilTem) == kStatus_Success)
+					}
+					else if(Rxmsg_BrakePress.id==0x21B)
+					{
+						
+					Receive_To_Usart[6]=Rxmsg_BrakePress.dataByte[1];
+					Receive_To_Usart[7]=Rxmsg_BrakePress.dataByte[2];
+					}
+		
+					//Usart_Received_Feedback_1[4]=ReceiveID_Setting[2];
+					//Usart_Received_Feedback_1[5]=ReceiveID_Setting[3];
+					//if(G_OBD_Receive_CMD ==true)
+					{
+					//	USART_WriteBlocking(DEMO_USART,Receive_To_Usart,8);
+					}
+					Rx_Msg_Cnt++;
+				}
+				
+				if (CAN_ReadRxMb(CAN0,1, &Rxmsg_BrakePostion) == kStatus_Success)
 				{
 					for(i=0;i<8;i++)
 					{
 						Usart_Received_Feedback_1[6+i]=Rxmsg_TransOilTem.dataByte[i];
 					}
 					
-					Usart_Received_Feedback_1[2]=ReceiveID_Setting[0];
-					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
-					Usart_Received_Feedback_1[4]=ReceiveID_Setting[2];
-					Usart_Received_Feedback_1[5]=ReceiveID_Setting[3];
-					if(G_OBD_Receive_CMD ==true)
+					Receive_To_Usart[5]=Rxmsg_BrakePostion.id & 0xFF;
+					Receive_To_Usart[4]=(Rxmsg_BrakePostion.id>>8)& 0xff;
+					Receive_To_Usart[0]=Rxmsg_BrakePostion.dataByte[1];
+					Receive_To_Usart[1]=Rxmsg_BrakePostion.dataByte[2];
+					//if(G_OBD_Receive_CMD ==true)
 					{
-						USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
+					//	USART_WriteBlocking(DEMO_USART,Receive_To_Usart,8);
 					}
 					Rx_Msg_Cnt++;
 				}
-				
+				*/
 			}
 
 	

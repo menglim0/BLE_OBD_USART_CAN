@@ -34,6 +34,7 @@
 #include "fsl_common.h"
 #include "fsl_debug_console.h"
 #include "fsl_emc.h"
+//#include "fsl_can.h"
 #include "can.h"
 
 
@@ -63,6 +64,8 @@
 
 /* Clock rate on the CLKIN pin */
 const uint32_t ExtClockIn = BOARD_EXTCLKINRATE;
+
+
 
 /* Define the init structure for the output LED pin*/
 gpio_pin_config_t led_config = {
@@ -131,6 +134,9 @@ void BOARD_InitCAN(void)
 /* configure for 4Mbps data 1Mbps nominal, CAN-FD */
 		can_config_t config;
 	
+	can_rx_fifo_config_t CAN0_FIFO_Index;
+	CAN0_FIFO_Index.idFilterNum=64;
+	
 		//config.disableFD = false;
     CAN_GetDefaultConfig(&config);
     config.baseAddress = 0x20010000;
@@ -144,10 +150,14 @@ void BOARD_InitCAN(void)
 	//config.enableNonISOMode = 1; //CAN1 set as non ISO mode
     CAN_Init(CAN1, &config, SystemCoreClock);
 
+		CAN_SetRxFifoConfig(CAN0,0,&CAN0_FIFO_Index, true);
+		CAN_SetRxGlobalMask(CAN0, kCAN_GlobalFilter_Standard_FIFO0 | kCAN_GlobalFilter_Extended_FIFO0);
     /* receive 0x100 in CAN1 rx message buffer 0 by setting mask 0 */
-    CAN_SetRxIndividualMask(CAN0, 0, CAN_RX_MB_STD(0x4C9, 0));
+    CAN_SetRxIndividualMask(CAN0, 0, CAN_RX_MB_STD(0x20E, 0));
+	
+		//CAN_SetRxFifoConfig(CAN0,1,0,1);
     /* receive 0x101 in CAN1 rx message buffer 0 by setting mask 1 */
-    CAN_SetRxIndividualMask(CAN1, 1, CAN_RX_MB_STD(0x4C9, 0));
+    CAN_SetRxIndividualMask(CAN0, 1, CAN_RX_MB_STD(0x21B, 0));
     //* receive 0x102 in CAN1 rx message buffer 0 by setting mask 2 */
     CAN_SetRxIndividualMask(CAN1, 2, CAN_RX_MB_STD(0x102, 0));
     /* receive 0x00000200 (29-bit id) in CAN1 rx message buffer 1 by setting mask 3 */

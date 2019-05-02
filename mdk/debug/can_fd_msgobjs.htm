@@ -3,7 +3,7 @@
 <title>Static Call Graph - [debug\can_fd_msgobjs.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\can_fd_msgobjs.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Apr 01 19:22:51 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Apr 24 22:15:00 2019
 <BR><P>
 <H3>Maximum Stack Usage =        332 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -18,7 +18,7 @@ Mutually Recursive functions
  <LI><a href="#[5]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">UsageFault_Handler</a><BR>
  <LI><a href="#[7]">DebugMon_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">DebugMon_Handler</a><BR>
  <LI><a href="#[5c]">ADC0_SEQA_DriverIRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5c]">ADC0_SEQA_DriverIRQHandler</a><BR>
- <LI><a href="#[c2]">CLOCK_GetFlexCommClkFreq</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9d]">CLOCK_GetFreq</a><BR>
+ <LI><a href="#[c4]">CLOCK_GetFlexCommClkFreq</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9f]">CLOCK_GetFreq</a><BR>
 </UL>
 <P>
 <H3>
@@ -559,44 +559,43 @@ Global Symbols
 <P><STRONG><a name="[46]"></a>WDT_BOD_DriverIRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_lpc54608.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
-<P><STRONG><a name="[f5]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
+<P><STRONG><a name="[f4]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
 
-<P><STRONG><a name="[93]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
-</UL>
+<P><STRONG><a name="[12d]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[12d]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[12e]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[8b]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[12e]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[12f]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[12f]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[130]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[8a]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[a6]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<P><STRONG><a name="[a8]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_GetDefaultConfig
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[130]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[131]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[8c]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[d7]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
+<P><STRONG><a name="[d6]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
 </UL>
 
 <P><STRONG><a name="[88]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
@@ -605,62 +604,64 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[131]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[132]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[132]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[133]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[133]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[134]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[8e]"></a>BOARD_BootClockPLL180M</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, clock_config.o(i.BOARD_BootClockPLL180M))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = BOARD_BootClockPLL180M &rArr; CLOCK_SetPLLFreq
+<P><STRONG><a name="[8e]"></a>BOARD_BootClockFROHF48M</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, clock_config.o(i.BOARD_BootClockFROHF48M))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = BOARD_BootClockFROHF48M &rArr; CLOCK_AttachClk
 </UL>
 <BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_SetVoltageForFreq
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPLLFreq
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetupFROClocking
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetFLASHAccessCyclesForFreq
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetClkDiv
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_AttachClk
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_DisablePD
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>BOARD_InitCAN</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, board.o(i.BOARD_InitCAN))
+<P><STRONG><a name="[95]"></a>BOARD_InitCAN</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, board.o(i.BOARD_InitCAN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = BOARD_InitCAN &rArr; CAN_Init &rArr; RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxIndividualMask
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxExtIndividualMask
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxIndividualMask
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxGlobalMask
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxFifoConfig
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxExtIndividualMask
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_GetDefaultConfig
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Enable
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9b]"></a>BOARD_InitDebugConsole</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, board.o(i.BOARD_InitDebugConsole))
+<P><STRONG><a name="[9d]"></a>BOARD_InitDebugConsole</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, board.o(i.BOARD_InitDebugConsole))
 <BR><BR>[Stack]<UL><LI>Max Depth = 308<LI>Call Chain = BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_AttachClk
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a0]"></a>BOARD_InitGPIO</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, board.o(i.BOARD_InitGPIO))
+<P><STRONG><a name="[a2]"></a>BOARD_InitGPIO</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, board.o(i.BOARD_InitGPIO))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = BOARD_InitGPIO &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WritePinOutput
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_WritePinOutput
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a3]"></a>BOARD_InitPins</STRONG> (Thumb, 272 bytes, Stack size 56 bytes, pin_mux.o(i.BOARD_InitPins))
+<P><STRONG><a name="[a5]"></a>BOARD_InitPins</STRONG> (Thumb, 272 bytes, Stack size 56 bytes, pin_mux.o(i.BOARD_InitPins))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = BOARD_InitPins &rArr; IOCON_PinMuxSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IOCON_PinMuxSet
+<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IOCON_PinMuxSet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -668,25 +669,25 @@ Global Symbols
 <P><STRONG><a name="[71]"></a>CAN0_IRQ0_DriverIRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, can.o(i.CAN0_IRQ0_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CAN0_IRQ0_DriverIRQHandler &rArr; CAN_TransferHandleIRQ &rArr; CAN_ReadRxFifo &rArr; CAN_ReadRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[73]"></a>CAN1_IRQ0_DriverIRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, can.o(i.CAN1_IRQ0_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CAN1_IRQ0_DriverIRQHandler &rArr; CAN_TransferHandleIRQ &rArr; CAN_ReadRxFifo &rArr; CAN_ReadRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
-<P><STRONG><a name="[9a]"></a>CAN_Enable</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, can.o(i.CAN_Enable))
+<P><STRONG><a name="[9c]"></a>CAN_Enable</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, can.o(i.CAN_Enable))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
 
 <P><STRONG><a name="[96]"></a>CAN_GetDefaultConfig</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, can.o(i.CAN_GetDefaultConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CAN_GetDefaultConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
@@ -694,88 +695,100 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>CAN_Init</STRONG> (Thumb, 516 bytes, Stack size 40 bytes, can.o(i.CAN_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = CAN_Init &rArr; RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetTimingConfig
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_NumberofBytestoFieldSize
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_GetInstance
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetTimingConfig
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_NumberofBytestoFieldSize
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_GetInstance
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
 
-<P><STRONG><a name="[ac]"></a>CAN_ReadRxFifo</STRONG> (Thumb, 134 bytes, Stack size 48 bytes, can.o(i.CAN_ReadRxFifo))
+<P><STRONG><a name="[ae]"></a>CAN_ReadRxFifo</STRONG> (Thumb, 134 bytes, Stack size 48 bytes, can.o(i.CAN_ReadRxFifo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = CAN_ReadRxFifo &rArr; CAN_ReadRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMessage
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMessage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
-</UL>
-
-<P><STRONG><a name="[ae]"></a>CAN_ReadRxMb</STRONG> (Thumb, 134 bytes, Stack size 32 bytes, can.o(i.CAN_ReadRxMb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CAN_ReadRxMb &rArr; CAN_ReadRxMessage
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMessage
-</UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[99]"></a>CAN_SetRxExtIndividualMask</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, can.o(i.CAN_SetRxExtIndividualMask))
+<P><STRONG><a name="[b0]"></a>CAN_ReadRxMb</STRONG> (Thumb, 134 bytes, Stack size 32 bytes, can.o(i.CAN_ReadRxMb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CAN_ReadRxMb &rArr; CAN_ReadRxMessage
+</UL>
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMessage
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+</UL>
+
+<P><STRONG><a name="[9b]"></a>CAN_SetRxExtIndividualMask</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, can.o(i.CAN_SetRxExtIndividualMask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_SetRxExtIndividualMask
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
 
-<P><STRONG><a name="[98]"></a>CAN_SetRxIndividualMask</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, can.o(i.CAN_SetRxIndividualMask))
+<P><STRONG><a name="[98]"></a>CAN_SetRxFifoConfig</STRONG> (Thumb, 198 bytes, Stack size 24 bytes, can.o(i.CAN_SetRxFifoConfig))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CAN_SetRxFifoConfig
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_NumberofBytestoFieldSize
+</UL>
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
+</UL>
+
+<P><STRONG><a name="[99]"></a>CAN_SetRxGlobalMask</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, can.o(i.CAN_SetRxGlobalMask))
+<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
+</UL>
+
+<P><STRONG><a name="[9a]"></a>CAN_SetRxIndividualMask</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, can.o(i.CAN_SetRxIndividualMask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CAN_SetRxIndividualMask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
+<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
 
-<P><STRONG><a name="[aa]"></a>CAN_SetTimingConfig</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, can.o(i.CAN_SetTimingConfig))
+<P><STRONG><a name="[ac]"></a>CAN_SetTimingConfig</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, can.o(i.CAN_SetTimingConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_SetTimingConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_GetInstance
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_GetInstance
 </UL>
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 </UL>
 
-<P><STRONG><a name="[b0]"></a>CAN_TransferAbortReceive</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, can.o(i.CAN_TransferAbortReceive))
+<P><STRONG><a name="[b2]"></a>CAN_TransferAbortReceive</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, can.o(i.CAN_TransferAbortReceive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_TransferAbortReceive
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DisableInterrupts
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DisableInterrupts
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 </UL>
 
-<P><STRONG><a name="[b2]"></a>CAN_TransferAbortReceiveFifo</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, can.o(i.CAN_TransferAbortReceiveFifo))
+<P><STRONG><a name="[b4]"></a>CAN_TransferAbortReceiveFifo</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, can.o(i.CAN_TransferAbortReceiveFifo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_TransferAbortReceiveFifo
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DisableInterrupts
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DisableInterrupts
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 </UL>
 
-<P><STRONG><a name="[b3]"></a>CAN_TransferAbortSend</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, can.o(i.CAN_TransferAbortSend))
+<P><STRONG><a name="[b5]"></a>CAN_TransferAbortSend</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, can.o(i.CAN_TransferAbortSend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_TransferAbortSend
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DisableMbInterrupts
+<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DisableMbInterrupts
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 </UL>
 
-<P><STRONG><a name="[a5]"></a>CAN_TransferHandleIRQ</STRONG> (Thumb, 522 bytes, Stack size 32 bytes, can.o(i.CAN_TransferHandleIRQ))
+<P><STRONG><a name="[a7]"></a>CAN_TransferHandleIRQ</STRONG> (Thumb, 522 bytes, Stack size 32 bytes, can.o(i.CAN_TransferHandleIRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = CAN_TransferHandleIRQ &rArr; CAN_ReadRxFifo &rArr; CAN_ReadRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortSend
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceiveFifo
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceive
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxFifo
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_EnableInterrupts
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortSend
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceiveFifo
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceive
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxFifo
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_EnableInterrupts
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_IRQ0_DriverIRQHandler
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN0_IRQ0_DriverIRQHandler
@@ -784,291 +797,295 @@ Global Symbols
 <P><STRONG><a name="[90]"></a>CLOCK_AttachClk</STRONG> (Thumb, 66 bytes, Stack size 20 bytes, fsl_clock.o(i.CLOCK_AttachClk))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = CLOCK_AttachClk
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b6]"></a>CLOCK_GetAdcClkFreq</STRONG> (Thumb, 72 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetAdcClkFreq))
+<P><STRONG><a name="[b8]"></a>CLOCK_GetAdcClkFreq</STRONG> (Thumb, 72 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetAdcClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = CLOCK_GetAdcClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[bb]"></a>CLOCK_GetAsyncApbClkFreq</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetAsyncApbClkFreq))
+<P><STRONG><a name="[bd]"></a>CLOCK_GetAsyncApbClkFreq</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetAsyncApbClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CLOCK_GetAsyncApbClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-</UL>
-
-<P><STRONG><a name="[ba]"></a>CLOCK_GetAudioPllOutFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetAudioPllOutFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMclkClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[bd]"></a>CLOCK_GetClockOutClkFreq</STRONG> (Thumb, 116 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetClockOutClkFreq))
+<P><STRONG><a name="[bc]"></a>CLOCK_GetAudioPllOutFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetAudioPllOutFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMclkClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+</UL>
+
+<P><STRONG><a name="[bf]"></a>CLOCK_GetClockOutClkFreq</STRONG> (Thumb, 116 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetClockOutClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetClockOutClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetWdtOscFreq
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc32KFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetExtClkFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetWdtOscFreq
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc32KFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetExtClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[bc]"></a>CLOCK_GetCoreSysClkFreq</STRONG> (Thumb, 120 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetCoreSysClkFreq))
+<P><STRONG><a name="[be]"></a>CLOCK_GetCoreSysClkFreq</STRONG> (Thumb, 120 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetCoreSysClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetWdtOscFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc32KFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFro12MFreq
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetExtClkFreq
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetWdtOscFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc32KFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFro12MFreq
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetExtClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAsyncApbClkFreq
-</UL>
-
-<P><STRONG><a name="[be]"></a>CLOCK_GetExtClkFreq</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetExtClkFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAsyncApbClkFreq
 </UL>
 
-<P><STRONG><a name="[c2]"></a>CLOCK_GetFlexCommClkFreq</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFlexCommClkFreq))
+<P><STRONG><a name="[c0]"></a>CLOCK_GetExtClkFreq</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetExtClkFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+</UL>
+
+<P><STRONG><a name="[c4]"></a>CLOCK_GetFlexCommClkFreq</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFlexCommClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
 <LI>Call Chain = CLOCK_GetFlexCommClkFreq &rArr;  CLOCK_GetFreq (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetI2SMClkFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFro12MFreq
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetI2SMClkFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFro12MFreq
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[9d]"></a>CLOCK_GetFreq</STRONG> (Thumb, 708 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_GetFreq))
+<P><STRONG><a name="[9f]"></a>CLOCK_GetFreq</STRONG> (Thumb, 708 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_GetFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CLOCK_GetFreq &rArr; CLOCK_GetAsyncApbClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetWdtOscFreq
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMclkClkFreq
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetI2SMClkFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFro12MFreq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetExtClkFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAsyncApbClkFreq
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetWdtOscFreq
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMclkClkFreq
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetI2SMClkFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFro12MFreq
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetExtClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAsyncApbClkFreq
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c1]"></a>CLOCK_GetFro12MFreq</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetFro12MFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<P><STRONG><a name="[c3]"></a>CLOCK_GetFro12MFreq</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetFro12MFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
 </UL>
 
-<P><STRONG><a name="[b7]"></a>CLOCK_GetFroHfFreq</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetFroHfFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMclkClkFreq
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+<P><STRONG><a name="[b9]"></a>CLOCK_GetFroHfFreq</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetFroHfFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMclkClkFreq
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
 </UL>
 
-<P><STRONG><a name="[c3]"></a>CLOCK_GetI2SMClkFreq</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetI2SMClkFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
+<P><STRONG><a name="[c5]"></a>CLOCK_GetI2SMClkFreq</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetI2SMClkFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
 </UL>
 
-<P><STRONG><a name="[ca]"></a>CLOCK_GetLcdClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetLcdClkFreq))
+<P><STRONG><a name="[cc]"></a>CLOCK_GetLcdClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetLcdClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetLcdClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkIn
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkIn
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-</UL>
-
-<P><STRONG><a name="[cb]"></a>CLOCK_GetLcdClkIn</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetLcdClkIn))
-<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c7]"></a>CLOCK_GetMclkClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetMclkClkFreq))
+<P><STRONG><a name="[cd]"></a>CLOCK_GetLcdClkIn</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetLcdClkIn))
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetLcdClkFreq
+</UL>
+
+<P><STRONG><a name="[c9]"></a>CLOCK_GetMclkClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetMclkClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = CLOCK_GetMclkClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
+<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-</UL>
-
-<P><STRONG><a name="[c0]"></a>CLOCK_GetOsc32KFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetOsc32KFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[b8]"></a>CLOCK_GetPllOutFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetPllOutFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+<P><STRONG><a name="[c2]"></a>CLOCK_GetOsc32KFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetOsc32KFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
 </UL>
 
-<P><STRONG><a name="[c8]"></a>CLOCK_GetSctClkFreq</STRONG> (Thumb, 72 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetSctClkFreq))
+<P><STRONG><a name="[ba]"></a>CLOCK_GetPllOutFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetPllOutFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSctClkFreq
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFlexCommClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+</UL>
+
+<P><STRONG><a name="[ca]"></a>CLOCK_GetSctClkFreq</STRONG> (Thumb, 72 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetSctClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetSctClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c9]"></a>CLOCK_GetSdioClkFreq</STRONG> (Thumb, 86 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetSdioClkFreq))
+<P><STRONG><a name="[cb]"></a>CLOCK_GetSdioClkFreq</STRONG> (Thumb, 86 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetSdioClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetSdioClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c4]"></a>CLOCK_GetSpifiClkFreq</STRONG> (Thumb, 86 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetSpifiClkFreq))
+<P><STRONG><a name="[c6]"></a>CLOCK_GetSpifiClkFreq</STRONG> (Thumb, 86 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetSpifiClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetSpifiClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAudioPllOutFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c5]"></a>CLOCK_GetUsb0ClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetUsb0ClkFreq))
+<P><STRONG><a name="[c7]"></a>CLOCK_GetUsb0ClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetUsb0ClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = CLOCK_GetUsb0ClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFroHfFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c6]"></a>CLOCK_GetUsb1ClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetUsb1ClkFreq))
+<P><STRONG><a name="[c8]"></a>CLOCK_GetUsb1ClkFreq</STRONG> (Thumb, 58 bytes, Stack size 4 bytes, fsl_clock.o(i.CLOCK_GetUsb1ClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetUsb1ClkFreq &rArr; CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsbPllOutFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllOutFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-</UL>
-
-<P><STRONG><a name="[b9]"></a>CLOCK_GetUsbPllOutFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetUsbPllOutFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[bf]"></a>CLOCK_GetWdtOscFreq</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetWdtOscFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<P><STRONG><a name="[bb]"></a>CLOCK_GetUsbPllOutFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetUsbPllOutFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1ClkFreq
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb0ClkFreq
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSpifiClkFreq
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSdioClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetAdcClkFreq
+</UL>
+
+<P><STRONG><a name="[c1]"></a>CLOCK_GetWdtOscFreq</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetWdtOscFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetClockOutClkFreq
+</UL>
+
+<P><STRONG><a name="[94]"></a>CLOCK_SetClkDiv</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_SetClkDiv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_SetClkDiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
 </UL>
 
 <P><STRONG><a name="[92]"></a>CLOCK_SetFLASHAccessCyclesForFreq</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_SetFLASHAccessCyclesForFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_SetFLASHAccessCyclesForFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetFLASHAccessCycles
+<BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetFLASHAccessCycles
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
-</UL>
-
-<P><STRONG><a name="[94]"></a>CLOCK_SetPLLFreq</STRONG> (Thumb, 196 bytes, Stack size 24 bytes, fsl_clock.o(i.CLOCK_SetPLLFreq))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CLOCK_SetPLLFreq
-</UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_EnablePD
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_DisablePD
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_Enable_SysOsc
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_SetPLL
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
 </UL>
 
-<P><STRONG><a name="[9e]"></a>DbgConsole_Init</STRONG> (Thumb, 74 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_Init))
+<P><STRONG><a name="[93]"></a>CLOCK_SetupFROClocking</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_SetupFROClocking))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CLOCK_SetupFROClocking
+</UL>
+<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_DisablePD
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
+</UL>
+
+<P><STRONG><a name="[a0]"></a>DbgConsole_Init</STRONG> (Thumb, 74 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 </UL>
 
-<P><STRONG><a name="[d3]"></a>DbgConsole_Printf</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_Printf))
+<P><STRONG><a name="[d2]"></a>DbgConsole_Printf</STRONG> (Thumb, 44 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_Printf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1080,7 +1097,7 @@ Global Symbols
 <P><STRONG><a name="[54]"></a>FLEXCOMM0_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM0_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM0_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
@@ -1090,209 +1107,205 @@ Global Symbols
 <P><STRONG><a name="[55]"></a>FLEXCOMM1_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM1_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM1_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[56]"></a>FLEXCOMM2_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM2_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM2_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[57]"></a>FLEXCOMM3_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM3_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM3_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[58]"></a>FLEXCOMM4_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM4_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM4_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[59]"></a>FLEXCOMM5_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM5_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM5_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[5a]"></a>FLEXCOMM6_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM6_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM6_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[5b]"></a>FLEXCOMM7_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM7_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM7_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[6e]"></a>FLEXCOMM8_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM8_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM8_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
 <P><STRONG><a name="[6f]"></a>FLEXCOMM9_DriverIRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM9_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = FLEXCOMM9_DriverIRQHandler &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
-<P><STRONG><a name="[d8]"></a>FLEXCOMM_GetInstance</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, fsl_flexcomm.o(i.FLEXCOMM_GetInstance))
+<P><STRONG><a name="[d7]"></a>FLEXCOMM_GetInstance</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, fsl_flexcomm.o(i.FLEXCOMM_GetInstance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = FLEXCOMM_GetInstance &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_Init
+<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_Init
 </UL>
 
-<P><STRONG><a name="[d9]"></a>FLEXCOMM_Init</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, fsl_flexcomm.o(i.FLEXCOMM_Init))
+<P><STRONG><a name="[d8]"></a>FLEXCOMM_Init</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, fsl_flexcomm.o(i.FLEXCOMM_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = FLEXCOMM_Init &rArr; FLEXCOMM_GetInstance &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_SetPeriph
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_GetInstance
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_SetPeriph
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_GetInstance
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
-<P><STRONG><a name="[da]"></a>FLEXCOMM_SetPeriph</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, fsl_flexcomm.o(i.FLEXCOMM_SetPeriph))
+<P><STRONG><a name="[d9]"></a>FLEXCOMM_SetPeriph</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, fsl_flexcomm.o(i.FLEXCOMM_SetPeriph))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = FLEXCOMM_SetPeriph &rArr; FLEXCOMM_PeripheralIsPresent
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_PeripheralIsPresent
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_PeripheralIsPresent
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_Init
+<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_Init
 </UL>
 
-<P><STRONG><a name="[a1]"></a>GPIO_PinInit</STRONG> (Thumb, 84 bytes, Stack size 12 bytes, fsl_gpio.o(i.GPIO_PinInit))
+<P><STRONG><a name="[a3]"></a>GPIO_PinInit</STRONG> (Thumb, 84 bytes, Stack size 12 bytes, fsl_gpio.o(i.GPIO_PinInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = GPIO_PinInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitGPIO
-</UL>
-
-<P><STRONG><a name="[ce]"></a>POWER_SetPLL</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fsl_power_lib.o(i.POWER_SetPLL))
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPLLFreq
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitGPIO
 </UL>
 
 <P><STRONG><a name="[91]"></a>POWER_SetVoltageForFreq</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, fsl_power_lib.o(i.POWER_SetVoltageForFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = POWER_SetVoltageForFreq &rArr; POWER_setVdLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_setVdLevel
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_setVdLevel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
 </UL>
 
-<P><STRONG><a name="[dc]"></a>POWER_setVdLevel</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, fsl_power_lib.o(i.POWER_setVdLevel))
+<P><STRONG><a name="[db]"></a>POWER_setVdLevel</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, fsl_power_lib.o(i.POWER_setVdLevel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = POWER_setVdLevel
 </UL>
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;POWER_SetVoltageForFreq
 </UL>
 
-<P><STRONG><a name="[dd]"></a>RESET_ClearPeripheralReset</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, fsl_reset.o(i.RESET_ClearPeripheralReset))
+<P><STRONG><a name="[dc]"></a>RESET_ClearPeripheralReset</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, fsl_reset.o(i.RESET_ClearPeripheralReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = RESET_ClearPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
 </UL>
 
-<P><STRONG><a name="[9c]"></a>RESET_PeripheralReset</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, fsl_reset.o(i.RESET_PeripheralReset))
+<P><STRONG><a name="[9e]"></a>RESET_PeripheralReset</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, fsl_reset.o(i.RESET_PeripheralReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_SetPeripheralReset
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ClearPeripheralReset
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_SetPeripheralReset
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ClearPeripheralReset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 </UL>
 
-<P><STRONG><a name="[de]"></a>RESET_SetPeripheralReset</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, fsl_reset.o(i.RESET_SetPeripheralReset))
+<P><STRONG><a name="[dd]"></a>RESET_SetPeripheralReset</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, fsl_reset.o(i.RESET_SetPeripheralReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
 </UL>
 
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, port.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SysTick_Handler &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(RESET)
 </UL>
 <P><STRONG><a name="[44]"></a>SystemInit</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, system_lpc54608.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc54608.o(.text)
 </UL>
-<P><STRONG><a name="[d1]"></a>USART_GetDefaultConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fsl_usart.o(i.USART_GetDefaultConfig))
+<P><STRONG><a name="[d0]"></a>USART_GetDefaultConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fsl_usart.o(i.USART_GetDefaultConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = USART_GetDefaultConfig &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d2]"></a>USART_Init</STRONG> (Thumb, 226 bytes, Stack size 24 bytes, fsl_usart.o(i.USART_Init))
+<P><STRONG><a name="[d1]"></a>USART_Init</STRONG> (Thumb, 226 bytes, Stack size 24 bytes, fsl_usart.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SetBaudRate
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_Init
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SetBaudRate
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_Init
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[80]"></a>USART_ReadBlocking</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, fsl_usart.o(i.USART_ReadBlocking))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = USART_ReadBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_debug_console.o(i.DbgConsole_Init)
 </UL>
-<P><STRONG><a name="[e0]"></a>USART_SetBaudRate</STRONG> (Thumb, 152 bytes, Stack size 48 bytes, fsl_usart.o(i.USART_SetBaudRate))
+<P><STRONG><a name="[df]"></a>USART_SetBaudRate</STRONG> (Thumb, 152 bytes, Stack size 48 bytes, fsl_usart.o(i.USART_SetBaudRate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 236<LI>Call Chain = USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
 <P><STRONG><a name="[7f]"></a>USART_WriteBlocking</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, fsl_usart.o(i.USART_WriteBlocking))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_BLE_Connect
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_BLE_Connect
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_debug_console.o(i.DbgConsole_Init)
 </UL>
-<P><STRONG><a name="[9f]"></a>__aeabi_assert</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fsl_common.o(i.__aeabi_assert))
+<P><STRONG><a name="[a1]"></a>__aeabi_assert</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, fsl_common.o(i.__aeabi_assert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
+<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteBlocking
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SetBaudRate
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SetBaudRate
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReadBlocking
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_SetPeripheralReset
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ClearPeripheralReset
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_GetInstance
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_SetPeripheralReset
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_ClearPeripheralReset
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_GetInstance
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM9_DriverIRQHandler
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM8_DriverIRQHandler
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM7_DriverIRQHandler
@@ -1303,170 +1316,170 @@ Global Symbols
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM2_DriverIRQHandler
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM1_DriverIRQHandler
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM0_DriverIRQHandler
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 </UL>
 
-<P><STRONG><a name="[134]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[135]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[135]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[136]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[136]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[137]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 270 bytes, Stack size 24 bytes, can_fd_msgobjs.o(i.main))
+<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 286 bytes, Stack size 24 bytes, can_fd_msgobjs.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 332<LI>Call Chain = main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; USART_Init &rArr; USART_SetBaudRate &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetDefaultConfig
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_AttachClk
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitGPIO
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitGPIO
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[10e]"></a>pvPortMalloc</STRONG> (Thumb, 296 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
+<P><STRONG><a name="[10d]"></a>pvPortMalloc</STRONG> (Thumb, 296 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
 <P><STRONG><a name="[121]"></a>pvTaskIncrementMutexHeldCount</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, tasks.o(i.pvTaskIncrementMutexHeldCount))
-<BR><BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[fd]"></a>pxPortInitialiseStack</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, port.o(i.pxPortInitialiseStack))
-<BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<P><STRONG><a name="[fc]"></a>pxPortInitialiseStack</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, port.o(i.pxPortInitialiseStack))
+<BR><BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[114]"></a>usart_Confirm_BLE_Connected</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, obd_usart.o(i.usart_Confirm_BLE_Connected))
+<P><STRONG><a name="[113]"></a>usart_Confirm_BLE_Connected</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, obd_usart.o(i.usart_Confirm_BLE_Connected))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = usart_Confirm_BLE_Connected
 </UL>
-<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
+<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
 </UL>
 
-<P><STRONG><a name="[e5]"></a>uxListRemove</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
-<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<P><STRONG><a name="[e4]"></a>uxListRemove</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
+<BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
 </UL>
 
-<P><STRONG><a name="[111]"></a>vControl_BLE_Connect</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, obd_control.o(i.vControl_BLE_Connect))
+<P><STRONG><a name="[110]"></a>vControl_BLE_Connect</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, obd_control.o(i.vControl_BLE_Connect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = vControl_BLE_Connect &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteBlocking
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
+<BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
 </UL>
 
-<P><STRONG><a name="[112]"></a>vControl_Status</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, obd_control.o(i.vControl_Status))
+<P><STRONG><a name="[111]"></a>vControl_Status</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, obd_control.o(i.vControl_Status))
 <BR><BR>[Stack]<UL><LI>Max Depth = 228<LI>Call Chain = vControl_Status &rArr; vControl_BLE_Connect &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_BLE_Connect
+<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status_Detection
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_BLE_Connect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTouchTask
 </UL>
 
-<P><STRONG><a name="[113]"></a>vControl_Status_Detection</STRONG> (Thumb, 186 bytes, Stack size 16 bytes, obd_control.o(i.vControl_Status_Detection))
+<P><STRONG><a name="[112]"></a>vControl_Status_Detection</STRONG> (Thumb, 186 bytes, Stack size 16 bytes, obd_control.o(i.vControl_Status_Detection))
 <BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = vControl_Status_Detection &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxIndividualMask
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_Confirm_BLE_Connected
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxIndividualMask
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usart_Confirm_BLE_Connected
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
-</UL>
-
-<P><STRONG><a name="[ed]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
-<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
 </UL>
 
-<P><STRONG><a name="[fc]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
-<BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<P><STRONG><a name="[ec]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
+<BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
 </UL>
 
-<P><STRONG><a name="[e7]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
+<P><STRONG><a name="[fb]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
+<BR><BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+</UL>
+
+<P><STRONG><a name="[e6]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 </UL>
 
-<P><STRONG><a name="[e6]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
-<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<P><STRONG><a name="[e5]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
+<BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
 </UL>
 
-<P><STRONG><a name="[e9]"></a>vPortEnterCritical</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<P><STRONG><a name="[e8]"></a>vPortEnterCritical</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
+<BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
 </UL>
 
-<P><STRONG><a name="[eb]"></a>vPortExitCritical</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<P><STRONG><a name="[ea]"></a>vPortExitCritical</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
+<BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
 </UL>
 
-<P><STRONG><a name="[f8]"></a>vPortFree</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, heap_4.o(i.vPortFree))
+<P><STRONG><a name="[f7]"></a>vPortFree</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, heap_4.o(i.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 
 <P><STRONG><a name="[11d]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, fsl_tickless_rtc.o(i.vPortSetupTimerInterrupt))
@@ -1481,88 +1494,88 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 </UL>
 
-<P><STRONG><a name="[ef]"></a>vQueueAddToRegistry</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, queue.o(i.vQueueAddToRegistry))
-<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
+<P><STRONG><a name="[ee]"></a>vQueueAddToRegistry</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, queue.o(i.vQueueAddToRegistry))
+<BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
 </UL>
 
-<P><STRONG><a name="[107]"></a>vQueueWaitForMessageRestricted</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, queue.o(i.vQueueWaitForMessageRestricted))
+<P><STRONG><a name="[106]"></a>vQueueWaitForMessageRestricted</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, queue.o(i.vQueueWaitForMessageRestricted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = vQueueWaitForMessageRestricted &rArr; vTaskPlaceOnEventListRestricted &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
 </UL>
 
 <P><STRONG><a name="[115]"></a>vTaskDelay</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, tasks.o(i.vTaskDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTouchTask
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[10d]"></a>vTaskMissedYield</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(i.vTaskMissedYield))
-<BR><BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<P><STRONG><a name="[10c]"></a>vTaskMissedYield</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(i.vTaskMissedYield))
+<BR><BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
 <P><STRONG><a name="[119]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
 <P><STRONG><a name="[118]"></a>vTaskPlaceOnEventListRestricted</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventListRestricted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vTaskPlaceOnEventListRestricted &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
 </UL>
 
 <P><STRONG><a name="[11a]"></a>vTaskPriorityInherit</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, tasks.o(i.vTaskPriorityInherit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vTaskPriorityInherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
 <P><STRONG><a name="[122]"></a>vTaskSetTimeOutState</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, tasks.o(i.vTaskSetTimeOutState))
 <BR><BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[e3]"></a>vTaskStartScheduler</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, tasks.o(i.vTaskStartScheduler))
+<P><STRONG><a name="[e2]"></a>vTaskStartScheduler</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, tasks.o(i.vTaskStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f1]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<P><STRONG><a name="[f0]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
 <P><STRONG><a name="[89]"></a>vTaskSwitchContext</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, tasks.o(i.vTaskSwitchContext))
@@ -1576,544 +1589,546 @@ Global Symbols
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvStartFirstTask
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[ee]"></a>xQueueGenericCreate</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, queue.o(i.xQueueGenericCreate))
+<P><STRONG><a name="[ed]"></a>xQueueGenericCreate</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, queue.o(i.xQueueGenericCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = xQueueGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
 </UL>
 
-<P><STRONG><a name="[105]"></a>xQueueGenericReceive</STRONG> (Thumb, 446 bytes, Stack size 56 bytes, queue.o(i.xQueueGenericReceive))
+<P><STRONG><a name="[104]"></a>xQueueGenericReceive</STRONG> (Thumb, 446 bytes, Stack size 56 bytes, queue.o(i.xQueueGenericReceive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = xQueueGenericReceive &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvTaskIncrementMutexHeldCount
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
 </UL>
 
-<P><STRONG><a name="[fa]"></a>xQueueGenericReset</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, queue.o(i.xQueueGenericReset))
+<P><STRONG><a name="[f9]"></a>xQueueGenericReset</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, queue.o(i.xQueueGenericReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = xQueueGenericReset &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
 </UL>
 
 <P><STRONG><a name="[124]"></a>xQueueGenericSend</STRONG> (Thumb, 420 bytes, Stack size 56 bytes, queue.o(i.xQueueGenericSend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
 </UL>
 
 <P><STRONG><a name="[125]"></a>xQueueGenericSendFromISR</STRONG> (Thumb, 248 bytes, Stack size 40 bytes, queue.o(i.xQueueGenericSendFromISR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = xQueueGenericSendFromISR &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
 </UL>
 
 <P><STRONG><a name="[123]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, tasks.o(i.xTaskCheckForTimeOut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskCheckForTimeOut
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[e2]"></a>xTaskCreate</STRONG> (Thumb, 96 bytes, Stack size 72 bytes, tasks.o(i.xTaskCreate))
+<P><STRONG><a name="[e1]"></a>xTaskCreate</STRONG> (Thumb, 96 bytes, Stack size 72 bytes, tasks.o(i.xTaskCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
 <P><STRONG><a name="[120]"></a>xTaskGetSchedulerState</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetSchedulerState))
-<BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[108]"></a>xTaskGetTickCount</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetTickCount))
-<BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
+<P><STRONG><a name="[107]"></a>xTaskGetTickCount</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetTickCount))
+<BR><BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
 </UL>
 
-<P><STRONG><a name="[df]"></a>xTaskIncrementTick</STRONG> (Thumb, 256 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
+<P><STRONG><a name="[de]"></a>xTaskIncrementTick</STRONG> (Thumb, 256 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[f7]"></a>xTaskPriorityDisinherit</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, tasks.o(i.xTaskPriorityDisinherit))
+<P><STRONG><a name="[f6]"></a>xTaskPriorityDisinherit</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, tasks.o(i.xTaskPriorityDisinherit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
 
-<P><STRONG><a name="[10c]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, tasks.o(i.xTaskRemoveFromEventList))
+<P><STRONG><a name="[10b]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, tasks.o(i.xTaskRemoveFromEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[f2]"></a>xTaskResumeAll</STRONG> (Thumb, 224 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
+<P><STRONG><a name="[f1]"></a>xTaskResumeAll</STRONG> (Thumb, 224 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
 <P><STRONG><a name="[11b]"></a>xTimerCreateTimerTask</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, timers.o(i.xTimerCreateTimerTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[102]"></a>xTimerGenericCommand</STRONG> (Thumb, 128 bytes, Stack size 48 bytes, timers.o(i.xTimerGenericCommand))
+<P><STRONG><a name="[101]"></a>xTimerGenericCommand</STRONG> (Thumb, 128 bytes, Stack size 48 bytes, timers.o(i.xTimerGenericCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
+<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
 </UL>
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[af]"></a>CAN_DecodeDLC</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, can.o(i.CAN_DecodeDLC))
-<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMessage
+<P><STRONG><a name="[b1]"></a>CAN_DecodeDLC</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, can.o(i.CAN_DecodeDLC))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMessage
 </UL>
 
-<P><STRONG><a name="[b1]"></a>CAN_DisableInterrupts</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, can.o(i.CAN_DisableInterrupts))
-<BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceiveFifo
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceive
+<P><STRONG><a name="[b3]"></a>CAN_DisableInterrupts</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, can.o(i.CAN_DisableInterrupts))
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceiveFifo
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortReceive
 </UL>
 
-<P><STRONG><a name="[b4]"></a>CAN_DisableMbInterrupts</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, can.o(i.CAN_DisableMbInterrupts))
-<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortSend
+<P><STRONG><a name="[b6]"></a>CAN_DisableMbInterrupts</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, can.o(i.CAN_DisableMbInterrupts))
+<BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferAbortSend
 </UL>
 
-<P><STRONG><a name="[b5]"></a>CAN_EnableInterrupts</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, can.o(i.CAN_EnableInterrupts))
-<BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
+<P><STRONG><a name="[b7]"></a>CAN_EnableInterrupts</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, can.o(i.CAN_EnableInterrupts))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferHandleIRQ
 </UL>
 
-<P><STRONG><a name="[a7]"></a>CAN_GetInstance</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, can.o(i.CAN_GetInstance))
-<BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetTimingConfig
+<P><STRONG><a name="[a9]"></a>CAN_GetInstance</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, can.o(i.CAN_GetInstance))
+<BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetTimingConfig
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 </UL>
 
-<P><STRONG><a name="[ab]"></a>CAN_NumberofBytestoFieldSize</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, can.o(i.CAN_NumberofBytestoFieldSize))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
+<P><STRONG><a name="[ad]"></a>CAN_NumberofBytestoFieldSize</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, can.o(i.CAN_NumberofBytestoFieldSize))
+<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxFifoConfig
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 </UL>
 
-<P><STRONG><a name="[ad]"></a>CAN_ReadRxMessage</STRONG> (Thumb, 214 bytes, Stack size 16 bytes, can.o(i.CAN_ReadRxMessage))
+<P><STRONG><a name="[af]"></a>CAN_ReadRxMessage</STRONG> (Thumb, 214 bytes, Stack size 16 bytes, can.o(i.CAN_ReadRxMessage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CAN_ReadRxMessage
 </UL>
-<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DecodeDLC
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_DecodeDLC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxFifo
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxFifo
 </UL>
 
-<P><STRONG><a name="[a8]"></a>CLOCK_EnableClock</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, can.o(i.CLOCK_EnableClock))
+<P><STRONG><a name="[aa]"></a>CLOCK_EnableClock</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, can.o(i.CLOCK_EnableClock))
 <BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 </UL>
 
-<P><STRONG><a name="[a9]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, can.o(i.NVIC_EnableIRQ))
+<P><STRONG><a name="[ab]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, can.o(i.NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Init
 </UL>
 
-<P><STRONG><a name="[cd]"></a>CLOCK_Enable_SysOsc</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_Enable_SysOsc))
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPLLFreq
-</UL>
-
-<P><STRONG><a name="[cc]"></a>CLOCK_SetFLASHAccessCycles</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_SetFLASHAccessCycles))
+<P><STRONG><a name="[ce]"></a>CLOCK_SetFLASHAccessCycles</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_SetFLASHAccessCycles))
 <BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetFLASHAccessCyclesForFreq
 </UL>
 
-<P><STRONG><a name="[d0]"></a>POWER_DisablePD</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, fsl_clock.o(i.POWER_DisablePD))
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPLLFreq
+<P><STRONG><a name="[cf]"></a>POWER_DisablePD</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, fsl_clock.o(i.POWER_DisablePD))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetupFROClocking
 </UL>
 
-<P><STRONG><a name="[cf]"></a>POWER_EnablePD</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, fsl_clock.o(i.POWER_EnablePD))
-<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPLLFreq
-</UL>
-
-<P><STRONG><a name="[db]"></a>FLEXCOMM_PeripheralIsPresent</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM_PeripheralIsPresent))
+<P><STRONG><a name="[da]"></a>FLEXCOMM_PeripheralIsPresent</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, fsl_flexcomm.o(i.FLEXCOMM_PeripheralIsPresent))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = FLEXCOMM_PeripheralIsPresent
 </UL>
-<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_SetPeriph
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLEXCOMM_SetPeriph
 </UL>
 
-<P><STRONG><a name="[e1]"></a>CLOCK_EnableClock</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.CLOCK_EnableClock))
+<P><STRONG><a name="[e0]"></a>CLOCK_EnableClock</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.CLOCK_EnableClock))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 162 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.vLcdTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 204<LI>Call Chain = vLcdTask &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
+<P><STRONG><a name="[114]"></a>GPIO_TogglePinsOutput</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.GPIO_TogglePinsOutput))
+<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTouchTask
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
+
+<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 212 bytes, Stack size 80 bytes, can_fd_msgobjs.o(i.vLcdTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 284<LI>Call Chain = vLcdTask &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxFifo
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteBlocking
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> can_fd_msgobjs.o(i.main)
 </UL>
-<P><STRONG><a name="[82]"></a>vTouchTask</STRONG> (Thumb, 116 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.vTouchTask))
+<P><STRONG><a name="[82]"></a>vTouchTask</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.vTouchTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 228<LI>Call Chain = vTouchTask &rArr; vControl_Status &rArr; vControl_BLE_Connect &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> can_fd_msgobjs.o(i.main)
 </UL>
-<P><STRONG><a name="[a2]"></a>GPIO_WritePinOutput</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, board.o(i.GPIO_WritePinOutput))
+<P><STRONG><a name="[a4]"></a>GPIO_WritePinOutput</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, board.o(i.GPIO_WritePinOutput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_WritePinOutput
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitGPIO
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitGPIO
 </UL>
 
 <P><STRONG><a name="[8f]"></a>POWER_DisablePD</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, clock_config.o(i.POWER_DisablePD))
-<BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
+<BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockFROHF48M
 </UL>
 
-<P><STRONG><a name="[a4]"></a>IOCON_PinMuxSet</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, pin_mux.o(i.IOCON_PinMuxSet))
+<P><STRONG><a name="[a6]"></a>IOCON_PinMuxSet</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, pin_mux.o(i.IOCON_PinMuxSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = IOCON_PinMuxSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
+<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
 </UL>
 
-<P><STRONG><a name="[d5]"></a>DbgConsole_ConvertRadixNumToString</STRONG> (Thumb, 168 bytes, Stack size 36 bytes, fsl_debug_console.o(i.DbgConsole_ConvertRadixNumToString))
+<P><STRONG><a name="[d4]"></a>DbgConsole_ConvertRadixNumToString</STRONG> (Thumb, 168 bytes, Stack size 36 bytes, fsl_debug_console.o(i.DbgConsole_ConvertRadixNumToString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
 </UL>
 
-<P><STRONG><a name="[d4]"></a>DbgConsole_PrintfFormattedData</STRONG> (Thumb, 570 bytes, Stack size 120 bytes, fsl_debug_console.o(i.DbgConsole_PrintfFormattedData))
+<P><STRONG><a name="[d3]"></a>DbgConsole_PrintfFormattedData</STRONG> (Thumb, 570 bytes, Stack size 120 bytes, fsl_debug_console.o(i.DbgConsole_PrintfFormattedData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfPaddingCharacter
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_ConvertRadixNumToString
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfPaddingCharacter
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_ConvertRadixNumToString
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
 </UL>
 
-<P><STRONG><a name="[d6]"></a>DbgConsole_PrintfPaddingCharacter</STRONG> (Thumb, 40 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_PrintfPaddingCharacter))
+<P><STRONG><a name="[d5]"></a>DbgConsole_PrintfPaddingCharacter</STRONG> (Thumb, 40 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_PrintfPaddingCharacter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DbgConsole_PrintfPaddingCharacter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
 </UL>
 
-<P><STRONG><a name="[f4]"></a>prvCopyDataFromQueue</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, queue.o(i.prvCopyDataFromQueue))
+<P><STRONG><a name="[f3]"></a>prvCopyDataFromQueue</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, queue.o(i.prvCopyDataFromQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvCopyDataFromQueue
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[f6]"></a>prvCopyDataToQueue</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, queue.o(i.prvCopyDataToQueue))
+<P><STRONG><a name="[f5]"></a>prvCopyDataToQueue</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, queue.o(i.prvCopyDataToQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[f9]"></a>prvInitialiseNewQueue</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, queue.o(i.prvInitialiseNewQueue))
+<P><STRONG><a name="[f8]"></a>prvInitialiseNewQueue</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, queue.o(i.prvInitialiseNewQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = prvInitialiseNewQueue &rArr; xQueueGenericReset &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
-<P><STRONG><a name="[ff]"></a>prvIsQueueEmpty</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, queue.o(i.prvIsQueueEmpty))
+<P><STRONG><a name="[fe]"></a>prvIsQueueEmpty</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, queue.o(i.prvIsQueueEmpty))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvIsQueueEmpty
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[100]"></a>prvIsQueueFull</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, queue.o(i.prvIsQueueFull))
+<P><STRONG><a name="[ff]"></a>prvIsQueueFull</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, queue.o(i.prvIsQueueFull))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvIsQueueFull
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[10b]"></a>prvUnlockQueue</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, queue.o(i.prvUnlockQueue))
+<P><STRONG><a name="[10a]"></a>prvUnlockQueue</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, queue.o(i.prvUnlockQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = prvUnlockQueue &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskMissedYield
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskMissedYield
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
 </UL>
 
-<P><STRONG><a name="[e4]"></a>prvAddCurrentTaskToDelayedList</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, tasks.o(i.prvAddCurrentTaskToDelayedList))
+<P><STRONG><a name="[e3]"></a>prvAddCurrentTaskToDelayedList</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, tasks.o(i.prvAddCurrentTaskToDelayedList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
 <BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 </UL>
 
-<P><STRONG><a name="[e8]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, tasks.o(i.prvAddNewTaskToReadyList))
+<P><STRONG><a name="[e7]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, tasks.o(i.prvAddNewTaskToReadyList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvAddNewTaskToReadyList &rArr; prvInitialiseTaskLists
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[f0]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
+<P><STRONG><a name="[ef]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = prvCheckTasksWaitingTermination &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 </UL>
 
-<P><STRONG><a name="[f3]"></a>prvDeleteTCB</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, tasks.o(i.prvDeleteTCB))
+<P><STRONG><a name="[f2]"></a>prvDeleteTCB</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, tasks.o(i.prvDeleteTCB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 
 <P><STRONG><a name="[85]"></a>prvIdleTask</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, tasks.o(i.prvIdleTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = prvIdleTask &rArr; prvCheckTasksWaitingTermination &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tasks.o(i.vTaskStartScheduler)
 </UL>
-<P><STRONG><a name="[fb]"></a>prvInitialiseNewTask</STRONG> (Thumb, 200 bytes, Stack size 40 bytes, tasks.o(i.prvInitialiseNewTask))
+<P><STRONG><a name="[fa]"></a>prvInitialiseNewTask</STRONG> (Thumb, 200 bytes, Stack size 40 bytes, tasks.o(i.prvInitialiseNewTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = prvInitialiseNewTask
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[ea]"></a>prvInitialiseTaskLists</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, tasks.o(i.prvInitialiseTaskLists))
+<P><STRONG><a name="[e9]"></a>prvInitialiseTaskLists</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, tasks.o(i.prvInitialiseTaskLists))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvInitialiseTaskLists
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
 <P><STRONG><a name="[126]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
-<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
-<P><STRONG><a name="[ec]"></a>prvCheckForValidListAndQueue</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, timers.o(i.prvCheckForValidListAndQueue))
+<P><STRONG><a name="[eb]"></a>prvCheckForValidListAndQueue</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, timers.o(i.prvCheckForValidListAndQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = prvCheckForValidListAndQueue &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueAddToRegistry
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueAddToRegistry
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
-<P><STRONG><a name="[10a]"></a>prvGetNextExpireTime</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, timers.o(i.prvGetNextExpireTime))
+<P><STRONG><a name="[109]"></a>prvGetNextExpireTime</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, timers.o(i.prvGetNextExpireTime))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
 </UL>
 
-<P><STRONG><a name="[fe]"></a>prvInsertTimerInActiveList</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, timers.o(i.prvInsertTimerInActiveList))
+<P><STRONG><a name="[fd]"></a>prvInsertTimerInActiveList</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, timers.o(i.prvInsertTimerInActiveList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = prvInsertTimerInActiveList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
+<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
 </UL>
 
-<P><STRONG><a name="[101]"></a>prvProcessExpiredTimer</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, timers.o(i.prvProcessExpiredTimer))
+<P><STRONG><a name="[100]"></a>prvProcessExpiredTimer</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, timers.o(i.prvProcessExpiredTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = prvProcessExpiredTimer &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
 </UL>
 
-<P><STRONG><a name="[103]"></a>prvProcessReceivedCommands</STRONG> (Thumb, 286 bytes, Stack size 48 bytes, timers.o(i.prvProcessReceivedCommands))
+<P><STRONG><a name="[102]"></a>prvProcessReceivedCommands</STRONG> (Thumb, 286 bytes, Stack size 48 bytes, timers.o(i.prvProcessReceivedCommands))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = prvProcessReceivedCommands &rArr; prvSampleTimeNow &rArr; prvSwitchTimerLists &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
 </UL>
 
-<P><STRONG><a name="[106]"></a>prvProcessTimerOrBlockTask</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, timers.o(i.prvProcessTimerOrBlockTask))
+<P><STRONG><a name="[105]"></a>prvProcessTimerOrBlockTask</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, timers.o(i.prvProcessTimerOrBlockTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = prvProcessTimerOrBlockTask &rArr; prvSampleTimeNow &rArr; prvSwitchTimerLists &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueWaitForMessageRestricted
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvTimerTask
 </UL>
 
-<P><STRONG><a name="[104]"></a>prvSampleTimeNow</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, timers.o(i.prvSampleTimeNow))
+<P><STRONG><a name="[103]"></a>prvSampleTimeNow</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, timers.o(i.prvSampleTimeNow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = prvSampleTimeNow &rArr; prvSwitchTimerLists &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
+<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
-<BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
 </UL>
 
-<P><STRONG><a name="[109]"></a>prvSwitchTimerLists</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, timers.o(i.prvSwitchTimerLists))
+<P><STRONG><a name="[108]"></a>prvSwitchTimerLists</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, timers.o(i.prvSwitchTimerLists))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = prvSwitchTimerLists &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
+<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
 </UL>
 
 <P><STRONG><a name="[86]"></a>prvTimerTask</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, timers.o(i.prvTimerTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = prvTimerTask &rArr; prvProcessReceivedCommands &rArr; prvSampleTimeNow &rArr; prvSwitchTimerLists &rArr; xTimerGenericCommand &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvGetNextExpireTime
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvGetNextExpireTime
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> timers.o(i.xTimerCreateTimerTask)
 </UL>
-<P><STRONG><a name="[10f]"></a>prvHeapInit</STRONG> (Thumb, 98 bytes, Stack size 12 bytes, heap_4.o(i.prvHeapInit))
+<P><STRONG><a name="[10e]"></a>prvHeapInit</STRONG> (Thumb, 98 bytes, Stack size 12 bytes, heap_4.o(i.prvHeapInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[110]"></a>prvInsertBlockIntoFreeList</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, heap_4.o(i.prvInsertBlockIntoFreeList))
+<P><STRONG><a name="[10f]"></a>prvInsertBlockIntoFreeList</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, heap_4.o(i.prvInsertBlockIntoFreeList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvInsertBlockIntoFreeList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
 <P><STRONG><a name="[84]"></a>prvTaskExitError</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, port.o(i.prvTaskExitError))
