@@ -45,6 +45,8 @@ void obd_can_TxMSG_Extend(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame);
 
 bool obd_Service_KeepAlive();
 
+can_frame_t obd_can_TxMSG_Pack(uint8_t x[]);
+
 
 
 

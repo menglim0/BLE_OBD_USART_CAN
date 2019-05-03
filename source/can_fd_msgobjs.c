@@ -59,7 +59,7 @@
 /**
  * Touch status check delay
  */
-#define TOUCH_DELAY   (100)
+#define TOUCH_DELAY   (50)
 #define LCD_DELAY   (20)
 
 
@@ -234,11 +234,11 @@ void vBLE_Command_Mode_Action(TeOBD_Control_MODE cmdMode);
 				data_length=demoRingBuffer[0]>>4;	
 			}
 
-			if(data_length ==USART_rxIndex  )
+			if(USART_rxIndex >=13  )
 			{	
 				usart_first_Datareceived=true;				
 				usart_Receive_Complete=true;
-				//USART_rxIndex=0;
+				USART_rxIndex=0;
 			}
 
 				  
@@ -320,6 +320,7 @@ static void vTouchTask(void *pvParameters)
 	
 	 bool BLE_Connect_Status;
 	uint8_t i;
+	can_frame_t tx_frame1;
 	//创建消息队列
     //Key_Queue=xQueueCreate(KEYMSG_Q_NUM,sizeof(uint8_t));        //创建消息Key_Queue
     //Message_Queue=xQueueCreate(MESSAGE_Q_NUM,USART_REC_LEN); //创建消息Message_Queue,队列项长度是串口接收缓冲区长度
@@ -338,10 +339,17 @@ static void vTouchTask(void *pvParameters)
 		
 			if(	usart_first_Datareceived==true||usart_Receive_Complete==true)
 			{
+					GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
 			    vControl_Status(demoRingBuffer);
 				usart_first_Datareceived=false;				
 				usart_Receive_Complete=false;
 				USART_rxIndex=0;
+				if(demoRingBuffer[0]!=0x54)
+				{
+				tx_frame1=obd_can_TxMSG_Pack(demoRingBuffer);				
+				obd_Service_MsgTrasmit(	&tx_frame1);
+				KeepAlive_Peroid_2s_Count=0;
+				}
 				for(i=0;i<14;i++)
 				{
 
@@ -415,7 +423,7 @@ static void vTouchTask(void *pvParameters)
 		
 		
 	//	if(Keep_Service_Active==true)
-	if(0)
+	if(1)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)

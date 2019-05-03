@@ -178,10 +178,10 @@ bool obd_Service_KeepAlive()
 	Keep_alive_frame_3E.id=0x14dae1f1;
 	Keep_alive_frame_3E.format =kCAN_FrameFormatExtend;
 	Keep_alive_frame_3E.type = kCAN_FrameTypeData;
-	Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
-	Keep_alive_frame_3E.bitratemode = kCAN_BitrateModeTypeNoSwitch;
-	Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
-	//Keep_alive_frame_3E.proto = kCAN_ProtoTypeFD;
+	//Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
+	Keep_alive_frame_3E.bitratemode = 0;
+	//Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
+	Keep_alive_frame_3E.proto = kCAN_ProtoTypeFD;
 	Keep_alive_frame_3E.length = 8;
 	Keep_alive_frame_3E.dataWord[0]=0x00803E02;
 
@@ -196,7 +196,7 @@ void obd_Service_MsgTrasmit(can_frame_t *txFrame)
 {
 	
 	obd_can_TxMSG_Standard(CAN0, 0, txFrame);
-	obd_can_TxMSG_Standard(CAN1, 0, txFrame);
+	//obd_can_TxMSG_Standard(CAN1, 0, txFrame);
 	
 }
 
@@ -218,7 +218,7 @@ bool obd_can_TxMSG_Standard(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
             else
             {
                 /* toggle LED1 */
-                //GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
+                GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
               return true;
                 //message_transmitted = true;
              }
@@ -233,3 +233,27 @@ bool obd_can_TxMSG_Standard(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
 void obd_can_TxMSG_Extend(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
 {
 }
+
+can_frame_t obd_can_TxMSG_Pack(uint8_t x[])
+{
+	can_frame_t CAN_frame;
+	
+		CAN_frame.format =kCAN_FrameFormatExtend;
+	CAN_frame.type = kCAN_FrameTypeData;
+	//CAN_frame.proto = kCAN_ProtoTypeClassic;
+	CAN_frame.bitratemode = 0;
+	//CAN_frame.proto = kCAN_ProtoTypeClassic;
+	CAN_frame.proto = kCAN_ProtoTypeFD;
+	CAN_frame.length = 8;
+	
+	uint8_t ByteIndex;
+	
+	CAN_frame.id= (x[0]<<24) + (x[1]<<16)+(x[2]<<8)+x[3];
+	for(ByteIndex=0;ByteIndex<8;ByteIndex++)
+	{
+	CAN_frame.dataByte[ByteIndex]= x[ByteIndex+4];
+	}
+
+	return CAN_frame;
+}
+

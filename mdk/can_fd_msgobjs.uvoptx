@@ -155,9 +155,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>217</LineNumber>
+          <LineNumber>349</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>8444</Address>
+          <Address>17598</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -166,55 +166,23 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\source\can_fd_msgobjs.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\217</Expression>
+          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\349</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>302</LineNumber>
+          <LineNumber>350</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>11818</Address>
+          <Address>0</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
+          <BreakIfRCount>0</BreakIfRCount>
           <Filename>..\source\can_fd_msgobjs.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\302</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>343</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>16976</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\343</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>460</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>15404</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\source\can_fd_msgobjs.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\can_fd_msgobjs\../source/can_fd_msgobjs.c\460</Expression>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -272,6 +240,16 @@
           <count>10</count>
           <WinNumber>1</WinNumber>
           <ItemText>Usart_Received_Feedback_1</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>USART_rxIndex</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>tx_frame1</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -1466,6 +1444,22 @@
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
+        <Bp>
+          <Number>60</Number>
+          <Type>0</Type>
+          <LineNumber>350</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\source\can_fd_msgobjs.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
       </Breakpoint>
       <Tracepoint>
         <THDelay>0</THDelay>
@@ -1994,7 +1988,7 @@
       <GroupNumber>6</GroupNumber>
       <FileNumber>37</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\utilities\obd_can.c</PathWithFileName>
@@ -2018,7 +2012,7 @@
       <GroupNumber>6</GroupNumber>
       <FileNumber>39</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\utilities\obd_control.c</PathWithFileName>

@@ -135,7 +135,7 @@ void BOARD_InitCAN(void)
     CAN_GetDefaultConfig(&config);
     config.baseAddress = 0x20010000;
     config.nominalBaudRate = 500000;                  // nominal bit rate is 500kbps
-    //config.dataBaudRate = 5000000;                     //the data bit rate is 5Mbps
+    config.dataBaudRate = 5000000;                     //the data bit rate is 5Mbps
     config.timestampClock_Hz = 100000;
 	//config.enableNonISOMode = 1;
 	
