@@ -179,7 +179,7 @@ bool obd_Service_KeepAlive()
 	Keep_alive_frame_3E.format =kCAN_FrameFormatExtend;
 	Keep_alive_frame_3E.type = kCAN_FrameTypeData;
 	//Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
-	Keep_alive_frame_3E.bitratemode = 0;
+	Keep_alive_frame_3E.bitratemode = kCAN_BitrateModeTypeSwitch;
 	//Keep_alive_frame_3E.proto = kCAN_ProtoTypeClassic;
 	Keep_alive_frame_3E.proto = kCAN_ProtoTypeFD;
 	Keep_alive_frame_3E.length = 8;
@@ -241,17 +241,18 @@ can_frame_t obd_can_TxMSG_Pack(uint8_t x[])
 		CAN_frame.format =kCAN_FrameFormatExtend;
 	CAN_frame.type = kCAN_FrameTypeData;
 	//CAN_frame.proto = kCAN_ProtoTypeClassic;
-	CAN_frame.bitratemode = 0;
-	//CAN_frame.proto = kCAN_ProtoTypeClassic;
+	CAN_frame.bitratemode = kCAN_BitrateModeTypeSwitch;
+	//CAN_frame.proto = kCAN_ProtoTypeClassic;b
 	CAN_frame.proto = kCAN_ProtoTypeFD;
 	CAN_frame.length = 8;
 	
 	uint8_t ByteIndex;
 	
-	CAN_frame.id= (x[0]<<24) + (x[1]<<16)+(x[2]<<8)+x[3];
+	uint8_t ID_StartBype=1;
+	CAN_frame.id= (x[ID_StartBype]<<24) + (x[ID_StartBype+1]<<16)+(x[ID_StartBype+2]<<8)+x[ID_StartBype+3];
 	for(ByteIndex=0;ByteIndex<8;ByteIndex++)
 	{
-	CAN_frame.dataByte[ByteIndex]= x[ByteIndex+4];
+	CAN_frame.dataByte[ByteIndex]= x[ByteIndex+5];
 	}
 
 	return CAN_frame;

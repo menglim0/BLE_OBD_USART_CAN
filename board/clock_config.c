@@ -261,6 +261,16 @@ void BOARD_BootClockPLL180M(void)
         180000000U); /*!< Set voltage for the one of the fastest clock outputs: System clock output */
     CLOCK_SetFLASHAccessCyclesForFreq(180000000U); /*!< Set FLASH wait states for core */
     CLOCK_AttachClk(kSYS_PLL_to_MAIN_CLK);         /*!< Switch System clock to SYS PLL 180MHz */
+				
+				
+				/*!< Set up dividers */
+    CLOCK_SetClkDiv(kCLOCK_DivAhbClk, 1U, false);                  /*!< Reset divider counter and set divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivSystickClk, 0U, true);                  /*!< Reset SYSTICKCLKDIV divider counter and halt it */
+    CLOCK_SetClkDiv(kCLOCK_DivSystickClk, 1U, false);                  /*!< Set SYSTICKCLKDIV divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivCan0Clk, 0U, true);                  /*!< Reset CAN0CLKDIV divider counter and halt it */
+    CLOCK_SetClkDiv(kCLOCK_DivCan0Clk, 1U, false);                  /*!< Set CAN0CLKDIV divider to value 9 */
+    CLOCK_SetClkDiv(kCLOCK_DivCan1Clk, 0U, true);                  /*!< Reset CAN1CLKDIV divider counter and halt it */
+    CLOCK_SetClkDiv(kCLOCK_DivCan1Clk, 1U, false);                  /*!< Set CAN1CLKDIV divider to value 9 */		
 
     /* Set SystemCoreClock variable. */
     SystemCoreClock = BOARD_BootClockPLL180M_CORE_CLOCK;

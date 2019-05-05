@@ -215,7 +215,6 @@ void vBLE_Command_Mode_Action(TeOBD_Control_MODE cmdMode);
 			if(usart_Receive_Complete==false)
 			{
       			data = USART_ReadByte(DEMO_USART);
-
       			demoRingBuffer[USART_rxIndex] = data;
         		USART_rxIndex++;
 			}
@@ -234,7 +233,7 @@ void vBLE_Command_Mode_Action(TeOBD_Control_MODE cmdMode);
 				data_length=demoRingBuffer[0]>>4;	
 			}
 
-			if(USART_rxIndex >=13  )
+			if(USART_rxIndex ==data_length  )
 			{	
 				usart_first_Datareceived=true;				
 				usart_Receive_Complete=true;
@@ -419,7 +418,26 @@ static void vTouchTask(void *pvParameters)
 					}*/
 
 	//}
-		
+	/*
+		if (CAN_ReadRxMb(CAN0,0, &Rxmsg_TransOilTem) == kStatus_Success)
+				{
+					for(i=0;i<8;i++)
+					{
+						Usart_Received_Feedback_1[6+i]=Rxmsg_TransOilTem.dataByte[i];
+					}
+					
+					Usart_Received_Feedback_1[2]=ReceiveID_Setting[0];
+					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
+					Usart_Received_Feedback_1[4]=ReceiveID_Setting[2];
+					Usart_Received_Feedback_1[5]=ReceiveID_Setting[3];
+					//if(G_OBD_Receive_CMD ==true)
+					{
+						USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
+					}
+					Rx_Msg_Cnt++;
+			//	}
+				
+			}*/
 		
 		
 	//	if(Keep_Service_Active==true)
@@ -448,10 +466,11 @@ static void vLcdTask(void *pvParameters)
 		
 
 	/*mask with 0x4C9*/
-		for(ReceiveIndex=0;ReceiveIndex<4;ReceiveIndex++)
-		{
+		//for(ReceiveIndex=0;ReceiveIndex<4;ReceiveIndex++)
+		//{
+			//Rxmsg_TransOilTem.id=0x4C9;
 			
-			Rxmsg_TransOilTem.id = BLE_Receive_Service_ID_List[ReceiveIndex+1];
+			//Rxmsg_TransOilTem.id = BLE_Receive_Service_ID_List[ReceiveIndex+1];
 
 				if (CAN_ReadRxMb(CAN0,0, &Rxmsg_TransOilTem) == kStatus_Success)
 				{
@@ -462,16 +481,15 @@ static void vLcdTask(void *pvParameters)
 					
 					Usart_Received_Feedback_1[2]=ReceiveID_Setting[0];
 					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
-					Usart_Received_Feedback_1[4]=ReceiveID_Setting[2];
-					Usart_Received_Feedback_1[5]=ReceiveID_Setting[3];
-					if(G_OBD_Receive_CMD ==true)
-					{
+					Usart_Received_Feedback_1[4]=Rxmsg_TransOilTem.id>>8;
+					Usart_Received_Feedback_1[5]=Rxmsg_TransOilTem.id&0xFF;
+					
 						USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
 					}
-					Rx_Msg_Cnt++;
-				}
+					
+			//					}
 				
-			}
+			//}
 
 	
 	//vBLE_Command_Mode_Action(BLE_Command_Mode);

@@ -147,7 +147,7 @@ void BOARD_InitCAN(void)
     /* receive 0x100 in CAN1 rx message buffer 0 by setting mask 0 */
     CAN_SetRxIndividualMask(CAN0, 0, CAN_RX_MB_STD(0x4C9, 0));
     /* receive 0x101 in CAN1 rx message buffer 0 by setting mask 1 */
-    CAN_SetRxIndividualMask(CAN1, 1, CAN_RX_MB_STD(0x4C9, 0));
+    CAN_SetRxIndividualMask(CAN1, 1, CAN_RX_MB_STD(0x4C8, 0));
     //* receive 0x102 in CAN1 rx message buffer 0 by setting mask 2 */
     CAN_SetRxIndividualMask(CAN1, 2, CAN_RX_MB_STD(0x102, 0));
     /* receive 0x00000200 (29-bit id) in CAN1 rx message buffer 1 by setting mask 3 */
