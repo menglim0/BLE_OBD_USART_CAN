@@ -336,25 +336,7 @@ static void vTouchTask(void *pvParameters)
 		
 		}
 		
-			if(	usart_first_Datareceived==true||usart_Receive_Complete==true)
-			{
-					GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
-			    vControl_Status(demoRingBuffer);
-				usart_first_Datareceived=false;				
-				usart_Receive_Complete=false;
-				USART_rxIndex=0;
-				if(demoRingBuffer[0]!=0x54)
-				{
-				tx_frame1=obd_can_TxMSG_Pack(demoRingBuffer);				
-				obd_Service_MsgTrasmit(	&tx_frame1);
-				KeepAlive_Peroid_2s_Count=0;
-				}
-				for(i=0;i<14;i++)
-				{
-
-				demoRingBuffer[i]=0;
-				}
-			}
+			
 
 						KeepSendTimeCnt++;
 			
@@ -459,12 +441,31 @@ static void vTouchTask(void *pvParameters)
 static void vLcdTask(void *pvParameters)
 {
 	uint8_t ReceiveIndex;
+	can_frame_t tx_frame1;
 	for(;;)
 	{
 		
 		Rx_Msg_Loop_Cnt++;
 		
+if(	usart_first_Datareceived==true||usart_Receive_Complete==true)
+			{
+					GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
+			    vControl_Status(demoRingBuffer);
+				usart_first_Datareceived=false;				
+				usart_Receive_Complete=false;
+				USART_rxIndex=0;
+				if(demoRingBuffer[0]!=0x54)
+				{
+				tx_frame1=obd_can_TxMSG_Pack(demoRingBuffer);				
+				obd_Service_MsgTrasmit(	&tx_frame1);
+				KeepAlive_Peroid_2s_Count=0;
+				}
+				for(i=0;i<14;i++)
+				{
 
+				demoRingBuffer[i]=0;
+				}
+			}
 	/*mask with 0x4C9*/
 		//for(ReceiveIndex=0;ReceiveIndex<4;ReceiveIndex++)
 		//{
