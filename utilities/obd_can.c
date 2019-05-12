@@ -258,3 +258,18 @@ can_frame_t obd_can_TxMSG_Pack(uint8_t x[])
 	return CAN_frame;
 }
 
+uint32_t obd_can_RxMSG_UnPack(uint8_t x[])
+{
+	uint32_t Rx_CAN_frameID;
+	
+
+	
+	uint8_t ByteIndex;
+	
+	uint8_t ID_StartBype=1;
+	Rx_CAN_frameID= (x[ID_StartBype]<<24) + (x[ID_StartBype+1]<<16)+(x[ID_StartBype+2]<<8)+x[ID_StartBype+3];
+	
+
+	return Rx_CAN_frameID;
+}
+
