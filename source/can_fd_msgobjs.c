@@ -348,7 +348,7 @@ static void vTouchTask(void *pvParameters)
 	
 						KeepSendTimeCnt++;
 	
-	if(1)
+	if(0)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
