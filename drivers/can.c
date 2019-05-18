@@ -559,9 +559,12 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
 
     /* configuration change enable */
     base->CCCR |= CAN_CCCR_CCE_MASK;
+		
+		base->CCCR |=CAN_CCCR_EFBI_MASK;
 #ifdef USE_FD
     /* enable FD and baud-rate switching */
     base->CCCR |= CAN_CCCR_BRSE_MASK;
+		base->CCCR |= 0x100000;
 
     if (!config->disableFD)
     {
@@ -657,6 +660,10 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
     }
 #endif
     
+		
+		base->TDCR=0x40;
+		//base->PSR = CAN_TDCR_TDCO_MASK;
+		//base->TDCF=0x10;
     if (config->timestampClock_Hz)
     {
         /* use external timestamp counter */

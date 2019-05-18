@@ -329,7 +329,19 @@ static void vTouchTask(void *pvParameters)
 	
 	 bool BLE_Connect_Status;
 	uint8_t i;
-	can_frame_t tx_frame1;
+	can_frame_t tx_frame1,testFrame_ID4C9;
+	
+	testFrame_ID4C9.id=0x4C9;
+	testFrame_ID4C9.format =kCAN_FrameFormatStandard;
+	testFrame_ID4C9.type = kCAN_FrameTypeData;
+	//CAN_frame.proto = kCAN_ProtoTypeClassic;
+	testFrame_ID4C9.bitratemode = kCAN_BitrateModeTypeSwitch;
+	//CAN_frame.proto = kCAN_ProtoTypeClassic;b
+	testFrame_ID4C9.proto = kCAN_ProtoTypeFD;
+	testFrame_ID4C9.length = 8;
+	
+	testFrame_ID4C9.dataWord[0]=0x12345678;
+	testFrame_ID4C9.dataWord[1]=0x87654321;
 	//创建消息队列
     //Key_Queue=xQueueCreate(KEYMSG_Q_NUM,sizeof(uint8_t));        //创建消息Key_Queue
     //Message_Queue=xQueueCreate(MESSAGE_Q_NUM,USART_REC_LEN); //创建消息Message_Queue,队列项长度是串口接收缓冲区长度
@@ -348,13 +360,14 @@ static void vTouchTask(void *pvParameters)
 	
 						KeepSendTimeCnt++;
 	
-	if(1)
+	if(0)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
 			{
 				obd_Service_KeepAlive();
-				KeepAlive_Peroid_2s_Count=0;
+				KeepAlive_Peroid_2s_Count=0;				
+				//obd_can_TxMSG_Standard_CAN1(CAN1, 0,&testFrame_ID4C9);
 			}
 	
 		}
@@ -466,7 +479,22 @@ static void vLcdTask(void *pvParameters)
 						Usart_Received_Feedback_1[6+i]=Rx_frame_Mask_temp.dataByte[i];
 					}
 					
-					Usart_Received_Feedback_1[2]=ReceiveID_Setting[0];
+					Usart_Received_Feedback_1[2]=0x01;
+					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
+					Usart_Received_Feedback_1[4]=Rx_frame_Mask_temp.id>>8;
+					Usart_Received_Feedback_1[5]=Rx_frame_Mask_temp.id&0xFF;
+					
+						USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
+					}
+				
+					if (CAN_ReadRxMb(CAN0,1, &Rx_frame_Mask_temp) == kStatus_Success)
+				{
+					for(i=0;i<8;i++)
+					{
+						Usart_Received_Feedback_1[6+i]=Rx_frame_Mask_temp.dataByte[i];
+					}
+					
+					Usart_Received_Feedback_1[2]=0x02;
 					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
 					Usart_Received_Feedback_1[4]=Rx_frame_Mask_temp.id>>8;
 					Usart_Received_Feedback_1[5]=Rx_frame_Mask_temp.id&0xFF;

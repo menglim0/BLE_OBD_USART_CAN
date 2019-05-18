@@ -3,7 +3,7 @@
 <title>Static Call Graph - [debug\can_fd_msgobjs.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\can_fd_msgobjs.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat May 11 21:33:17 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat May 18 16:21:19 2019
 <BR><P>
 <H3>Maximum Stack Usage =        460 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -566,7 +566,7 @@ Global Symbols
 
 <P><STRONG><a name="[93]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Pack
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Pack
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockPLL180M
 </UL>
 
@@ -651,7 +651,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a1]"></a>BOARD_InitGPIO</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, board.o(i.BOARD_InitGPIO))
+<P><STRONG><a name="[a1]"></a>BOARD_InitGPIO</STRONG> (Thumb, 172 bytes, Stack size 8 bytes, board.o(i.BOARD_InitGPIO))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = BOARD_InitGPIO &rArr; GPIO_PinInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
@@ -660,8 +660,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a4]"></a>BOARD_InitPins</STRONG> (Thumb, 272 bytes, Stack size 56 bytes, pin_mux.o(i.BOARD_InitPins))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = BOARD_InitPins &rArr; IOCON_PinMuxSet
+<P><STRONG><a name="[a4]"></a>BOARD_InitPins</STRONG> (Thumb, 342 bytes, Stack size 72 bytes, pin_mux.o(i.BOARD_InitPins))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = BOARD_InitPins &rArr; IOCON_PinMuxSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IOCON_PinMuxSet
 </UL>
@@ -694,7 +694,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
 
-<P><STRONG><a name="[98]"></a>CAN_Init</STRONG> (Thumb, 516 bytes, Stack size 40 bytes, can.o(i.CAN_Init))
+<P><STRONG><a name="[98]"></a>CAN_Init</STRONG> (Thumb, 536 bytes, Stack size 40 bytes, can.o(i.CAN_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = CAN_Init &rArr; RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
@@ -789,7 +789,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_WriteTxMb
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
 </UL>
 
 <P><STRONG><a name="[b8]"></a>CAN_WriteTxMb</STRONG> (Thumb, 206 bytes, Stack size 24 bytes, can.o(i.CAN_WriteTxMb))
@@ -1356,21 +1356,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[e8]"></a>obd_Service_KeepAlive</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, obd_can.o(i.obd_Service_KeepAlive))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = obd_Service_KeepAlive &rArr; obd_Service_MsgTrasmit &rArr; obd_can_TxMSG_Standard &rArr; CAN_TransferSendBlocking &rArr; CAN_WriteTxMb
-</UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_MsgTrasmit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTouchTask
-</UL>
-
-<P><STRONG><a name="[e9]"></a>obd_Service_MsgTrasmit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, obd_can.o(i.obd_Service_MsgTrasmit))
+<P><STRONG><a name="[e8]"></a>obd_Service_MsgTrasmit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, obd_can.o(i.obd_Service_MsgTrasmit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = obd_Service_MsgTrasmit &rArr; obd_can_TxMSG_Standard &rArr; CAN_TransferSendBlocking &rArr; CAN_WriteTxMb
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
 </UL>
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_KeepAlive
 </UL>
 
 <P><STRONG><a name="[11e]"></a>obd_can_RxMSG_UnPack</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, obd_can.o(i.obd_can_RxMSG_UnPack))
@@ -1379,7 +1370,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[eb]"></a>obd_can_TxMSG_Pack</STRONG> (Thumb, 132 bytes, Stack size 96 bytes, obd_can.o(i.obd_can_TxMSG_Pack))
+<P><STRONG><a name="[ea]"></a>obd_can_TxMSG_Pack</STRONG> (Thumb, 132 bytes, Stack size 96 bytes, obd_can.o(i.obd_can_TxMSG_Pack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = obd_can_TxMSG_Pack
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
@@ -1387,12 +1378,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[ea]"></a>obd_can_TxMSG_Standard</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, obd_can.o(i.obd_can_TxMSG_Standard))
+<P><STRONG><a name="[e9]"></a>obd_can_TxMSG_Standard</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, obd_can.o(i.obd_can_TxMSG_Standard))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = obd_can_TxMSG_Standard &rArr; CAN_TransferSendBlocking &rArr; CAN_WriteTxMb
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_TransferSendBlocking
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_MsgTrasmit
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_MsgTrasmit
 </UL>
 
 <P><STRONG><a name="[116]"></a>pvPortMalloc</STRONG> (Thumb, 296 bytes, Stack size 24 bytes, heap_4.o(i.pvPortMalloc))
@@ -1901,7 +1893,7 @@ Local Symbols
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLcdTask
 </UL>
 
-<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 440 bytes, Stack size 232 bytes, can_fd_msgobjs.o(i.vLcdTask))
+<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 524 bytes, Stack size 232 bytes, can_fd_msgobjs.o(i.vLcdTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 460<LI>Call Chain = vLcdTask &rArr; vControl_Status &rArr; vControl_BLE_Connect &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
@@ -1909,19 +1901,18 @@ Local Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteBlocking
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControl_Status
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Pack
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Pack
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_RxMSG_UnPack
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_MsgTrasmit
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_MsgTrasmit
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> can_fd_msgobjs.o(i.main)
 </UL>
-<P><STRONG><a name="[82]"></a>vTouchTask</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, can_fd_msgobjs.o(i.vTouchTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = vTouchTask &rArr; obd_Service_KeepAlive &rArr; obd_Service_MsgTrasmit &rArr; obd_can_TxMSG_Standard &rArr; CAN_TransferSendBlocking &rArr; CAN_WriteTxMb
+<P><STRONG><a name="[82]"></a>vTouchTask</STRONG> (Thumb, 126 bytes, Stack size 72 bytes, can_fd_msgobjs.o(i.vTouchTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = vTouchTask &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_Service_KeepAlive
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> can_fd_msgobjs.o(i.main)
 </UL>
@@ -1963,6 +1954,10 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_PrintfFormattedData
 </UL>
 
+<P><STRONG><a name="[eb]"></a>GPIO_TogglePinsOutput</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, obd_can.o(i.GPIO_TogglePinsOutput))
+<BR><BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obd_can_TxMSG_Standard
+</UL>
+
 <P><STRONG><a name="[fc]"></a>prvCopyDataFromQueue</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, queue.o(i.prvCopyDataFromQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvCopyDataFromQueue
 </UL>
@@ -1974,8 +1969,8 @@ Local Symbols
 <P><STRONG><a name="[fe]"></a>prvCopyDataToQueue</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, queue.o(i.prvCopyDataToQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend

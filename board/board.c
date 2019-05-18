@@ -147,7 +147,7 @@ void BOARD_InitCAN(void)
     /* receive 0x100 in CAN1 rx message buffer 0 by setting mask 0 */
     CAN_SetRxIndividualMask(CAN0, 0, CAN_RX_MB_STD(0x4C9, 0));
     /* receive 0x101 in CAN1 rx message buffer 0 by setting mask 1 */
-    CAN_SetRxIndividualMask(CAN1, 0, CAN_RX_MB_STD(0x4C9, 0));
+    CAN_SetRxIndividualMask(CAN0, 1, CAN_RX_MB_STD(0x4C8, 1));
     //* receive 0x102 in CAN1 rx message buffer 0 by setting mask 2 */
     CAN_SetRxIndividualMask(CAN1, 2, CAN_RX_MB_STD(0x102, 0));
     /* receive 0x00000200 (29-bit id) in CAN1 rx message buffer 1 by setting mask 3 */
@@ -181,6 +181,18 @@ void BOARD_InitGPIO(void)
     GPIO_WritePinOutput(GPIO, BOARD_LED2_GPIO_PORT, BOARD_LED2_GPIO_PIN, 1);
     GPIO_PinInit(GPIO, BOARD_LED3_GPIO_PORT, BOARD_LED3_GPIO_PIN, &led_config);
     GPIO_WritePinOutput(GPIO, BOARD_LED3_GPIO_PORT, BOARD_LED3_GPIO_PIN, 1);
+	
+	
+	
+			GPIO_PinInit(GPIO, BOARD_SGM1_GPIO_PORT, BOARD_SGM1_GPIO_PIN, &led_config);
+    GPIO_WritePinOutput(GPIO, BOARD_SGM1_GPIO_PORT, BOARD_SGM1_GPIO_PIN, 1);
+    GPIO_PinInit(GPIO, BOARD_SGM2_GPIO_PORT, BOARD_SGM2_GPIO_PIN, &led_config);
+    GPIO_WritePinOutput(GPIO, BOARD_SGM2_GPIO_PORT, BOARD_SGM2_GPIO_PIN, 1);
+		
+			GPIO_PinInit(GPIO, BLE_EN_GPIO_PORT, BLE_EN_GPIO_PIN, &led_config);
+    GPIO_WritePinOutput(GPIO, BLE_EN_GPIO_PORT, BLE_EN_GPIO_PIN, 0);
+    	GPIO_PinInit(GPIO, BLE_BRTS_GPIO_PORT, BLE_BRTS_GPIO_PIN, &led_config);
+    GPIO_WritePinOutput(GPIO, BLE_BRTS_GPIO_PORT, BLE_BRTS_GPIO_PIN, 0);
 		
 		/*		init the control for CC2540 on the OBD module*/
 		/*

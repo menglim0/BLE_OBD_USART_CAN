@@ -222,13 +222,51 @@ bool obd_can_TxMSG_Standard(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
               return true;
                 //message_transmitted = true;
              }
+/*
+			if (CAN_TransferSendBlocking(CAN1, mbIdx, txFrame) != kStatus_Success)
+				{
+				//do nothing
+				}*/
+		return true;
+}
+
+bool obd_can_TxMSG_Standard_CAN1(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
+{
+	
+	        /* time to send messages from CAN0 */
+           /* send 0x100 -> 0x102 on tx message buffer 0 */
+	
+            //for (b = 0; b < txFrame.length; b++) txFrame.dataByte[b] = b;
+            /* use message buffer 0 */
+           /* if (CAN_TransferSendBlocking(CAN0, mbIdx, txFrame) != kStatus_Success)
+            {
+							
+             // PRINTF("transmit");
+							
+            }
+            else
+            {
+                // toggle LED1 
+                GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
+              return true;
+                //message_transmitted = true;
+             }*/
 
 			if (CAN_TransferSendBlocking(CAN1, mbIdx, txFrame) != kStatus_Success)
 				{
 				//do nothing
 				}
+				else
+        {
+                /* toggle LED1 */
+            GPIO_TogglePinsOutput(GPIO, BOARD_LED1_GPIO_PORT, 1u << BOARD_LED1_GPIO_PIN);
+              return true;
+                //message_transmitted = true;
+        }
 		return true;
 }
+
+
 
 void obd_can_TxMSG_Extend(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame)
 {

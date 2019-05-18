@@ -42,6 +42,7 @@ bool obd_Service(TeOBD_Service_MODE state);
 void obd_Service_MsgTrasmit(can_frame_t *txFrame);
 
 void obd_can_TxMSG_Extend(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame);
+bool obd_can_TxMSG_Standard_CAN1(CAN_Type *base, uint8_t mbIdx, can_frame_t *txFrame);
 
 bool obd_Service_KeepAlive();
 
