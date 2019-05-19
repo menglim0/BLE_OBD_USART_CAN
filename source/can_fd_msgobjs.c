@@ -60,7 +60,7 @@
  * Touch status check delay
  */
 #define TOUCH_DELAY   (50)
-#define LCD_DELAY   (20)
+#define LCD_DELAY   (10)
 
 
 static void vTouchTask(void *pvParameters);
@@ -131,7 +131,7 @@ uint16_t Rx_Msg_Cnt,Rx_Msg_Loop_Cnt;
 #define KeepAlive_Peroid_Cnt_2s (1000/TOUCH_DELAY)
 
 
-uint16_t KeepAlive_Peroid_2s_Count;
+uint16_t KeepAlive_Peroid_2s_Count,total_index;
 
 
 uint8_t VfCANH_RxMSG_Data;
@@ -140,6 +140,7 @@ uint16_t VfCANH_RxMSG_ID,Array_Cycle,USART_rxIndex,KeepSendTimeCnt,KeepSendOneTi
 uint8_t VfUSART_Data[DEMO_RING_BUFFER_SIZE];
 uint8_t USART_Data[DEMO_RING_BUFFER_SIZE],i;
 uint8_t demoRingBuffer[DEMO_RING_BUFFER_SIZE];
+uint8_t demoRingBuffer_Total[280];
 uint8_t demoRingBuffer_init[DEMO_RING_BUFFER_SIZE]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 
 uint8_t Usart_Send_Test[14]={0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99,0xaa,0xbb,0xcc,0xdd,0xee};
@@ -148,8 +149,13 @@ uint8_t Usart_Received_Feedback_1[14]={0xA1,0x81,0x00,0x00,0x04,0xC9,0x00,0x00,0
 
 uint8_t Usart_Received_Feedback_2[14]={0xA1,0x02,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 
+uint8_t Multiframe_FireWall_Cmd[10][14];
 
-
+uint8_t Multiframe_FireWall_index,Multiframe_Control_index;
+bool Multiframe_FireWall_Send;
+/**
+Multiframe_FireWall_index=1 -->Multiframe_FireWall_Cmd
+*/
 
 uint8_t ReceiveDataFromCAN_to_USART[12];
 
@@ -215,6 +221,12 @@ void vBLE_Command_Mode_Action(TeOBD_Control_MODE cmdMode);
 			
       			data = USART_ReadByte(DEMO_USART);
       			demoRingBuffer[USART_rxIndex] = data;
+						demoRingBuffer_Total[total_index]=data;
+						total_index++;
+			if(total_index>=280)
+			{
+			total_index=0;
+			}
 				/*All cmd start as 0xE...*/
 				if((demoRingBuffer[0]>>4)==0x0E)
 				{
@@ -348,7 +360,7 @@ static void vTouchTask(void *pvParameters)
 	
 						KeepSendTimeCnt++;
 	
-	if(1)
+	if(0)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
@@ -399,7 +411,7 @@ static void vLcdTask(void *pvParameters)
 			USART_rxIndex=0;
 			for(i=0;i<14;i++)
 				{
-
+				Multiframe_FireWall_Cmd[demoRingBuffer[14]][i]=demoRingBuffer[i];
 				demoRingBuffer[i]=0;
 				}
 		}
@@ -414,11 +426,20 @@ static void vLcdTask(void *pvParameters)
 				USART_rxIndex=0;
 				if(demoRingBuffer[0]==0xE1)
 				{
-				tx_frame1=obd_can_TxMSG_Pack(demoRingBuffer);	
-					if(tx_frame1.id!=0)
+					if(demoRingBuffer[13]==0)
 					{
-						obd_Service_MsgTrasmit(	&tx_frame1);
-						KeepAlive_Peroid_2s_Count=0;
+						tx_frame1=obd_can_TxMSG_Pack(demoRingBuffer);	
+										
+						if(tx_frame1.id!=0)
+						{
+							obd_Service_MsgTrasmit(	&tx_frame1);
+							KeepAlive_Peroid_2s_Count=0;
+						}
+					}
+					else
+					{
+						Multiframe_FireWall_index=1;
+						Multiframe_FireWall_Send=true;
 					}
 				}
 				
@@ -447,11 +468,43 @@ static void vLcdTask(void *pvParameters)
 				}
 				
 				for(i=0;i<14;i++)
-				{
-
+				{  if(demoRingBuffer[13]!=0)
+					{
+						Multiframe_FireWall_Cmd[demoRingBuffer[13]][i]=demoRingBuffer[i];
+					}
 				demoRingBuffer[i]=0;
 				}
 			}
+			
+			if(Multiframe_FireWall_Send==true)
+			{
+				if(Multiframe_FireWall_index==1)
+				{
+					Multiframe_Control_index++;
+					
+					if(Multiframe_FireWall_Cmd[Multiframe_Control_index][13]==Multiframe_Control_index)
+					{
+						tx_frame1=obd_can_TxMSG_Pack(Multiframe_FireWall_Cmd[Multiframe_Control_index]);	
+										
+						if(tx_frame1.id!=0)
+						{
+							obd_Service_MsgTrasmit(	&tx_frame1);
+							KeepAlive_Peroid_2s_Count=0;
+						}
+					}
+					
+					if(Multiframe_Control_index>=6)
+					{
+					Multiframe_FireWall_Send=false;
+					Multiframe_Control_index=0;
+					}
+				}
+			}
+			else
+			{
+				Multiframe_Control_index=0;
+			}
+				
 	/*mask with 0x4C9*/
 		//for(ReceiveIndex=0;ReceiveIndex<4;ReceiveIndex++)
 		//{
