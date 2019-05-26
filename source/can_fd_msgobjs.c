@@ -60,7 +60,7 @@
  * Touch status check delay
  */
 #define TOUCH_DELAY   (50)
-#define LCD_DELAY   (10)
+#define LCD_DELAY   (20)
 
 
 static void vTouchTask(void *pvParameters);
