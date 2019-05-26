@@ -27,9 +27,20 @@ Project File Date:  05/07/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'can_fd_msgobjs Debug'
+compiling obd_usart.c...
+..\utilities\obd_usart.c(49): warning:  #177-D: variable "i_cnt"  was declared but never referenced
+  	uint8_t i_cnt;
+..\utilities\obd_usart.c: 1 warning, 0 errors
+compiling obd_control.c...
+..\utilities\obd_can.h(46): warning:  #1295-D: Deprecated declaration obd_Service_KeepAlive - give arg types
+  
+ool obd_Service_KeepAlive();
+..\utilities\obd_control.c(29): warning:  #177-D: variable "datalength"  was declared but never referenced
+  uint8_t datalength;
+..\utilities\obd_control.c: 2 warnings, 0 errors
 linking...
 Program Size: Code=20296 RO-data=552 RW-data=440 ZI-data=13336  
-"debug\can_fd_msgobjs.out" - 0 Error(s), 0 Warning(s).
+"debug\can_fd_msgobjs.out" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -43,7 +54,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.6.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

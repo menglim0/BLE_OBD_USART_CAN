@@ -66,6 +66,8 @@
 static void vTouchTask(void *pvParameters);
 static void vLcdTask(void *pvParameters);
 
+void Control_State_MultiFrame();
+
 //void USART_ReceiveData(void);
 
 TaskHandle_t xTouchTaskHandle = NULL;
@@ -561,6 +563,11 @@ static void vLcdTask(void *pvParameters)
 	
 	}
 	
+}
+
+void Control_State_MultiFrame()
+{
+
 }
 
 
