@@ -584,17 +584,17 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
         //CAN_SetTimingConfig(base, &timingConfig);
     }
 
-		timingConfig.preDivider=0x03;         /*!< Global Clock Division Factor. 90M*/
-    timingConfig.nominalPrescaler=0x6;  /*!< Nominal clock prescaler.5M */
-    timingConfig.nominalRJumpwidth=4; /*!< Nominal Re-sync Jump Width. */
-    timingConfig.nominalPhaseSeg1=0x10;  /*!< Nominal Phase Segment 1. */
-    timingConfig.nominalPhaseSeg2=0x03;  /*!< Nominal Phase Segment 2. */
-    timingConfig.nominalPropSeg=0;    /*!< Nominal Propagation Segment. */
+		timingConfig.preDivider=0x01;         /*!< Global Clock Division Factor. 90M*/
+    timingConfig.nominalPrescaler=0x3;  /*!< Nominal clock prescaler.5M */
+    timingConfig.nominalRJumpwidth=10; /*!< Nominal Re-sync Jump Width. */
+    timingConfig.nominalPhaseSeg1=92;  /*!< Nominal Phase Segment 1. */
+    timingConfig.nominalPhaseSeg2=27;  /*!< Nominal Phase Segment 2. */
+    timingConfig.nominalPropSeg=2;    /*!< Nominal Propagation Segment. */
 #ifdef USE_FD
     timingConfig.dataPrescaler=1;     /*!< Data clock prescaler. 60M*/
     timingConfig.dataRJumpwidth=4;    /*!< Data Re-sync Jump Width. */
-    timingConfig.dataPhaseSeg1=0x9;     /*!< Data Phase Segment 1. */
-    timingConfig.dataPhaseSeg2=2;     /*!< Data Phase Segment 2. */
+    timingConfig.dataPhaseSeg1=0x1F;     /*!< Data Phase Segment 1. */
+    timingConfig.dataPhaseSeg2=3;     /*!< Data Phase Segment 2. */
     timingConfig.dataPropSeg=0;       /*!< Data Propagation Segment. */
 #endif
 

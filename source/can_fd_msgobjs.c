@@ -128,7 +128,7 @@ bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAliv
 bool Keep_Service_Active_Send;
 uint16_t Rx_Msg_Cnt,Rx_Msg_Loop_Cnt;
 
-#define KeepAlive_Peroid_Cnt_2s (1000/TOUCH_DELAY)
+#define KeepAlive_Peroid_Cnt_2s (100/TOUCH_DELAY)
 
 
 uint16_t KeepAlive_Peroid_2s_Count,total_index;
@@ -360,7 +360,7 @@ static void vTouchTask(void *pvParameters)
 	
 						KeepSendTimeCnt++;
 	
-	if(0)
+	if(1)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
