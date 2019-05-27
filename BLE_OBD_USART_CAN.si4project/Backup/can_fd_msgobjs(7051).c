@@ -132,7 +132,7 @@ bool rxIndex_updated,tx_CAN_Enable,message_received,Keep_Service_Active,KeepAliv
 bool Keep_Service_Active_Send;
 uint16_t Rx_Msg_Cnt,Rx_Msg_Loop_Cnt;
 
-#define KeepAlive_Peroid_Cnt_2s (2000/TOUCH_DELAY)
+#define KeepAlive_Peroid_Cnt_2s (100/TOUCH_DELAY)
 
 
 uint16_t KeepAlive_Peroid_2s_Count,total_index;
@@ -157,7 +157,7 @@ uint8_t Multiframe_FireWall_Cmd[10][14];
 
 uint8_t Usart_Config_Init[14];
 
-uint8_t Multiframe_FireWall_index,Multiframe_Control_index,FrameIndex,FrameIndex_rest;
+uint8_t Multiframe_FireWall_index,Multiframe_Control_index;
 bool Multiframe_FireWall_Send;
 /**
 Multiframe_FireWall_index=1 -->Multiframe_FireWall_Cmd
@@ -210,7 +210,6 @@ typedef enum
    CeOBD_Receive_Config_init,           /* 01 */      
    CeOBD_Receive_Sending_Cmd,            /* 02 */
    CeOBD_Receive_Sending_Cmd_Multiframe,             /* 03 */
-   CeOBD_Receive_Sending_Cmd_Multiframe_other,             /* 03 */
    CeOBD_Receive_Complete,           /* 04 mutil frame*/      
    
 } TeOBD_Receive_Cmd;
@@ -225,8 +224,6 @@ typedef enum
 } TeUSART_Receive_State;
 
 TeOBD_Receive_list BLE_Command_Receive_list;
-TeOBD_Receive_Cmd BLE_Receive_Command;
-
 
 TeUSART_Receive_State  VeUSART_Receive_State;
 																
@@ -380,12 +377,9 @@ static void vTouchTask(void *pvParameters)
 		
 		}
 	
-		KeepSendTimeCnt++;
-
-
-		vTask_UsartReceive_Detection();
+						KeepSendTimeCnt++;
 	
-	if(0)
+	if(1)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
@@ -507,30 +501,8 @@ static void vLcdTask(void *pvParameters)
 			}
 			
 			*/
-
-	if(BLE_Receive_Command == CeOBD_Receive_Sending_Cmd_Multiframe||BLE_Receive_Command ==CeOBD_Receive_Sending_Cmd_Multiframe_other)
-	{
-		tx_frame1=obd_can_TxMSG_Pack(Multiframe_FireWall_Cmd[Multiframe_Control_index]);	
-												
-		if(tx_frame1.id!=0)
-		{
-			obd_Service_MsgTrasmit( &tx_frame1);
-			KeepAlive_Peroid_2s_Count=0;
-		}
-
-		if(Multiframe_Control_index>=FrameIndex)
-		{
-			BLE_Receive_Command=CeOBD_Receive_NoCmd;
-			Multiframe_Control_index=0;
-		}
-		else
-		{
-			Multiframe_Control_index++;
-		}
-	}
-		
 			
-			if(0)
+			if(Multiframe_FireWall_Send==true)
 			{
 				if(Multiframe_FireWall_index==1)
 				{
@@ -556,7 +528,7 @@ static void vLcdTask(void *pvParameters)
 			}
 			else
 			{
-				//Multiframe_Control_index=0;
+				Multiframe_Control_index=0;
 			}
 				
 	/*mask with 0x4C9*/
@@ -622,7 +594,7 @@ void vTask_UsartReceive_Detection()
 {
 
 
-	if(usart_first_Datareceived==true&&Rx_Msg_Loop_Cnt<=10)
+	if(usart_first_Datareceived==true&&Rx_Msg_Loop_Cnt<=2)
 	{
 		Rx_Msg_Loop_Cnt++;
 	}
@@ -630,15 +602,14 @@ void vTask_UsartReceive_Detection()
 	{
 		/*Receive complete, record the data to array*/
 		vTask_UsartReceive_UnPack();
-
-		for(i=0;i<total_index;i++)
-		{
-		demoRingBuffer_Total[i]=0;
-		}
-		
 		Rx_Msg_Loop_Cnt=0;
 		USART_rxIndex=0;
 		total_index=0;
+		for(i=0;i<14;i++)
+		{
+
+		demoRingBuffer[i]=0;
+		}
 	}
 
 	
@@ -661,35 +632,22 @@ void vTask_UsartReceive_UnPack()
 		for(i=0;i<14;i++)
 		{
 			Usart_Config_Init[i]=demoRingBuffer_Total[i];
-		}
 			VeUSART_Receive_State=CeUSART_Receive_Complete;
-		BLE_Receive_Command = CeOBD_Receive_Config_init;
+
+		}
+
 	}
 
 	/*0xE6 config the multiframe data*/
 	if(demoRingBuffer_Total[0]==0xE6)
 	{
-		for(i=0;i<total_index;i++)
+		for(i=0;i<14;i++)
 		{
-			FrameIndex=i/14; 
-			FrameIndex_rest = i%14;
-			Multiframe_FireWall_Cmd[FrameIndex][FrameIndex_rest]=demoRingBuffer_Total[i];	
-		}
-		VeUSART_Receive_State=CeUSART_Receive_Complete;
-		BLE_Receive_Command = CeOBD_Receive_Sending_Cmd_Multiframe;
-	}
+			Usart_Config_Init[i]=demoRingBuffer_Total[i];
+			VeUSART_Receive_State=CeUSART_Receive_Complete;
 
-	/*0xE1 config other multiframe data*/
-	if(demoRingBuffer_Total[0]==0xE1)
-	{
-		for(i=0;i<total_index;i++)
-		{
-			FrameIndex=i/14; 
-			FrameIndex_rest = i%14;
-			Multiframe_FireWall_Cmd[FrameIndex][FrameIndex_rest]=demoRingBuffer_Total[i];	
 		}
-		VeUSART_Receive_State=CeUSART_Receive_Complete;
-		BLE_Receive_Command = CeOBD_Receive_Sending_Cmd_Multiframe_other;
+
 	}
 
 }

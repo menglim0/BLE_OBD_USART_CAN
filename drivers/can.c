@@ -587,8 +587,8 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
 		timingConfig.preDivider=0x01;         /*!< Global Clock Division Factor. 90M*/
     timingConfig.nominalPrescaler=0x3;  /*!< Nominal clock prescaler.5M */
     timingConfig.nominalRJumpwidth=10; /*!< Nominal Re-sync Jump Width. */
-    timingConfig.nominalPhaseSeg1=92;  /*!< Nominal Phase Segment 1. */
-    timingConfig.nominalPhaseSeg2=27;  /*!< Nominal Phase Segment 2. */
+    timingConfig.nominalPhaseSeg1=93;  /*!< Nominal Phase Segment 1. */
+    timingConfig.nominalPhaseSeg2=26;  /*!< Nominal Phase Segment 2. */
     timingConfig.nominalPropSeg=2;    /*!< Nominal Propagation Segment. */
 #ifdef USE_FD
     timingConfig.dataPrescaler=1;     /*!< Data clock prescaler. 60M*/

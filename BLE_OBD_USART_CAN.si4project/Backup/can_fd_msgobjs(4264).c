@@ -210,7 +210,6 @@ typedef enum
    CeOBD_Receive_Config_init,           /* 01 */      
    CeOBD_Receive_Sending_Cmd,            /* 02 */
    CeOBD_Receive_Sending_Cmd_Multiframe,             /* 03 */
-   CeOBD_Receive_Sending_Cmd_Multiframe_other,             /* 03 */
    CeOBD_Receive_Complete,           /* 04 mutil frame*/      
    
 } TeOBD_Receive_Cmd;
@@ -385,7 +384,7 @@ static void vTouchTask(void *pvParameters)
 
 		vTask_UsartReceive_Detection();
 	
-	if(0)
+	if(1)
 		{
 			KeepAlive_Peroid_2s_Count++;
 			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
@@ -508,7 +507,7 @@ static void vLcdTask(void *pvParameters)
 			
 			*/
 
-	if(BLE_Receive_Command == CeOBD_Receive_Sending_Cmd_Multiframe||BLE_Receive_Command ==CeOBD_Receive_Sending_Cmd_Multiframe_other)
+	if(BLE_Receive_Command == CeOBD_Receive_Sending_Cmd_Multiframe)
 	{
 		tx_frame1=obd_can_TxMSG_Pack(Multiframe_FireWall_Cmd[Multiframe_Control_index]);	
 												
@@ -689,7 +688,7 @@ void vTask_UsartReceive_UnPack()
 			Multiframe_FireWall_Cmd[FrameIndex][FrameIndex_rest]=demoRingBuffer_Total[i];	
 		}
 		VeUSART_Receive_State=CeUSART_Receive_Complete;
-		BLE_Receive_Command = CeOBD_Receive_Sending_Cmd_Multiframe_other;
+		BLE_Receive_Command = CeOBD_Receive_Sending_Cmd_Multiframe;
 	}
 
 }
