@@ -133,7 +133,7 @@ bool Keep_Service_Active_Send;
 uint16_t Rx_Msg_Cnt,Rx_Msg_Loop_Cnt;
 
 #define KeepAlive_Peroid_Cnt_2s (2000/TOUCH_DELAY)
-
+#define KeepAlive_Peroid_Cnt_100ms (100/TOUCH_DELAY)
 
 uint16_t KeepAlive_Peroid_2s_Count,total_index;
 
@@ -385,10 +385,10 @@ static void vTouchTask(void *pvParameters)
 
 		vTask_UsartReceive_Detection();
 	
-	if(0)
+	if(1)
 		{
 			KeepAlive_Peroid_2s_Count++;
-			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
+			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_100ms)
 			{
 				obd_Service_KeepAlive();
 				KeepAlive_Peroid_2s_Count=0;
@@ -414,99 +414,7 @@ static void vLcdTask(void *pvParameters)
 	for(;;)
 	{
 		
-		//Rx_Msg_Loop_Cnt++;
 		
-		/*
-		if(usart_first_Datareceived==true&&Rx_Msg_Loop_Cnt<=1)
-		{
-			Rx_Msg_Loop_Cnt++;
-		}
-		else
-		{
-			Rx_Msg_Loop_Cnt=0;
-			USART_rxIndex=0;
-			for(i=0;i<14;i++)
-				{
-
-				demoRingBuffer[i]=0;
-				}
-		}
-			
-		if(usart_first_Datareceived==false&&usart_Receive_Complete==true)
-		{
-			usart_first_Datareceived=false;				
-			usart_Receive_Complete=false;
-			USART_rxIndex=0;
-			for(i=0;i<14;i++)
-				{
-				Multiframe_FireWall_Cmd[demoRingBuffer[14]][i]=demoRingBuffer[i];
-				demoRingBuffer[i]=0;
-				}
-		}
-		
-		
-			if(	usart_first_Datareceived==true&&usart_Receive_Complete==true)
-			{
-				GPIO_TogglePinsOutput(GPIO, BOARD_LED2_GPIO_PORT, 1u << BOARD_LED2_GPIO_PIN);
-			  vControl_Status(demoRingBuffer);
-				usart_first_Datareceived=false;				
-				usart_Receive_Complete=false;
-				USART_rxIndex=0;
-				if(demoRingBuffer[0]==0xE1)
-				{
-					if(demoRingBuffer[13]==0)
-					{
-						tx_frame1=obd_can_TxMSG_Pack(demoRingBuffer);	
-										
-						if(tx_frame1.id!=0)
-						{
-							obd_Service_MsgTrasmit(	&tx_frame1);
-							KeepAlive_Peroid_2s_Count=0;
-						}
-					}
-					else
-					{
-						Multiframe_FireWall_index=1;
-						Multiframe_FireWall_Send=true;
-					}
-				}
-				
-				
-				
-				if(demoRingBuffer[0]==0xE3)
-				{
-				for(ReceiveIndex_mask=0;ReceiveIndex_mask<3;ReceiveIndex_mask++)
-					{								
-						if((demoRingBuffer[5]&0x0F)==ReceiveIndex_mask+1)
-						{													
-							Rx_frame_ID[ReceiveIndex_mask]=obd_can_RxMSG_UnPack(demoRingBuffer);
-							//Rx_frame_ID[ReceiveIndex_mask] = Rx_frame_Mask_temp.id;
-							
-							//CAN_SetRxIndividualMask(CAN0, ReceiveIndex_mask, CAN_RX_MB_STD(Rx_frame_ID[ReceiveIndex_mask], 0));						
-							
-							if((demoRingBuffer[5]&0x80)==0x80)
-							{
-								Rx_ID_Enabled[0]=false;
-							}
-							else
-							{
-								Rx_ID_Enabled[0]=true;
-							}
-						}
-					}
-						
-				}
-				
-				for(i=0;i<14;i++)
-				{  if(demoRingBuffer[13]!=0)
-					{
-						Multiframe_FireWall_Cmd[demoRingBuffer[13]][i]=demoRingBuffer[i];
-					}
-				demoRingBuffer[i]=0;
-				}
-			}
-			
-			*/
 
 	if(BLE_Receive_Command == CeOBD_Receive_Sending_Cmd_Multiframe||BLE_Receive_Command ==CeOBD_Receive_Sending_Cmd_Multiframe_other)
 	{
@@ -578,7 +486,7 @@ static void vLcdTask(void *pvParameters)
 					Usart_Received_Feedback_1[4]=Rx_frame_Mask_temp.id>>8;
 					Usart_Received_Feedback_1[5]=Rx_frame_Mask_temp.id&0xFF;
 					
-						USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
+					USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
 					}
 				
 			/*

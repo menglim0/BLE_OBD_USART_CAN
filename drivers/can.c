@@ -574,29 +574,30 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
     base->RXF0C = 0;
     base->RXF1C = 0;
 
-    /* calculate and apply timing 
+    /* calculate and apply timing */
     if (CAN_CalculateTimingValues(config->nominalBaudRate,
 #ifdef USE_FD
       config->dataBaudRate,
 #endif
-      sourceClock_Hz, &timingConfig))*/
+      sourceClock_Hz, &timingConfig))
     {
-        //CAN_SetTimingConfig(base, &timingConfig);
+      //CAN_SetTimingConfig(base, &timingConfig);
     }
 
-		timingConfig.preDivider=0x01;         /*!< Global Clock Division Factor. 90M*/
-    timingConfig.nominalPrescaler=0x3;  /*!< Nominal clock prescaler.5M */
+		timingConfig.preDivider=0x01;         /*!< Global Clock Division Factor. 180M*/
+    timingConfig.nominalPrescaler=0x9;  /*!< Nominal clock prescaler.20M */
     timingConfig.nominalRJumpwidth=10; /*!< Nominal Re-sync Jump Width. */
-    timingConfig.nominalPhaseSeg1=93;  /*!< Nominal Phase Segment 1. */
-    timingConfig.nominalPhaseSeg2=26;  /*!< Nominal Phase Segment 2. */
-    timingConfig.nominalPropSeg=2;    /*!< Nominal Propagation Segment. */
+    timingConfig.nominalPhaseSeg1=29;  /*!< Nominal Phase Segment 1. */
+    timingConfig.nominalPhaseSeg2=10;  /*!< Nominal Phase Segment 2. */
+    timingConfig.nominalPropSeg=0;    /*!< Nominal Propagation Segment. */
 #ifdef USE_FD
-    timingConfig.dataPrescaler=1;     /*!< Data clock prescaler. 60M*/
-    timingConfig.dataRJumpwidth=4;    /*!< Data Re-sync Jump Width. */
-    timingConfig.dataPhaseSeg1=0x1F;     /*!< Data Phase Segment 1. */
-    timingConfig.dataPhaseSeg2=3;     /*!< Data Phase Segment 2. */
+    timingConfig.dataPrescaler=9;     /*!< Data clock prescaler. 180M*/
+    timingConfig.dataRJumpwidth=1;    /*!< Data Re-sync Jump Width. */
+    timingConfig.dataPhaseSeg1=2;     /*!< Data Phase Segment 1. */
+    timingConfig.dataPhaseSeg2=1;     /*!< Data Phase Segment 2. */
     timingConfig.dataPropSeg=0;       /*!< Data Propagation Segment. */
 #endif
+
 
 		CAN_SetTimingConfig(base, &timingConfig);
     /* set base address */
