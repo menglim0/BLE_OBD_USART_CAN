@@ -584,18 +584,47 @@ void CAN_Init(CAN_Type *base, const can_config_t *config, uint32_t sourceClock_H
       //CAN_SetTimingConfig(base, &timingConfig);
     }
 
-		timingConfig.preDivider=0x01;         /*!< Global Clock Division Factor. 180M*/
-    timingConfig.nominalPrescaler=0x9;  /*!< Nominal clock prescaler.20M */
-    timingConfig.nominalRJumpwidth=10; /*!< Nominal Re-sync Jump Width. */
-    timingConfig.nominalPhaseSeg1=29;  /*!< Nominal Phase Segment 1. */
-    timingConfig.nominalPhaseSeg2=10;  /*!< Nominal Phase Segment 2. */
-    timingConfig.nominalPropSeg=0;    /*!< Nominal Propagation Segment. */
+	
+
+		/*!< Global Clock Division Factor. 180M*/
+    /*!< Nominal clock prescaler.20M */
+    /*!< Nominal Re-sync Jump Width. */
+    /*!< Nominal Phase Segment 1. */
+     /*!< Nominal Phase Segment 2. */
+       /*!< Nominal Propagation Segment. */
+
+       /*!< Data clock prescaler. 180M*/
+        /*!< Data Re-sync Jump Width. */
+       /*!< Data Phase Segment 1. */
+         /*!< Data Phase Segment 2. */
+          /*!< Data Propagation Segment. */
+		/*
+		timingConfig.preDivider=0x03;         
+    timingConfig.nominalPrescaler=0x6;  
+    timingConfig.nominalRJumpwidth=4; 
+    timingConfig.nominalPhaseSeg1=0xF;  
+    timingConfig.nominalPhaseSeg2=4;  
+    timingConfig.nominalPropSeg=0;    
 #ifdef USE_FD
-    timingConfig.dataPrescaler=9;     /*!< Data clock prescaler. 180M*/
-    timingConfig.dataRJumpwidth=1;    /*!< Data Re-sync Jump Width. */
-    timingConfig.dataPhaseSeg1=2;     /*!< Data Phase Segment 1. */
-    timingConfig.dataPhaseSeg2=1;     /*!< Data Phase Segment 2. */
-    timingConfig.dataPropSeg=0;       /*!< Data Propagation Segment. */
+    timingConfig.dataPrescaler=1;     
+    timingConfig.dataRJumpwidth=4;    
+    timingConfig.dataPhaseSeg1=9;     
+    timingConfig.dataPhaseSeg2=2;     
+    timingConfig.dataPropSeg=0;       
+#endif*/
+	
+		timingConfig.preDivider=0x01;         
+    timingConfig.nominalPrescaler=0x9;  
+    timingConfig.nominalRJumpwidth=10; 
+    timingConfig.nominalPhaseSeg1=29;  
+    timingConfig.nominalPhaseSeg2=10;  
+    timingConfig.nominalPropSeg=0;    
+#ifdef USE_FD
+    timingConfig.dataPrescaler=9;     
+    timingConfig.dataRJumpwidth=1;    
+    timingConfig.dataPhaseSeg1=2;     
+    timingConfig.dataPhaseSeg2=1;     
+    timingConfig.dataPropSeg=0;       
 #endif
 
 
