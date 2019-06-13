@@ -388,7 +388,7 @@ static void vTouchTask(void *pvParameters)
 	if(1)
 		{
 			KeepAlive_Peroid_2s_Count++;
-			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_100ms)
+			if(KeepAlive_Peroid_2s_Count>=KeepAlive_Peroid_Cnt_2s)
 			{
 				obd_Service_KeepAlive();
 				KeepAlive_Peroid_2s_Count=0;
@@ -487,8 +487,38 @@ static void vLcdTask(void *pvParameters)
 					Usart_Received_Feedback_1[5]=Rx_frame_Mask_temp.id&0xFF;
 					
 					USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
-					}
+				}
 				
+				
+				if (CAN_ReadRxMb(CAN0,1, &Rx_frame_Mask_temp) == kStatus_Success)
+				{
+					for(i=0;i<8;i++)
+					{
+						Usart_Received_Feedback_1[6+i]=Rx_frame_Mask_temp.dataByte[i];
+					}
+					
+					Usart_Received_Feedback_1[2]=ReceiveID_Setting[0];
+					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
+					Usart_Received_Feedback_1[4]=Rx_frame_Mask_temp.id>>8;
+					Usart_Received_Feedback_1[5]=Rx_frame_Mask_temp.id&0xFF;
+					
+					USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
+				}
+				
+				if (CAN_ReadRxMb(CAN0,2, &Rx_frame_Mask_temp) == kStatus_Success)
+				{
+					for(i=0;i<8;i++)
+					{
+						Usart_Received_Feedback_1[6+i]=Rx_frame_Mask_temp.dataByte[i];
+					}
+					
+					Usart_Received_Feedback_1[2]=ReceiveID_Setting[0];
+					Usart_Received_Feedback_1[3]=ReceiveID_Setting[1];
+					Usart_Received_Feedback_1[4]=Rx_frame_Mask_temp.id>>8;
+					Usart_Received_Feedback_1[5]=Rx_frame_Mask_temp.id&0xFF;
+					
+					USART_WriteBlocking(DEMO_USART,Usart_Received_Feedback_1,14);
+				}
 			/*
 			for(ReceiveIndex_mask=0;ReceiveIndex_mask<3;ReceiveIndex_mask++)
 			{

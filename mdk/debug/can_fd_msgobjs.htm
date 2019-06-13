@@ -3,7 +3,7 @@
 <title>Static Call Graph - [debug\can_fd_msgobjs.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\can_fd_msgobjs.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Jun 01 21:43:26 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Jun 13 21:57:15 2019
 <BR><P>
 <H3>Maximum Stack Usage =        428 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -627,7 +627,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[96]"></a>BOARD_InitCAN</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, board.o(i.BOARD_InitCAN))
+<P><STRONG><a name="[96]"></a>BOARD_InitCAN</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, board.o(i.BOARD_InitCAN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = BOARD_InitCAN &rArr; CAN_Init &rArr; RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_SetRxIndividualMask
@@ -694,7 +694,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCAN
 </UL>
 
-<P><STRONG><a name="[98]"></a>CAN_Init</STRONG> (Thumb, 528 bytes, Stack size 40 bytes, can.o(i.CAN_Init))
+<P><STRONG><a name="[98]"></a>CAN_Init</STRONG> (Thumb, 660 bytes, Stack size 40 bytes, can.o(i.CAN_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = CAN_Init &rArr; RESET_PeripheralReset &rArr; RESET_SetPeripheralReset &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RESET_PeripheralReset
@@ -1881,7 +1881,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 206 bytes, Stack size 224 bytes, can_fd_msgobjs.o(i.vLcdTask))
+<P><STRONG><a name="[83]"></a>vLcdTask</STRONG> (Thumb, 382 bytes, Stack size 224 bytes, can_fd_msgobjs.o(i.vLcdTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 428<LI>Call Chain = vLcdTask &rArr; USART_WriteBlocking &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertRadixNumToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ReadRxMb
